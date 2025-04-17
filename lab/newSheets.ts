@@ -32,6 +32,20 @@ class Sheet {
         columnHeadRange.getFont().setBold(true);
         columnHeadRange.setRowHeight(50);
     }
+
+    autoFit(horizontalRange: string, verticalRange: string) {
+        this.sheet.getRange(horizontalRange).autofitColumns();
+        this.sheet.getRange(verticalRange).autofitRows();
+    }
+
+    bottomBorder(range: string) {
+        this.sheet.getRange(range).getFormat().getRangeBorder(ExcelScript.BorderIndex.edgeBottom).setWeight(ExcelScript.BorderWeight.thin);
+    }
+
+    centerCells(range: string) {
+        this.sheet.getRange(range).getFormat().setHorizontalAlignment(ExcelScript.HorizontalAlignment.center)
+        this.sheet.getRange(range).getFormat().setVerticalAlignment(ExcelScript.VerticalAlignment.center)
+    }
 }
 
 class NpsSheet extends Sheet {

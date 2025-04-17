@@ -8,7 +8,7 @@ const outputFilePath = './build/SlsBns.osts';
 let combinedContent = "";
 
 // Read all files in the directory
-fs.readdir(directoryPath, (err: Error, files: Array<File>) => {
+fs.readdir(directoryPath, (err: Error, files: Array<string>) => {
     if (err) {
         console.error('Error reading directory:', err);
         return;

@@ -96,6 +96,10 @@ class Commission {
     this.gross = gross;
     this.grossPercentage = grossPercentage;
     this.amount = amount;
+
+    if(amount <= 251){
+      
+    }
   }
 }
 
@@ -119,10 +123,5 @@ class Deal {
     this.vehicle = vehicle;
     this.unitCount = unitCount;
     this.commission = commission;
-  }
-
-  calculateRetroMini() {
-    if(this.commission.amount > 251) return 0;
-    
   }
 }
