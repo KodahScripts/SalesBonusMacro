@@ -1,0 +1,24 @@
+{
+  "name": "salesbonusmacro",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/KodahScripts/SalesBonusMacro#readme",
+  "bugs": {
+    "url": "https://github.com/KodahScripts/SalesBonusMacro/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KodahScripts/SalesBonusMacro.git"
+  },
+  "license": "GPL-3.0",
+  "author": "Matthew Beckwith (kodahScripts)",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
