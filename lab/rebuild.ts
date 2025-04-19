@@ -218,7 +218,7 @@ function main(workbook: ExcelScript.Workbook) {
         });
     });
 
-    console.log("STORE", store)
+    // console.log("STORE", store)
 }
 
 interface UnitAverage {

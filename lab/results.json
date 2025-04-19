@@ -1,0 +1,378 @@
+{
+    "id": 3262,
+    "name": "JOHN SINDONI",
+    "averageSoldUnits": {
+        "id": 3262,
+        "units": 69,
+        "average": 23,
+        "rounded": 23
+    },
+    "unitCount": 12,
+    "commissionTotals": {
+        "fni": 24799.27,
+        "front": -9365.780000000002,
+        "amount": 3143.9700000000003,
+        "retroMini": 3150,
+        "retroOwed": 1350,
+        "retroPayout": 298.65920000000006
+    },
+    "priorDraw": 2340,
+    "spiffs": 23.61,
+    "nps": {
+        "id": 3262,
+        "surveys": 3,
+        "curr_percent": 1,
+        "avg_percent": 1
+    },
+    "retroPercentage": 0.04,
+    "retroTotal": 1648.6592,
+    "fniTotal": {
+        "reserve": 6199.8175,
+        "gross": 18599.4525,
+        "payout": 929.972625
+    },
+    "bonus": {
+        "unit": 750,
+        "topsales": 0
+    },
+    "deals": [
+        {
+            "empID": 3262,
+            "id": "9330A",
+            "date": 45721,
+            "customer": {
+                "id": 23583,
+                "name": "NATALIE MARTINEZ SOSA"
+            },
+            "vehicle": {
+                "id": "5217204",
+                "year": 25,
+                "make": "BMW SAV",
+                "model": "X2 28XI",
+                "desc": "4DR XDR 28I SAV",
+                "saleType": "New"
+            },
+            "unitCount": 0.5,
+            "commission": {
+                "fni": 1005.29,
+                "front": 234.62,
+                "amount": 100,
+                "retroMini": 175,
+                "retroOwed": 75,
+                "retroPayout": 0
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9470",
+            "date": 45735,
+            "customer": {
+                "id": 23818,
+                "name": "MICHAEL GOMBOSH"
+            },
+            "vehicle": {
+                "id": "CU11970",
+                "year": 25,
+                "make": "BMW",
+                "model": "530I",
+                "desc": "4DR SDN 530I",
+                "saleType": "New"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 799,
+                "front": -2290,
+                "amount": 200,
+                "retroMini": 350,
+                "retroOwed": 150,
+                "retroPayout": 0
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9459",
+            "date": 45736,
+            "customer": {
+                "id": 272923,
+                "name": "TANIA MAZZA-MARTINEZ"
+            },
+            "vehicle": {
+                "id": "9Z56774",
+                "year": 25,
+                "make": "BMW SAV",
+                "model": "X3 30I",
+                "desc": "4DR 30I XDRIVE",
+                "saleType": "New"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 6086.2,
+                "front": 3780,
+                "amount": 680.4,
+                "retroMini": 0,
+                "retroOwed": 0,
+                "retroPayout": 151.20000000000002
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9636",
+            "date": 45736,
+            "customer": {
+                "id": 24093,
+                "name": "STEPHANIE VOELL"
+            },
+            "vehicle": {
+                "id": "CT79197",
+                "year": 25,
+                "make": "BMW",
+                "model": "430I CPE",
+                "desc": "2DR 430I CPE",
+                "saleType": "New"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 4277.2,
+                "front": 2188,
+                "amount": 393.84,
+                "retroMini": 0,
+                "retroOwed": 0,
+                "retroPayout": 87.52
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9420",
+            "date": 45741,
+            "customer": {
+                "id": 23733,
+                "name": "ALLAN WEINSTEIN"
+            },
+            "vehicle": {
+                "id": "9Y67781",
+                "year": 25,
+                "make": "BMW SAV",
+                "model": "X5 50E XDR PLHY",
+                "desc": "4DR X5 XDR50E PLG",
+                "saleType": "New"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 2000,
+                "front": -1270.61,
+                "amount": 200,
+                "retroMini": 350,
+                "retroOwed": 150,
+                "retroPayout": 0
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9465",
+            "date": 45741,
+            "customer": {
+                "id": 277382,
+                "name": "EDUARDO GAMARRA"
+            },
+            "vehicle": {
+                "id": "LBO9878",
+                "year": 22,
+                "make": "BMW SAV",
+                "model": "X4",
+                "desc": "XDRIVE30I SPORTS ACTIVITY COUPE",
+                "saleType": "Used"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 0,
+                "front": 750,
+                "amount": 200,
+                "retroMini": 350,
+                "retroOwed": 150,
+                "retroPayout": 0
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9720",
+            "date": 45743,
+            "customer": {
+                "id": 24242,
+                "name": "SIXTO FERRO"
+            },
+            "vehicle": {
+                "id": "9Y58728",
+                "year": 25,
+                "make": "BMW SAV",
+                "model": "X7 40XI",
+                "desc": "4DR XDRIVE 40I",
+                "saleType": "New"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 1208,
+                "front": 1498.48,
+                "amount": 269.73,
+                "retroMini": 0,
+                "retroOwed": 0,
+                "retroPayout": 59.9392
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9763",
+            "date": 45744,
+            "customer": {
+                "id": 253678,
+                "name": "PRISCILLA ESPINOZA"
+            },
+            "vehicle": {
+                "id": "9Z83659",
+                "year": 25,
+                "make": "BMW SAV",
+                "model": "X3 30I",
+                "desc": "4DR 30I XDRIVE",
+                "saleType": "New"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 3522.54,
+                "front": -4479,
+                "amount": 200,
+                "retroMini": 350,
+                "retroOwed": 150,
+                "retroPayout": 0
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9911A",
+            "date": 45747,
+            "customer": {
+                "id": 24464,
+                "name": "JORGE MILLER"
+            },
+            "vehicle": {
+                "id": "2W50541",
+                "year": 25,
+                "make": "MINI",
+                "model": "COOPER HARDTOP",
+                "desc": "2DR HB COOPER FWD",
+                "saleType": "New"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 784.78,
+                "front": -1147.18,
+                "amount": 200,
+                "retroMini": 350,
+                "retroOwed": 150,
+                "retroPayout": 0
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9794",
+            "date": 45747,
+            "customer": {
+                "id": 24313,
+                "name": "ACOSTA TRACTORS INC"
+            },
+            "vehicle": {
+                "id": "9Y07904",
+                "year": 25,
+                "make": "BMW SAV",
+                "model": "X5 M60",
+                "desc": "4DR M60I",
+                "saleType": "New"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 1354.65,
+                "front": -3025,
+                "amount": 200,
+                "retroMini": 350,
+                "retroOwed": 150,
+                "retroPayout": 0
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9866",
+            "date": 45747,
+            "customer": {
+                "id": 24444,
+                "name": "MAGIC PROFESSIONAL CLEANING SE"
+            },
+            "vehicle": {
+                "id": "8F18480",
+                "year": 25,
+                "make": "BMW",
+                "model": "230I CPE",
+                "desc": "2DR CPE 230I",
+                "saleType": "New"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 3510.55,
+                "front": -2814.11,
+                "amount": 200,
+                "retroMini": 350,
+                "retroOwed": 150,
+                "retroPayout": 0
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9988",
+            "date": 45747,
+            "customer": {
+                "id": 24541,
+                "name": "CAMILA MARCOS"
+            },
+            "vehicle": {
+                "id": "CU62724",
+                "year": 25,
+                "make": "BMW",
+                "model": "430I CONV",
+                "desc": "2DR CONV",
+                "saleType": "New"
+            },
+            "unitCount": 0.5,
+            "commission": {
+                "fni": 151.06,
+                "front": -2528.8,
+                "amount": 100,
+                "retroMini": 175,
+                "retroOwed": 75,
+                "retroPayout": 0
+            }
+        },
+        {
+            "empID": 3262,
+            "id": "9512",
+            "date": 45747,
+            "customer": {
+                "id": 23911,
+                "name": "NIURKA HERNANDEZ"
+            },
+            "vehicle": {
+                "id": "9Z64921A",
+                "year": 22,
+                "make": "BMW",
+                "model": "X4",
+                "desc": "X4",
+                "saleType": "Used"
+            },
+            "unitCount": 1,
+            "commission": {
+                "fni": 100,
+                "front": -262.18,
+                "amount": 200,
+                "retroMini": 350,
+                "retroOwed": 150,
+                "retroPayout": 0
+            }
+        }
+    ]
+}
