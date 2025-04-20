@@ -206,11 +206,10 @@ function main(workbook: ExcelScript.Workbook) {
         }
 
         const unitBonus = calculateUnitBonus(unitCount);
-        const totalBonus = calculateTotalBonus(unitBonus)
         const bonus: Bonus = {
             unit: unitBonus,
             topsales: 0,
-            total: calculateTotalBonus()
+            total: calculateTotalBonus(unitBonus)
         }
 
         const employee: Employee = {
