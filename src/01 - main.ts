@@ -205,9 +205,12 @@ function main(workbook: ExcelScript.Workbook) {
             payout: fniPayout
         }
 
+        const unitBonus = calculateUnitBonus(unitCount);
+        const totalBonus = calculateTotalBonus(unitBonus)
         const bonus: Bonus = {
-            unit: calculateUnitBonus(unitCount),
-            topsales: 0
+            unit: unitBonus,
+            topsales: 0,
+            total: calculateTotalBonus()
         }
 
         const employee: Employee = {
@@ -265,4 +268,5 @@ function main(workbook: ExcelScript.Workbook) {
 
     store.employees.filter(employee => employee.id === store.topSalesman.id)[0].bonus.topsales = 500;
     // console.log("STORE", store)
+    new PaySummarySheet(workbook, store);
 }

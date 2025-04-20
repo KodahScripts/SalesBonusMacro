@@ -49,3 +49,21 @@ function calculateFniGross(totalCommissionFni: number, fniReserve: number) {
 function calculateFniPayout(fniGross: number) {
     return fniGross * 0.05;
 }
+
+function calculateTotalBonus(unitBonus: number, csiBonus: number, topsalesBonus: number) {
+    return unitBonus + csiBonus + topsalesBonus;
+}
+
+function calculateCsiBonus(surveyCount: number) {
+    if(surveyCount >= 3) {}
+}
+
+function chooseNpsScore(currentScore: number, averageScore: number) {
+    return currentScore > averageScore ? currentScore : averageScore;
+}
+
+function getCsiOutcome(npsScore: number, regionalScore: number) {
+    if(npsScore > regionalScore + 0.03) return "3P";
+    if(npsScore == regionalScore) return "A";
+    if(npsScore < regionalScore) return "B";
+}

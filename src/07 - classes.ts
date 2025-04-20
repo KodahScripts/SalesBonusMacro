@@ -98,4 +98,5 @@ interface FnI {
 interface Bonus {
   unit: number;
   topsales: number;
+  total: number;
 }
