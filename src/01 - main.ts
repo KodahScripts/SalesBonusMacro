@@ -9,6 +9,7 @@ function main(workbook: ExcelScript.Workbook) {
     const store: Store = {
         name: STORE_NAME,
         abbr: STORE_ABBR,
+        npsRegional: 90.8,
         salesTotals: {
             new: 0,
             used: 0
@@ -25,7 +26,7 @@ function main(workbook: ExcelScript.Workbook) {
         const sheetName = sheet.getName();
         switch (sheetName) {
             case '0432':
-                let id_0432: number, emp_id_col: number, emp_name_col: number, date_col: number, cust_id_col: number, cust_name_col: number, veh_id_col: number, veh_desc_col: number, sale_type_col: number, comm_fni_col: number, comm_front_col: number, units_0432: number, comm_amount_col: number;
+                let id_0432: number, emp_id_col: number, emp_name_col: number, date_col: number, cust_id_col: number, cust_name_col: number, veh_id_col: number, veh_desc_col: number, sale_type_col: number, comm_fni_col: number, comm_gross_col: number, units_0432: number, comm_amount_col: number;
                 reportData.forEach((row, index) => {
                     if (index == 0) {
                         id_0432 = row.indexOf("Reference#");
@@ -38,7 +39,7 @@ function main(workbook: ExcelScript.Workbook) {
                         veh_desc_col = row.indexOf("Description");
                         sale_type_col = row.indexOf("Sale Type");
                         comm_fni_col = row.indexOf("COMMBL F&I");
-                        comm_front_col = row.indexOf("COMMBL FRONT");
+                        comm_gross_col = row.indexOf("COMMBL FRONT");
                         units_0432 = row.indexOf("Units");
                         comm_amount_col = row.indexOf("Commission Amount");
                     } else {
@@ -56,13 +57,12 @@ function main(workbook: ExcelScript.Workbook) {
                             desc,
                             saleType: String(row[sale_type_col])
                         };
+                        const retro: Retro = { mini: 0, owed: 0, payout: 0 }
                         const comm: Commission = {
                             fni: Number(row[comm_fni_col]),
-                            front: Number(row[comm_front_col]),
+                            gross: Number(row[comm_gross_col]),
                             amount: Number(row[comm_amount_col]),
-                            retroMini: 0,
-                            retroOwed: 0,
-                            retroPayout: 0
+                            retro
                         };
                         const deal: Deal = {
                             empID: Number(row[emp_id_col]),
@@ -139,8 +139,8 @@ function main(workbook: ExcelScript.Workbook) {
                             const employee: NPS = {
                                 id: Number(row[id_nps]),
                                 surveys: Number(row[survey_value]),
-                                curr_percent: !current ? 0 : current,
-                                avg_percent: Number(row[average_percent])
+                                current: !current ? 0 : current,
+                                average: Number(row[average_percent])
                             }
                             nps_averages.push(employee);
                         }
@@ -180,19 +180,18 @@ function main(workbook: ExcelScript.Workbook) {
         const nps = nps_averages.find(n => n.id === emp.id);
         const deals = all_deals.filter(deal => deal.empID === emp.id);
         let unitCount = 0
+        const retro: Retro = { mini: 0, owed: 0, payout: 0 };
         const commissionTotals: Commission = {
             fni: 0,
-            front: 0,
+            gross: 0,
             amount: 0,
-            retroMini: 0,
-            retroOwed: 0,
-            retroPayout: 0
+            retro
         };
 
         deals.forEach(deal => {
             unitCount += deal.unitCount
             commissionTotals.fni += deal.commission.fni;
-            commissionTotals.front += deal.commission.front;
+            commissionTotals.gross += deal.commission.gross;
             commissionTotals.amount += deal.commission.amount;
         });
 
@@ -208,9 +207,12 @@ function main(workbook: ExcelScript.Workbook) {
         const unitBonus = calculateUnitBonus(unitCount);
         const bonus: Bonus = {
             unit: unitBonus,
+            csi: 0,
             topsales: 0,
-            total: calculateTotalBonus(unitBonus)
+            total: 0
         }
+        const csiOutcome = getCsiOutcome(nps.current, store.npsRegional);
+        bonus.csi = calculateCsiBonus(nps.surveys, csiOutcome, unitCount);
 
         const employee: Employee = {
             id: person.id,
@@ -250,22 +252,26 @@ function main(workbook: ExcelScript.Workbook) {
             const comm_t = employee.commissionTotals;
             const comm_d = deal.commission;
             const mini = calculateRetroMini(comm_d.amount, unitAvg, deal.unitCount);
-            comm_d.retroMini = mini;
-            comm_t.retroMini += mini;
+            comm_d.retro.mini = mini;
+            comm_t.retro.mini += mini;
             if(mini == 0) {
-                const payout = calculateRetroPayout(comm_d.front, employee.retroPercentage);
-                comm_d.retroPayout = payout;
-                comm_t.retroPayout += payout;
+                const payout = calculateRetroPayout(comm_d.gross, employee.retroPercentage);
+                comm_d.retro.payout = payout;
+                comm_t.retro.payout += payout;
             }
             const owed = calculateRetroOwed(mini, comm_d.amount);
-            comm_d.retroOwed = owed;
-            comm_t.retroOwed += owed;
+            comm_d.retro.owed = owed;
+            comm_t.retro.owed += owed;
         });
 
-        employee.retroTotal = calculateRetroTotal(employee.commissionTotals.retroPayout, employee.commissionTotals.retroOwed);
+        employee.retroTotal = calculateRetroTotal(employee.commissionTotals.retro.payout, employee.commissionTotals.retro.owed);
     });
 
     store.employees.filter(employee => employee.id === store.topSalesman.id)[0].bonus.topsales = 500;
-    // console.log("STORE", store)
+
+    const john = store.employees.filter(emp => emp.name === "JOHN SINDONI")[0];
+    console.log("John", john);
+    console.log("STORE", store);
+
     new PaySummarySheet(workbook, store);
 }

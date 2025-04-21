@@ -21,6 +21,7 @@ function main(workbook: ExcelScript.Workbook) {
     const store: Store = {
         name: STORE_NAME,
         abbr: STORE_ABBR,
+        npsRegional: 90.8,
         salesTotals: {
             new: 0,
             used: 0
@@ -37,7 +38,7 @@ function main(workbook: ExcelScript.Workbook) {
         const sheetName = sheet.getName();
         switch (sheetName) {
             case '0432':
-                let id_0432: number, emp_id_col: number, emp_name_col: number, date_col: number, cust_id_col: number, cust_name_col: number, veh_id_col: number, veh_desc_col: number, sale_type_col: number, comm_fni_col: number, comm_front_col: number, units_0432: number, comm_amount_col: number;
+                let id_0432: number, emp_id_col: number, emp_name_col: number, date_col: number, cust_id_col: number, cust_name_col: number, veh_id_col: number, veh_desc_col: number, sale_type_col: number, comm_fni_col: number, comm_gross_col: number, units_0432: number, comm_amount_col: number;
                 reportData.forEach((row, index) => {
                     if (index == 0) {
                         id_0432 = row.indexOf("Reference#");
@@ -50,7 +51,7 @@ function main(workbook: ExcelScript.Workbook) {
                         veh_desc_col = row.indexOf("Description");
                         sale_type_col = row.indexOf("Sale Type");
                         comm_fni_col = row.indexOf("COMMBL F&I");
-                        comm_front_col = row.indexOf("COMMBL FRONT");
+                        comm_gross_col = row.indexOf("COMMBL FRONT");
                         units_0432 = row.indexOf("Units");
                         comm_amount_col = row.indexOf("Commission Amount");
                     } else {
@@ -68,13 +69,12 @@ function main(workbook: ExcelScript.Workbook) {
                             desc,
                             saleType: String(row[sale_type_col])
                         };
+                        const retro: Retro = { mini: 0, owed: 0, payout: 0 }
                         const comm: Commission = {
                             fni: Number(row[comm_fni_col]),
-                            front: Number(row[comm_front_col]),
+                            gross: Number(row[comm_gross_col]),
                             amount: Number(row[comm_amount_col]),
-                            retroMini: 0,
-                            retroOwed: 0,
-                            retroPayout: 0
+                            retro
                         };
                         const deal: Deal = {
                             empID: Number(row[emp_id_col]),
@@ -151,8 +151,8 @@ function main(workbook: ExcelScript.Workbook) {
                             const employee: NPS = {
                                 id: Number(row[id_nps]),
                                 surveys: Number(row[survey_value]),
-                                curr_percent: !current ? 0 : current,
-                                avg_percent: Number(row[average_percent])
+                                current: !current ? 0 : current,
+                                average: Number(row[average_percent])
                             }
                             nps_averages.push(employee);
                         }
@@ -192,19 +192,18 @@ function main(workbook: ExcelScript.Workbook) {
         const nps = nps_averages.find(n => n.id === emp.id);
         const deals = all_deals.filter(deal => deal.empID === emp.id);
         let unitCount = 0
+        const retro: Retro = { mini: 0, owed: 0, payout: 0 };
         const commissionTotals: Commission = {
             fni: 0,
-            front: 0,
+            gross: 0,
             amount: 0,
-            retroMini: 0,
-            retroOwed: 0,
-            retroPayout: 0
+            retro
         };
 
         deals.forEach(deal => {
             unitCount += deal.unitCount
             commissionTotals.fni += deal.commission.fni;
-            commissionTotals.front += deal.commission.front;
+            commissionTotals.gross += deal.commission.gross;
             commissionTotals.amount += deal.commission.amount;
         });
 
@@ -217,10 +216,15 @@ function main(workbook: ExcelScript.Workbook) {
             payout: fniPayout
         }
 
+        const unitBonus = calculateUnitBonus(unitCount);
         const bonus: Bonus = {
-            unit: calculateUnitBonus(unitCount),
-            topsales: 0
+            unit: unitBonus,
+            csi: 0,
+            topsales: 0,
+            total: 0
         }
+        const csiOutcome = getCsiOutcome(nps.current, store.npsRegional);
+        bonus.csi = calculateCsiBonus(nps.surveys, csiOutcome, unitCount);
 
         const employee: Employee = {
             id: person.id,
@@ -260,23 +264,27 @@ function main(workbook: ExcelScript.Workbook) {
             const comm_t = employee.commissionTotals;
             const comm_d = deal.commission;
             const mini = calculateRetroMini(comm_d.amount, unitAvg, deal.unitCount);
-            comm_d.retroMini = mini;
-            comm_t.retroMini += mini;
+            comm_d.retro.mini = mini;
+            comm_t.retro.mini += mini;
             if(mini == 0) {
-                const payout = calculateRetroPayout(comm_d.front, employee.retroPercentage);
-                comm_d.retroPayout = payout;
-                comm_t.retroPayout += payout;
+                const payout = calculateRetroPayout(comm_d.gross, employee.retroPercentage);
+                comm_d.retro.payout = payout;
+                comm_t.retro.payout += payout;
             }
             const owed = calculateRetroOwed(mini, comm_d.amount);
-            comm_d.retroOwed = owed;
-            comm_t.retroOwed += owed;
+            comm_d.retro.owed = owed;
+            comm_t.retro.owed += owed;
         });
 
-        employee.retroTotal = calculateRetroTotal(employee.commissionTotals.retroPayout, employee.commissionTotals.retroOwed);
+        employee.retroTotal = calculateRetroTotal(employee.commissionTotals.retro.payout, employee.commissionTotals.retro.owed);
     });
 
     store.employees.filter(employee => employee.id === store.topSalesman.id)[0].bonus.topsales = 500;
-    // console.log("STORE", store)
+
+    const john = store.employees.filter(emp => emp.name === "JOHN SINDONI")[0];
+    console.log("John", john);
+    console.log("STORE", store);
+
     new PaySummarySheet(workbook, store);
 }
 
@@ -308,7 +316,7 @@ class NpsSheet {
     ]);
     employeeList.forEach((employee, index) => {
       const row = index + 2;
-      sheet.getRange(`B${row}:F${row}`).setValues([[employee.id, employee.name, employee.nps.surveys, employee.nps.curr_percent, employee.nps.avg_percent]]);
+      // sheet.getRange(`B${row}:F${row}`).setValues([[employee.id, employee.name, employee.nps.surveys, employee.nps.curr_percent, employee.nps.avg_percent]]);
       sheet.getRange(`G${row}`).setValue(`=IF(E${row}>F${row},E${row},F${row})`)
       sheet.getRange(`H${row}`).setValue(`=IF(G${row}>A2+3%,"3P",IF(G${row}=A2,"A",IF(G${row}<A2,"B")))`);
     });
@@ -328,21 +336,22 @@ class NpsSheet {
 class PaySummarySheet {
   constructor(workbook: ExcelScript.Workbook, store: Store) {
     const sheet = workbook.addWorksheet('Pay Summary');
-    sheet.getRange("A1:P1").setValues([
-      ["Employee #", "Employee Name", "Total Units", "Rank", "Spiffs to Pay", "Commission 3120", "Retro Commission", "F&I Commission", "Month End Bonus 3122", "Total EOM Bonus 8328", "Draw 3121", "Total Commission", "YTD Bucket", "Deposit Gross", "Check Column - Should be Zero", "Draw to Take"]
+    sheet.getRange("A1:Q1").setValues([
+      ["Employee #", "Employee Name", "Total Units", "Rank", "Finance Income Totals", "Spiffs to Pay", "Commission 3120", "Retro Commission", "F&I Commission", "Month End Bonus 3122", "Total EOM Bonus 8328", "Draw 3121", "Total Commission", "YTD Bucket", "Deposit Gross", "Check Column - Should be Zero", "Draw to Take"]
     ]);
     store.employees.forEach((employee, index) => {
       const row = index + 2;
-      sheet.getRange(`A${row}:I${row}`).setValues([[
+      sheet.getRange(`A${row}:J${row}`).setValues([[
         employee.id,
         employee.name,
         employee.unitCount,
         `=IF(C${row}<15, "", RANK.EQ(C${row}, C:C, 0))`,
+        employee.commissionTotals.fni,
         employee.spiffs,
         employee.commissionTotals.amount,
         employee.retroTotal,
-        employee.commissionTotals.fni,
-        employee.fniTotal.payout
+        employee.fniTotal.payout,
+        employee.bonus.total,
       ]]);
     });
   }
@@ -382,17 +391,21 @@ interface Spiff {
 interface NPS {
     id: number;
     surveys: number;
-    curr_percent: number;
-    avg_percent: number;
+    current: number;
+    average: number;
 }
 
 interface Commission {
     fni: number;
-    front: number;
+    gross: number;
     amount: number;
-    retroMini: number;
-    retroOwed: number;
-    retroPayout: number;
+    retro: Retro;
+}
+
+interface Retro {
+    mini: number;
+    owed: number;
+    payout: number;
 }
 
 interface Vehicle {
@@ -438,6 +451,7 @@ interface Employee {
 interface Store {
     name: string;
     abbr: string;
+    npsRegional: number;
     salesTotals: SalesTotals;
     topSalesman: TopSalesman;
     employees: Employee[];
@@ -461,7 +475,9 @@ interface FnI {
 
 interface Bonus {
   unit: number;
+  csi: number;
   topsales: number;
+  total: number;
 }
 
 function calculateRetroMini(commissionAmount: number, unitAvg: number, dealUnitCount: number): number {
@@ -496,8 +512,8 @@ function getRetroPercentage(unitCount: number): number {
     return 0;
 }
 
-function calculateRetroPayout(commissionFront: number, retroPercentage: number): number {
-    return commissionFront * retroPercentage;
+function calculateRetroPayout(commissionGross: number, retroPercentage: number): number {
+    return commissionGross * retroPercentage;
 }
 
 function calculateRetroTotal(retroPayout: number, retroOwed: number): number {
@@ -514,5 +530,31 @@ function calculateFniGross(totalCommissionFni: number, fniReserve: number) {
 
 function calculateFniPayout(fniGross: number) {
     return fniGross * 0.05;
+}
+
+function calculateTotalBonus(unitBonus: number, csiBonus: number, topsalesBonus: number) {
+    return unitBonus + csiBonus + topsalesBonus;
+}
+
+function calculateCsiBonus(surveyCount: number, csiOutcome: string, unitCount: number) {
+    if(surveyCount >= 3) {
+        switch(csiOutcome) {
+            case '3P': return unitCount * 50;
+            case 'B': return unitCount * -50;
+            default: return 0;
+        }
+    }
+    return 0;
+}
+
+function chooseNpsScore(currentScore: number, averageScore: number) {
+    return currentScore > averageScore ? currentScore : averageScore;
+}
+
+function getCsiOutcome(npsScore: number, regionalScore: number): string {
+    if(npsScore > regionalScore + 0.03) return "3P";
+    if(npsScore == regionalScore) return "A";
+    if(npsScore < regionalScore) return "B";
+    return ""
 }
 

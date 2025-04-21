@@ -6,7 +6,7 @@ class NpsSheet {
     ]);
     employeeList.forEach((employee, index) => {
       const row = index + 2;
-      sheet.getRange(`B${row}:F${row}`).setValues([[employee.id, employee.name, employee.nps.surveys, employee.nps.curr_percent, employee.nps.avg_percent]]);
+      // sheet.getRange(`B${row}:F${row}`).setValues([[employee.id, employee.name, employee.nps.surveys, employee.nps.curr_percent, employee.nps.avg_percent]]);
       sheet.getRange(`G${row}`).setValue(`=IF(E${row}>F${row},E${row},F${row})`)
       sheet.getRange(`H${row}`).setValue(`=IF(G${row}>A2+3%,"3P",IF(G${row}=A2,"A",IF(G${row}<A2,"B")))`);
     });

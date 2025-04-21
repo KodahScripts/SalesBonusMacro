@@ -18,17 +18,21 @@ interface Spiff {
 interface NPS {
     id: number;
     surveys: number;
-    curr_percent: number;
-    avg_percent: number;
+    current: number;
+    average: number;
 }
 
 interface Commission {
     fni: number;
-    front: number;
+    gross: number;
     amount: number;
-    retroMini: number;
-    retroOwed: number;
-    retroPayout: number;
+    retro: Retro;
+}
+
+interface Retro {
+    mini: number;
+    owed: number;
+    payout: number;
 }
 
 interface Vehicle {
@@ -74,6 +78,7 @@ interface Employee {
 interface Store {
     name: string;
     abbr: string;
+    npsRegional: number;
     salesTotals: SalesTotals;
     topSalesman: TopSalesman;
     employees: Employee[];
@@ -97,6 +102,7 @@ interface FnI {
 
 interface Bonus {
   unit: number;
+  csi: number;
   topsales: number;
   total: number;
 }

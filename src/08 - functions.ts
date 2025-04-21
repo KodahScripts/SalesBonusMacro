@@ -30,8 +30,8 @@ function getRetroPercentage(unitCount: number): number {
     return 0;
 }
 
-function calculateRetroPayout(commissionFront: number, retroPercentage: number): number {
-    return commissionFront * retroPercentage;
+function calculateRetroPayout(commissionGross: number, retroPercentage: number): number {
+    return commissionGross * retroPercentage;
 }
 
 function calculateRetroTotal(retroPayout: number, retroOwed: number): number {
@@ -54,16 +54,24 @@ function calculateTotalBonus(unitBonus: number, csiBonus: number, topsalesBonus:
     return unitBonus + csiBonus + topsalesBonus;
 }
 
-function calculateCsiBonus(surveyCount: number) {
-    if(surveyCount >= 3) {}
+function calculateCsiBonus(surveyCount: number, csiOutcome: string, unitCount: number) {
+    if(surveyCount >= 3) {
+        switch(csiOutcome) {
+            case '3P': return unitCount * 50;
+            case 'B': return unitCount * -50;
+            default: return 0;
+        }
+    }
+    return 0;
 }
 
 function chooseNpsScore(currentScore: number, averageScore: number) {
     return currentScore > averageScore ? currentScore : averageScore;
 }
 
-function getCsiOutcome(npsScore: number, regionalScore: number) {
+function getCsiOutcome(npsScore: number, regionalScore: number): string {
     if(npsScore > regionalScore + 0.03) return "3P";
     if(npsScore == regionalScore) return "A";
     if(npsScore < regionalScore) return "B";
+    return ""
 }
