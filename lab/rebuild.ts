@@ -218,7 +218,7 @@ function main(workbook: ExcelScript.Workbook) {
         });
     });
 
-    // console.log("STORE", store)
+    console.log("STORE", store)
 }
 
 interface UnitAverage {
@@ -281,7 +281,7 @@ interface Employee {
     id: number;
     name: string;
     averageSoldUnits: UnitAverage;
-    commissionTotals: CommissionTotals;
+    commissionTotals: Commission;
     unitCount: number;
     priorDraw: number;
     spiffs: number;
