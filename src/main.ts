@@ -74,8 +74,8 @@ function main(workbook: ExcelScript.Workbook) {
                 data.forEach(row => {
                     const empID = Number(row[empID_nps]);
                     const surveys = Number(row[surveyCount_nps]);
-                    const current = Number(row[current_nps]);
-                    const average = Number(row[average_nps]);
+                    const current = Number(row[current_nps])*100;
+                    const average = Number(row[average_nps])*100;
                     const employee = store.employees.find(emp => emp.id === empID);
                     employee?.nps = { surveys, current, average };
                 });
@@ -86,5 +86,6 @@ function main(workbook: ExcelScript.Workbook) {
                 break;
         }
     });
+    store.employees.forEach(emp => emp.getRetro());
     console.log(store);
 }

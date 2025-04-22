@@ -57,9 +57,16 @@ class Employee {
         if (unitCount >= 12 && unitCount < 16) return 0.04;
         return 0;
     }
+
+    getRetro() {
+        this.deals.forEach(deal => {
+            deal.setRetro(this.getRetroPercentage(), this.averageUnits);
+        });
+    }
 }
 
 class Deal {
+    public retro: Retro;
     constructor(public id: string, public date: number, public customer: Person, public vehicle: Vehicle, public unitCount: number, public commission: Commission) {
         this.id = id;
         this.date = date;
@@ -67,13 +74,14 @@ class Deal {
         this.vehicle = vehicle;
         this.unitCount = unitCount;
         this.commission = commission;
+        this.retro = { mini: 0, owed: 0, payout: 0 };
     }
 
-    getRetro(retroPercentage: number, averageUnits: number): Retro {
+    setRetro(retroPercentage: number, averageUnits: number) {
         const mini = calculateRetroMini(this.commission.amount, averageUnits, this.unitCount);
         const owed = mini > 0 ? mini - this.commission.amount : 0;
         const payout = mini === 0 ? this.commission.gross * retroPercentage : 0;
-        return { mini, owed, payout }
+        this.retro = { mini: mini, owed: owed, payout: payout };
     }
 }
 
