@@ -1,8 +1,12 @@
 class Store {
     public employees: Employee[];
+    public commission: Commission;
+    public retro: Retro;
     constructor(public name: string, public abbr: string) {
         this.name = name;
         this.abbr = abbr;
+        this.commission = { fni: 0, gross: 0, amount: 0 };
+        this.retro = { mini: 0, owed: 0, payout: 0 };
         this.employees = [];
     }
 
@@ -23,6 +27,24 @@ class Store {
         });
         return sales;
     }
+
+    getCommission() {
+        this.employees.forEach((employee) => {
+            employee.getCommission();
+            this.commission.fni += employee.commission.fni;
+            this.commission.gross += employee.commission.gross;
+            this.commission.amount += employee.commission.amount;
+        });
+    }
+
+    getRetro() {
+        this.employees.forEach((employee) => {
+            employee.getRetro();
+            this.retro.mini += employee.retro.mini;
+            this.retro.owed += employee.retro.owed;
+            this.retro.payout += employee.retro.payout;
+        });
+    }
 }
 
 class Employee {
@@ -31,12 +53,16 @@ class Employee {
     public priorDraw: number;
     public averageUnits: number;
     public nps: NPS;
+    public commission: Commission;
+    public retro: Retro;
     constructor(public id: number, public name: string) {
         this.id = id;
         this.name = name;
         this.averageUnits = 0;
         this.priorDraw = 0;
         this.spiff = 0;
+        this.commission = { fni: 0, gross: 0, amount: 0 };
+        this.retro = { mini: 0, owed: 0, payout: 0 };
         this.deals = [];
     }
 
@@ -58,9 +84,20 @@ class Employee {
         return 0;
     }
 
+    getCommission() {
+        this.deals.forEach((deal) => {
+            this.commission.fni += deal.commission.fni;
+            this.commission.gross += deal.commission.gross;
+            this.commission.amount += deal.commission.amount;
+        });
+    }
+
     getRetro() {
         this.deals.forEach(deal => {
-            deal.setRetro(this.getRetroPercentage(), this.averageUnits);
+            const retro = deal.setRetro(this.getRetroPercentage(), this.averageUnits);
+            this.retro.mini += retro.mini;
+            this.retro.owed += retro.owed;
+            this.retro.payout += retro.payout;
         });
     }
 }
@@ -77,11 +114,12 @@ class Deal {
         this.retro = { mini: 0, owed: 0, payout: 0 };
     }
 
-    setRetro(retroPercentage: number, averageUnits: number) {
+    setRetro(retroPercentage: number, averageUnits: number): Retro {
         const mini = calculateRetroMini(this.commission.amount, averageUnits, this.unitCount);
         const owed = mini > 0 ? mini - this.commission.amount : 0;
         const payout = mini === 0 ? this.commission.gross * retroPercentage : 0;
         this.retro = { mini: mini, owed: owed, payout: payout };
+        return this.retro;
     }
 }
 

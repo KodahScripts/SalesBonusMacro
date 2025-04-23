@@ -32,6 +32,12 @@ function main(workbook: ExcelScript.Workbook) {
                         const commission: Commission = { fni: Number(row[commFni_0432]), gross: Number(row[commGross_0432]), amount: Number(row[commAmount_0432]) };
                         const deal = new Deal(String(row[dealID_0432]), Number(row[dealDate_0432]), customer, vehicle, unitCount, commission );
                         employee?.deals.push(deal);
+                        // employee?.commission.fni += commission.fni;
+                        // store.commission.fni += commission.fni;
+                        // employee?.commission.gross += commission.gross;
+                        // store.commission.gross += commission.gross;
+                        // employee?.commission.amount += commission.amount;
+                        // store.commission.amount += commission.amount; 
                     }
                 });
                 break;
@@ -86,6 +92,7 @@ function main(workbook: ExcelScript.Workbook) {
                 break;
         }
     });
-    store.employees.forEach(emp => emp.getRetro());
+    store.getCommission();
+    store.getRetro();
     console.log(store);
 }

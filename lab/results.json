@@ -1,6 +1,16 @@
 {
     "name": "BMW of South Miami",
     "abbr": "BOSM",
+    "commission": {
+        "fni": 971585.5099999999,
+        "gross": 298141.79000000004,
+        "amount": 165264.6799999999
+    },
+    "retro": {
+        "mini": 79750,
+        "owed": 30303.72,
+        "payout": 26005.392200000006
+    },
     "employees": [
         {
             "id": 99,
@@ -8,6 +18,16 @@
             "averageUnits": 9,
             "priorDraw": 0,
             "spiff": 1758,
+            "commission": {
+                "fni": 0,
+                "gross": -1029,
+                "amount": 200
+            },
+            "retro": {
+                "mini": 200,
+                "owed": 0,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "8768A",
@@ -45,6 +65,16 @@
             "averageUnits": 23,
             "priorDraw": 2340,
             "spiff": 23.61,
+            "commission": {
+                "fni": 24799.27,
+                "gross": -9365.780000000002,
+                "amount": 3143.9700000000003
+            },
+            "retro": {
+                "mini": 3150,
+                "owed": 1350,
+                "payout": 298.65920000000006
+            },
             "deals": [
                 {
                     "id": "9330A",
@@ -413,8 +443,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -423,11 +453,21 @@
             "averageUnits": 17,
             "priorDraw": 3509.84,
             "spiff": 1075,
+            "commission": {
+                "fni": 0,
+                "gross": 0,
+                "amount": 0
+            },
+            "retro": {
+                "mini": 0,
+                "owed": 0,
+                "payout": 0
+            },
             "deals": [],
             "nps": {
                 "surveys": 0,
                 "current": null,
-                "average": 1
+                "average": 100
             }
         },
         {
@@ -436,6 +476,16 @@
             "averageUnits": 24,
             "priorDraw": 2504.32,
             "spiff": 0,
+            "commission": {
+                "fni": 22419.999999999996,
+                "gross": 9055.34,
+                "amount": 3419.54
+            },
+            "retro": {
+                "mini": 2400,
+                "owed": 1095.48,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9381A",
@@ -748,8 +798,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 0.95
+                "current": 100,
+                "average": 95
             }
         },
         {
@@ -758,6 +808,16 @@
             "averageUnits": 26,
             "priorDraw": 2646.41,
             "spiff": 550,
+            "commission": {
+                "fni": 45379.55,
+                "gross": 13170.69,
+                "amount": 7308.57
+            },
+            "retro": {
+                "mini": 4200,
+                "owed": 2100,
+                "payout": 2025.5557000000003
+            },
             "deals": [
                 {
                     "id": "9319",
@@ -1238,8 +1298,8 @@
             ],
             "nps": {
                 "surveys": 5,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -1248,6 +1308,16 @@
             "averageUnits": 12,
             "priorDraw": 3637.55,
             "spiff": 1402.9,
+            "commission": {
+                "fni": 20441.19,
+                "gross": 8543.260000000002,
+                "amount": 2750.6
+            },
+            "retro": {
+                "mini": 1000,
+                "owed": 200,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9325",
@@ -1504,8 +1574,8 @@
             ],
             "nps": {
                 "surveys": 2,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -1514,6 +1584,16 @@
             "averageUnits": 20,
             "priorDraw": 2935.67,
             "spiff": 550,
+            "commission": {
+                "fni": 22989.05,
+                "gross": 2249.5700000000006,
+                "amount": 5570.15
+            },
+            "retro": {
+                "mini": 3150,
+                "owed": 1350,
+                "payout": 837.81
+            },
             "deals": [
                 {
                     "id": "9355",
@@ -1910,8 +1990,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 0.75,
-                "average": 0.889
+                "current": 75,
+                "average": 88.9
             }
         },
         {
@@ -1920,6 +2000,16 @@
             "averageUnits": 23,
             "priorDraw": 2612.61,
             "spiff": 1050,
+            "commission": {
+                "fni": 35645.47,
+                "gross": 17001.7,
+                "amount": 4761.369999999999
+            },
+            "retro": {
+                "mini": 1750,
+                "owed": 686.38,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9390",
@@ -2316,8 +2406,8 @@
             ],
             "nps": {
                 "surveys": 5,
-                "current": 1,
-                "average": 0.875
+                "current": 100,
+                "average": 87.5
             }
         },
         {
@@ -2326,6 +2416,16 @@
             "averageUnits": 31,
             "priorDraw": 2728.31,
             "spiff": 1601.51,
+            "commission": {
+                "fni": 58362.340000000004,
+                "gross": 21727.94,
+                "amount": 10419.87
+            },
+            "retro": {
+                "mini": 4400,
+                "owed": 2049.83,
+                "payout": 3138.2148
+            },
             "deals": [
                 {
                     "id": "9345",
@@ -2918,8 +3018,8 @@
             ],
             "nps": {
                 "surveys": 6,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -2928,6 +3028,16 @@
             "averageUnits": 22,
             "priorDraw": 1758.9,
             "spiff": 625,
+            "commission": {
+                "fni": 55367.89,
+                "gross": 40259.450000000004,
+                "amount": 10787.31
+            },
+            "retro": {
+                "mini": 2625,
+                "owed": 1125,
+                "payout": 2063.846
+            },
             "deals": [
                 {
                     "id": "9335",
@@ -3436,8 +3546,8 @@
             ],
             "nps": {
                 "surveys": 4,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -3446,6 +3556,16 @@
             "averageUnits": 6,
             "priorDraw": 0,
             "spiff": 0,
+            "commission": {
+                "fni": 17058.65,
+                "gross": 6629.229999999999,
+                "amount": 2691.95
+            },
+            "retro": {
+                "mini": 1100,
+                "owed": -43.83000000000001,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9379",
@@ -3702,8 +3822,8 @@
             ],
             "nps": {
                 "surveys": 2,
-                "current": 0.333,
-                "average": 0.846
+                "current": 33.300000000000004,
+                "average": 84.6
             }
         },
         {
@@ -3712,6 +3832,16 @@
             "averageUnits": 24,
             "priorDraw": 2570.49,
             "spiff": 0,
+            "commission": {
+                "fni": 52974.26,
+                "gross": 45118.67,
+                "amount": 11546.669999999998
+            },
+            "retro": {
+                "mini": 2600,
+                "owed": 1300,
+                "payout": 2277.0360000000005
+            },
             "deals": [
                 {
                     "id": "9300",
@@ -4136,8 +4266,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -4146,6 +4276,16 @@
             "averageUnits": 20,
             "priorDraw": 2790.58,
             "spiff": 4600,
+            "commission": {
+                "fni": 29750.78,
+                "gross": -6192.02,
+                "amount": 2601.17
+            },
+            "retro": {
+                "mini": 3675,
+                "owed": 1431.9699999999998,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9364",
@@ -4542,8 +4682,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -4552,6 +4692,16 @@
             "averageUnits": 19,
             "priorDraw": 2576.08,
             "spiff": 250,
+            "commission": {
+                "fni": 20378.67,
+                "gross": -2747.779999999999,
+                "amount": 3381.34
+            },
+            "retro": {
+                "mini": 2700,
+                "owed": 900,
+                "payout": 351.4092
+            },
             "deals": [
                 {
                     "id": "9349",
@@ -4976,8 +5126,8 @@
             ],
             "nps": {
                 "surveys": 4,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -4986,6 +5136,16 @@
             "averageUnits": 22,
             "priorDraw": 2516.93,
             "spiff": 1500,
+            "commission": {
+                "fni": 55414.409999999996,
+                "gross": 3250.3700000000026,
+                "amount": 6123.599999999999
+            },
+            "retro": {
+                "mini": 4375,
+                "owed": 1760.94,
+                "payout": 779.8988
+            },
             "deals": [
                 {
                     "id": "9306",
@@ -5466,8 +5626,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 0.5
+                "current": 100,
+                "average": 50
             }
         },
         {
@@ -5476,6 +5636,16 @@
             "averageUnits": 17,
             "priorDraw": 2188.16,
             "spiff": 2650,
+            "commission": {
+                "fni": 43226.12,
+                "gross": 21087.940000000002,
+                "amount": 6826.860000000001
+            },
+            "retro": {
+                "mini": 2400,
+                "owed": 760.5,
+                "payout": 1152.7468000000001
+            },
             "deals": [
                 {
                     "id": "9335",
@@ -5900,8 +6070,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -5910,6 +6080,16 @@
             "averageUnits": 5,
             "priorDraw": 2111.46,
             "spiff": 202.8,
+            "commission": {
+                "fni": 8045.65,
+                "gross": 3454.13,
+                "amount": 1862.81
+            },
+            "retro": {
+                "mini": 400,
+                "owed": 0,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9333",
@@ -6059,6 +6239,16 @@
             "averageUnits": 10,
             "priorDraw": 2518.12,
             "spiff": 1050,
+            "commission": {
+                "fni": 39367.74,
+                "gross": 37246.420000000006,
+                "amount": 10722.949999999999
+            },
+            "retro": {
+                "mini": 1300,
+                "owed": 0,
+                "payout": 2093.99
+            },
             "deals": [
                 {
                     "id": "9330A",
@@ -6483,8 +6673,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -6493,6 +6683,16 @@
             "averageUnits": 12,
             "priorDraw": 2940.92,
             "spiff": 1000,
+            "commission": {
+                "fni": 8685.79,
+                "gross": 6743.469999999999,
+                "amount": 1859.83
+            },
+            "retro": {
+                "mini": 1000,
+                "owed": 200,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9600",
@@ -6666,7 +6866,7 @@
             "nps": {
                 "surveys": 0,
                 "current": null,
-                "average": 0.5
+                "average": 50
             }
         },
         {
@@ -6675,6 +6875,16 @@
             "averageUnits": 12,
             "priorDraw": 2606.76,
             "spiff": 800,
+            "commission": {
+                "fni": 15878.44,
+                "gross": 15381.06,
+                "amount": 3672.2
+            },
+            "retro": {
+                "mini": 1000,
+                "owed": 163.12,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9351",
@@ -6903,8 +7113,8 @@
             ],
             "nps": {
                 "surveys": 1,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -6913,6 +7123,16 @@
             "averageUnits": 18,
             "priorDraw": 2806.44,
             "spiff": 1100,
+            "commission": {
+                "fni": 28677.82,
+                "gross": 2591.4599999999996,
+                "amount": 3104.4500000000003
+            },
+            "retro": {
+                "mini": 2100,
+                "owed": 700,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9365",
@@ -7225,8 +7445,8 @@
             ],
             "nps": {
                 "surveys": 5,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -7235,6 +7455,16 @@
             "averageUnits": 23,
             "priorDraw": 2105.74,
             "spiff": 0,
+            "commission": {
+                "fni": 18865.050000000003,
+                "gross": 1030.7199999999998,
+                "amount": 3149.22
+            },
+            "retro": {
+                "mini": 1575,
+                "owed": 675,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9569",
@@ -7491,8 +7721,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -7501,6 +7731,16 @@
             "averageUnits": 23,
             "priorDraw": 2582.97,
             "spiff": 1450,
+            "commission": {
+                "fni": 41996.46000000001,
+                "gross": 42366.259999999995,
+                "amount": 11576.699999999999
+            },
+            "retro": {
+                "mini": 2800,
+                "owed": 979.31,
+                "payout": 3794.0007000000005
+            },
             "deals": [
                 {
                     "id": "9464",
@@ -8009,8 +8249,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 0.938
+                "current": 100,
+                "average": 93.8
             }
         },
         {
@@ -8019,6 +8259,16 @@
             "averageUnits": 21,
             "priorDraw": 2966.21,
             "spiff": 500,
+            "commission": {
+                "fni": 37217.95999999999,
+                "gross": -5548.93,
+                "amount": 6027.2300000000005
+            },
+            "retro": {
+                "mini": 4375,
+                "owed": 1712.79,
+                "payout": 1308.615
+            },
             "deals": [
                 {
                     "id": "9081",
@@ -8499,8 +8749,8 @@
             ],
             "nps": {
                 "surveys": 11,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -8509,6 +8759,16 @@
             "averageUnits": 19,
             "priorDraw": 1813.11,
             "spiff": 0,
+            "commission": {
+                "fni": 22532.52,
+                "gross": -995.5,
+                "amount": 2854.28
+            },
+            "retro": {
+                "mini": 1800,
+                "owed": 458,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9337",
@@ -8821,8 +9081,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -8831,6 +9091,16 @@
             "averageUnits": 13,
             "priorDraw": 2546.96,
             "spiff": 1800,
+            "commission": {
+                "fni": 9389.7,
+                "gross": 116.44000000000028,
+                "amount": 1905.53
+            },
+            "retro": {
+                "mini": 1875,
+                "owed": 339.78,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9461",
@@ -9087,8 +9357,8 @@
             ],
             "nps": {
                 "surveys": 4,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -9097,6 +9367,16 @@
             "averageUnits": 23,
             "priorDraw": 2196.87,
             "spiff": 0,
+            "commission": {
+                "fni": 26555.69,
+                "gross": 20058.89,
+                "amount": 6046.93
+            },
+            "retro": {
+                "mini": 1575,
+                "owed": 675,
+                "payout": 1143.76
+            },
             "deals": [
                 {
                     "id": "9388",
@@ -9465,8 +9745,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -9475,6 +9755,16 @@
             "averageUnits": 1,
             "priorDraw": 0,
             "spiff": 0,
+            "commission": {
+                "fni": 419,
+                "gross": -1600,
+                "amount": 200
+            },
+            "retro": {
+                "mini": 200,
+                "owed": 0,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9606",
@@ -9512,6 +9802,16 @@
             "averageUnits": 25,
             "priorDraw": 2587,
             "spiff": 0,
+            "commission": {
+                "fni": 42193.4,
+                "gross": 9815.82,
+                "amount": 11422.060000000001
+            },
+            "retro": {
+                "mini": 5200,
+                "owed": 2600,
+                "payout": 3430.8008000000004
+            },
             "deals": [
                 {
                     "id": "9362",
@@ -10076,8 +10376,8 @@
             ],
             "nps": {
                 "surveys": 5,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -10086,6 +10386,16 @@
             "averageUnits": 10,
             "priorDraw": 2325.31,
             "spiff": 506,
+            "commission": {
+                "fni": 13027.240000000002,
+                "gross": 2112.3800000000006,
+                "amount": 1532.33
+            },
+            "retro": {
+                "mini": 600,
+                "owed": -7.6200000000000045,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9396",
@@ -10230,8 +10540,8 @@
             ],
             "nps": {
                 "surveys": 1,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -10240,6 +10550,16 @@
             "averageUnits": 14,
             "priorDraw": 2534.87,
             "spiff": 2460,
+            "commission": {
+                "fni": 17249.6,
+                "gross": -2036.7699999999988,
+                "amount": 2112.65
+            },
+            "retro": {
+                "mini": 1500,
+                "owed": 300,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9422",
@@ -10468,8 +10788,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -10478,6 +10798,16 @@
             "averageUnits": 22,
             "priorDraw": 2324.53,
             "spiff": 550,
+            "commission": {
+                "fni": 51837.63,
+                "gross": 1089.9700000000012,
+                "amount": 4906.27
+            },
+            "retro": {
+                "mini": 3325,
+                "owed": 1425,
+                "payout": 668.0576
+            },
             "deals": [
                 {
                     "id": "9325",
@@ -10958,8 +11288,8 @@
             ],
             "nps": {
                 "surveys": 4,
-                "current": 1,
-                "average": 1
+                "current": 100,
+                "average": 100
             }
         },
         {
@@ -10968,6 +11298,16 @@
             "averageUnits": 23,
             "priorDraw": 2639.52,
             "spiff": 0,
+            "commission": {
+                "fni": 40930.049999999996,
+                "gross": -5484.040000000001,
+                "amount": 3919.58
+            },
+            "retro": {
+                "mini": 2800,
+                "owed": 1200,
+                "payout": 515.462
+            },
             "deals": [
                 {
                     "id": "9338",
@@ -11392,8 +11732,8 @@
             ],
             "nps": {
                 "surveys": 4,
-                "current": 1,
-                "average": 0.836
+                "current": 100,
+                "average": 83.6
             }
         },
         {
@@ -11402,6 +11742,16 @@
             "averageUnits": 0,
             "priorDraw": 0,
             "spiff": 0,
+            "commission": {
+                "fni": 813.6,
+                "gross": 3202,
+                "amount": 576.36
+            },
+            "retro": {
+                "mini": 0,
+                "owed": 0,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9474",
@@ -11439,6 +11789,16 @@
             "averageUnits": 5,
             "priorDraw": 0,
             "spiff": 1550,
+            "commission": {
+                "fni": 11253.93,
+                "gross": 6743.81,
+                "amount": 2774.6099999999997
+            },
+            "retro": {
+                "mini": 600,
+                "owed": 0,
+                "payout": 0
+            },
             "deals": [
                 {
                     "id": "9689",
@@ -11672,6 +12032,16 @@
             "averageUnits": 33,
             "priorDraw": 2640.04,
             "spiff": 0,
+            "commission": {
+                "fni": 32440.590000000004,
+                "gross": -6905.38,
+                "amount": 3505.7200000000003
+            },
+            "retro": {
+                "mini": 6000,
+                "owed": 2817.07,
+                "payout": 125.52960000000002
+            },
             "deals": [
                 {
                     "id": "9245",
@@ -12180,8 +12550,8 @@
             ],
             "nps": {
                 "surveys": 3,
-                "current": 1,
-                "average": 0.966
+                "current": 100,
+                "average": 96.6
             }
         }
     ]
