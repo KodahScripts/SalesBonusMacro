@@ -1,6 +1,12 @@
 {
     "name": "BMW of South Miami",
     "abbr": "BOSM",
+    "regionalScore": 90.9,
+    "fni": {
+        "reserve": 242896.37749999997,
+        "gross": 728689.1325000001,
+        "payout": 36434.45662500001
+    },
     "commission": {
         "fni": 971585.5099999999,
         "gross": 298141.79000000004,
@@ -9,7 +15,18 @@
     "retro": {
         "mini": 79750,
         "owed": 30303.72,
-        "payout": 26005.392200000006
+        "payout": 26005.392200000006,
+        "total": 56309.11220000001
+    },
+    "bonus": {
+        "unit": 19375,
+        "topsales": 500,
+        "csi": 7725,
+        "total": 27600
+    },
+    "topSalesman": {
+        "id": 259520,
+        "count": 20
     },
     "employees": [
         {
@@ -18,6 +35,11 @@
             "averageUnits": 9,
             "priorDraw": 0,
             "spiff": 1758,
+            "nps": {
+                "surveys": 0,
+                "current": 0,
+                "average": 0
+            },
             "commission": {
                 "fni": 0,
                 "gross": -1029,
@@ -26,7 +48,19 @@
             "retro": {
                 "mini": 200,
                 "owed": 0,
+                "payout": 0,
+                "total": 0
+            },
+            "fni": {
+                "reserve": 0,
+                "gross": 0,
                 "payout": 0
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -54,7 +88,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
             ]
@@ -65,6 +100,12 @@
             "averageUnits": 23,
             "priorDraw": 2340,
             "spiff": 23.61,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 24799.27,
                 "gross": -9365.780000000002,
@@ -73,7 +114,19 @@
             "retro": {
                 "mini": 3150,
                 "owed": 1350,
-                "payout": 298.65920000000006
+                "payout": 298.65920000000006,
+                "total": 1648.6592
+            },
+            "fni": {
+                "reserve": 6199.8175,
+                "gross": 18599.4525,
+                "payout": 929.972625
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 0,
+                "total": 750
             },
             "deals": [
                 {
@@ -101,7 +154,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -129,7 +183,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -157,7 +212,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 151.20000000000002
+                        "payout": 151.20000000000002,
+                        "total": 151.20000000000002
                     }
                 },
                 {
@@ -185,7 +241,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 87.52
+                        "payout": 87.52,
+                        "total": 87.52
                     }
                 },
                 {
@@ -213,7 +270,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -241,7 +299,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -269,7 +328,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 59.9392
+                        "payout": 59.9392,
+                        "total": 59.9392
                     }
                 },
                 {
@@ -297,7 +357,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -325,7 +386,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -353,7 +415,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -381,7 +444,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -409,7 +473,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -437,15 +502,11 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 10067,
@@ -453,6 +514,12 @@
             "averageUnits": 17,
             "priorDraw": 3509.84,
             "spiff": 1075,
+            "nps": {
+                "surveys": 0,
+                "current": null,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 0,
                 "gross": 0,
@@ -461,14 +528,21 @@
             "retro": {
                 "mini": 0,
                 "owed": 0,
+                "payout": 0,
+                "total": 0
+            },
+            "fni": {
+                "reserve": 0,
+                "gross": 0,
                 "payout": 0
             },
-            "deals": [],
-            "nps": {
-                "surveys": 0,
-                "current": null,
-                "average": 100
-            }
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
+            },
+            "deals": []
         },
         {
             "id": 10069,
@@ -476,6 +550,12 @@
             "averageUnits": 24,
             "priorDraw": 2504.32,
             "spiff": 0,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 95,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 22419.999999999996,
                 "gross": 9055.34,
@@ -484,7 +564,19 @@
             "retro": {
                 "mini": 2400,
                 "owed": 1095.48,
-                "payout": 0
+                "payout": 0,
+                "total": 1095.48
+            },
+            "fni": {
+                "reserve": 5604.999999999999,
+                "gross": 16814.999999999996,
+                "payout": 840.7499999999999
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -512,7 +604,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -540,7 +633,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -568,7 +662,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -596,7 +691,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -624,7 +720,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -652,7 +749,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -680,7 +778,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": -4.52000000000001,
-                        "payout": 0
+                        "payout": 0,
+                        "total": -4.52000000000001
                     }
                 },
                 {
@@ -708,7 +807,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -736,7 +836,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -764,7 +865,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -792,15 +894,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 95
-            }
+            ]
         },
         {
             "id": 10303,
@@ -808,6 +906,12 @@
             "averageUnits": 26,
             "priorDraw": 2646.41,
             "spiff": 550,
+            "nps": {
+                "surveys": 5,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 45379.55,
                 "gross": 13170.69,
@@ -816,7 +920,19 @@
             "retro": {
                 "mini": 4200,
                 "owed": 2100,
-                "payout": 2025.5557000000003
+                "payout": 2025.5557000000003,
+                "total": 4125.5557
+            },
+            "fni": {
+                "reserve": 11344.8875,
+                "gross": 34034.662500000006,
+                "payout": 1701.7331250000004
+            },
+            "bonus": {
+                "unit": 1500,
+                "topsales": 0,
+                "csi": 825,
+                "total": 2325
             },
             "deals": [
                 {
@@ -844,7 +960,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 234.64000000000001
+                        "payout": 234.64000000000001,
+                        "total": 234.64000000000001
                     }
                 },
                 {
@@ -872,7 +989,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -900,7 +1018,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -928,7 +1047,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -956,7 +1076,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -984,7 +1105,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -1012,7 +1134,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 483.70000000000005
+                        "payout": 483.70000000000005,
+                        "total": 483.70000000000005
                     }
                 },
                 {
@@ -1040,7 +1163,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 287.70000000000005
+                        "payout": 287.70000000000005,
+                        "total": 287.70000000000005
                     }
                 },
                 {
@@ -1068,7 +1192,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 494.97
+                        "payout": 494.97,
+                        "total": 494.97
                     }
                 },
                 {
@@ -1096,7 +1221,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -1124,7 +1250,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 383.07570000000004
+                        "payout": 383.07570000000004,
+                        "total": 383.07570000000004
                     }
                 },
                 {
@@ -1152,7 +1279,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -1180,7 +1308,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -1208,7 +1337,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -1236,7 +1366,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 141.47000000000003
+                        "payout": 141.47000000000003,
+                        "total": 141.47000000000003
                     }
                 },
                 {
@@ -1264,7 +1395,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -1292,15 +1424,11 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 5,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 10304,
@@ -1308,6 +1436,12 @@
             "averageUnits": 12,
             "priorDraw": 3637.55,
             "spiff": 1402.9,
+            "nps": {
+                "surveys": 2,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 20441.19,
                 "gross": 8543.260000000002,
@@ -1316,7 +1450,19 @@
             "retro": {
                 "mini": 1000,
                 "owed": 200,
-                "payout": 0
+                "payout": 0,
+                "total": 200
+            },
+            "fni": {
+                "reserve": 5110.2975,
+                "gross": 15330.892499999998,
+                "payout": 766.544625
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -1344,7 +1490,8 @@
                     "retro": {
                         "mini": 125,
                         "owed": 25,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 25
                     }
                 },
                 {
@@ -1372,7 +1519,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -1400,7 +1548,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -1428,7 +1577,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -1456,7 +1606,8 @@
                     "retro": {
                         "mini": 125,
                         "owed": 25,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 25
                     }
                 },
                 {
@@ -1484,7 +1635,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -1512,7 +1664,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -1540,7 +1693,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -1568,15 +1722,11 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 2,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 10775,
@@ -1584,6 +1734,12 @@
             "averageUnits": 20,
             "priorDraw": 2935.67,
             "spiff": 550,
+            "nps": {
+                "surveys": 3,
+                "current": 75,
+                "average": 88.9,
+                "outcome": "B"
+            },
             "commission": {
                 "fni": 22989.05,
                 "gross": 2249.5700000000006,
@@ -1592,7 +1748,19 @@
             "retro": {
                 "mini": 3150,
                 "owed": 1350,
-                "payout": 837.81
+                "payout": 837.81,
+                "total": 2187.8100000000004
+            },
+            "fni": {
+                "reserve": 5747.2625,
+                "gross": 17241.7875,
+                "payout": 862.089375
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 0,
+                "total": 750
             },
             "deals": [
                 {
@@ -1620,7 +1788,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -1648,7 +1817,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -1676,7 +1846,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 62.934
+                        "payout": 62.934,
+                        "total": 62.934
                     }
                 },
                 {
@@ -1704,7 +1875,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -1732,7 +1904,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -1760,7 +1933,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 134.84040000000002
+                        "payout": 134.84040000000002,
+                        "total": 134.84040000000002
                     }
                 },
                 {
@@ -1788,7 +1962,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -1816,7 +1991,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 478.1956
+                        "payout": 478.1956,
+                        "total": 478.1956
                     }
                 },
                 {
@@ -1844,7 +2020,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 76.4
+                        "payout": 76.4,
+                        "total": 76.4
                     }
                 },
                 {
@@ -1872,7 +2049,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 85.44
+                        "payout": 85.44,
+                        "total": 85.44
                     }
                 },
                 {
@@ -1900,7 +2078,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -1928,7 +2107,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -1956,7 +2136,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -1984,15 +2165,11 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 75,
-                "average": 88.9
-            }
+            ]
         },
         {
             "id": 11580,
@@ -2000,6 +2177,12 @@
             "averageUnits": 23,
             "priorDraw": 2612.61,
             "spiff": 1050,
+            "nps": {
+                "surveys": 5,
+                "current": 100,
+                "average": 87.5,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 35645.47,
                 "gross": 17001.7,
@@ -2008,7 +2191,19 @@
             "retro": {
                 "mini": 1750,
                 "owed": 686.38,
-                "payout": 0
+                "payout": 0,
+                "total": 686.38
+            },
+            "fni": {
+                "reserve": 8911.3675,
+                "gross": 26734.1025,
+                "payout": 1336.7051250000002
+            },
+            "bonus": {
+                "unit": 375,
+                "topsales": 0,
+                "csi": 575,
+                "total": 950
             },
             "deals": [
                 {
@@ -2036,7 +2231,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -2064,7 +2260,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -2092,7 +2289,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -2120,7 +2318,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -2148,7 +2347,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -2176,7 +2376,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -2204,7 +2405,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -2232,7 +2434,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -2260,7 +2463,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 11.379999999999995,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 11.379999999999995
                     }
                 },
                 {
@@ -2288,7 +2492,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -2316,7 +2521,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -2344,7 +2550,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -2372,7 +2579,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -2400,15 +2608,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 5,
-                "current": 100,
-                "average": 87.5
-            }
+            ]
         },
         {
             "id": 11809,
@@ -2416,6 +2620,12 @@
             "averageUnits": 31,
             "priorDraw": 2728.31,
             "spiff": 1601.51,
+            "nps": {
+                "surveys": 6,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 58362.340000000004,
                 "gross": 21727.94,
@@ -2424,7 +2634,19 @@
             "retro": {
                 "mini": 4400,
                 "owed": 2049.83,
-                "payout": 3138.2148
+                "payout": 3138.2148,
+                "total": 5188.044800000001
+            },
+            "fni": {
+                "reserve": 14590.585000000001,
+                "gross": 43771.755000000005,
+                "payout": 2188.58775
+            },
+            "bonus": {
+                "unit": 1500,
+                "topsales": 0,
+                "csi": 875,
+                "total": 2375
             },
             "deals": [
                 {
@@ -2452,7 +2674,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -2480,7 +2703,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 360.69250000000005
+                        "payout": 360.69250000000005,
+                        "total": 360.69250000000005
                     }
                 },
                 {
@@ -2508,7 +2732,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 444.96340000000004
+                        "payout": 444.96340000000004,
+                        "total": 444.96340000000004
                     }
                 },
                 {
@@ -2536,7 +2761,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -2564,7 +2790,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -2592,7 +2819,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 235.97070000000005
+                        "payout": 235.97070000000005,
+                        "total": 235.97070000000005
                     }
                 },
                 {
@@ -2620,7 +2848,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -2648,7 +2877,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 135.8
+                        "payout": 135.8,
+                        "total": 135.8
                     }
                 },
                 {
@@ -2676,7 +2906,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -2704,7 +2935,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -2732,7 +2964,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -2760,7 +2993,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": -2.5,
-                        "payout": 0
+                        "payout": 0,
+                        "total": -2.5
                     }
                 },
                 {
@@ -2788,7 +3022,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -2816,7 +3051,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 868.4200000000001
+                        "payout": 868.4200000000001,
+                        "total": 868.4200000000001
                     }
                 },
                 {
@@ -2844,7 +3080,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 356.93
+                        "payout": 356.93,
+                        "total": 356.93
                     }
                 },
                 {
@@ -2872,7 +3109,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 187.78,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 187.78
                     }
                 },
                 {
@@ -2900,7 +3138,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 623.9100000000001
+                        "payout": 623.9100000000001,
+                        "total": 623.9100000000001
                     }
                 },
                 {
@@ -2928,7 +3167,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 64.55000000000001,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 64.55000000000001
                     }
                 },
                 {
@@ -2956,7 +3196,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 111.52820000000001
+                        "payout": 111.52820000000001,
+                        "total": 111.52820000000001
                     }
                 },
                 {
@@ -2984,7 +3225,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -3012,15 +3254,11 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 6,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 12104,
@@ -3028,6 +3266,12 @@
             "averageUnits": 22,
             "priorDraw": 1758.9,
             "spiff": 625,
+            "nps": {
+                "surveys": 4,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 55367.89,
                 "gross": 40259.450000000004,
@@ -3036,7 +3280,19 @@
             "retro": {
                 "mini": 2625,
                 "owed": 1125,
-                "payout": 2063.846
+                "payout": 2063.846,
+                "total": 3188.8459999999995
+            },
+            "fni": {
+                "reserve": 13841.9725,
+                "gross": 41525.917499999996,
+                "payout": 2076.295875
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 775,
+                "total": 1525
             },
             "deals": [
                 {
@@ -3064,7 +3320,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -3092,7 +3349,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 226.62
+                        "payout": 226.62,
+                        "total": 226.62
                     }
                 },
                 {
@@ -3120,7 +3378,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -3148,7 +3407,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 206.11
+                        "payout": 206.11,
+                        "total": 206.11
                     }
                 },
                 {
@@ -3176,7 +3436,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -3204,7 +3465,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 155.28
+                        "payout": 155.28,
+                        "total": 155.28
                     }
                 },
                 {
@@ -3232,7 +3494,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -3260,7 +3523,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 252.8164
+                        "payout": 252.8164,
+                        "total": 252.8164
                     }
                 },
                 {
@@ -3288,7 +3552,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 164.206
+                        "payout": 164.206,
+                        "total": 164.206
                     }
                 },
                 {
@@ -3316,7 +3581,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 224.4
+                        "payout": 224.4,
+                        "total": 224.4
                     }
                 },
                 {
@@ -3344,7 +3610,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 82.9964
+                        "payout": 82.9964,
+                        "total": 82.9964
                     }
                 },
                 {
@@ -3372,7 +3639,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 99.08
+                        "payout": 99.08,
+                        "total": 99.08
                     }
                 },
                 {
@@ -3400,7 +3668,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -3428,7 +3697,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -3456,7 +3726,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 652.3372
+                        "payout": 652.3372,
+                        "total": 652.3372
                     }
                 },
                 {
@@ -3484,7 +3755,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -3512,7 +3784,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -3540,15 +3813,11 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 4,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 13189,
@@ -3556,6 +3825,12 @@
             "averageUnits": 6,
             "priorDraw": 0,
             "spiff": 0,
+            "nps": {
+                "surveys": 2,
+                "current": 33.300000000000004,
+                "average": 84.6,
+                "outcome": "B"
+            },
             "commission": {
                 "fni": 17058.65,
                 "gross": 6629.229999999999,
@@ -3564,7 +3839,19 @@
             "retro": {
                 "mini": 1100,
                 "owed": -43.83000000000001,
-                "payout": 0
+                "payout": 0,
+                "total": -43.83000000000001
+            },
+            "fni": {
+                "reserve": 4264.6625,
+                "gross": 12793.987500000001,
+                "payout": 639.6993750000001
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -3592,7 +3879,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -3620,7 +3908,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -3648,7 +3937,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -3676,7 +3966,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -3704,7 +3995,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": -43.83000000000001,
-                        "payout": 0
+                        "payout": 0,
+                        "total": -43.83000000000001
                     }
                 },
                 {
@@ -3732,7 +4024,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -3760,7 +4053,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -3788,7 +4082,8 @@
                     "retro": {
                         "mini": 100,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -3816,15 +4111,11 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 2,
-                "current": 33.300000000000004,
-                "average": 84.6
-            }
+            ]
         },
         {
             "id": 14383,
@@ -3832,6 +4123,12 @@
             "averageUnits": 24,
             "priorDraw": 2570.49,
             "spiff": 0,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 52974.26,
                 "gross": 45118.67,
@@ -3840,7 +4137,19 @@
             "retro": {
                 "mini": 2600,
                 "owed": 1300,
-                "payout": 2277.0360000000005
+                "payout": 2277.0360000000005,
+                "total": 3577.036
+            },
+            "fni": {
+                "reserve": 13243.565,
+                "gross": 39730.695,
+                "payout": 1986.53475
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 0,
+                "total": 750
             },
             "deals": [
                 {
@@ -3868,7 +4177,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 253.41840000000002
+                        "payout": 253.41840000000002,
+                        "total": 253.41840000000002
                     }
                 },
                 {
@@ -3896,7 +4206,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -3924,7 +4235,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 294.3856
+                        "payout": 294.3856,
+                        "total": 294.3856
                     }
                 },
                 {
@@ -3952,7 +4264,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -3980,7 +4293,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 110.96000000000001
+                        "payout": 110.96000000000001,
+                        "total": 110.96000000000001
                     }
                 },
                 {
@@ -4008,7 +4322,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -4036,7 +4351,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -4064,7 +4380,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 449.5756
+                        "payout": 449.5756,
+                        "total": 449.5756
                     }
                 },
                 {
@@ -4092,7 +4409,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 149.5172
+                        "payout": 149.5172,
+                        "total": 149.5172
                     }
                 },
                 {
@@ -4120,7 +4438,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 279.52320000000003
+                        "payout": 279.52320000000003,
+                        "total": 279.52320000000003
                     }
                 },
                 {
@@ -4148,7 +4467,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 361.2124
+                        "payout": 361.2124,
+                        "total": 361.2124
                     }
                 },
                 {
@@ -4176,7 +4496,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 378.4436
+                        "payout": 378.4436,
+                        "total": 378.4436
                     }
                 },
                 {
@@ -4204,7 +4525,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -4232,7 +4554,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -4260,15 +4583,11 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 16210,
@@ -4276,6 +4595,12 @@
             "averageUnits": 20,
             "priorDraw": 2790.58,
             "spiff": 4600,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 29750.78,
                 "gross": -6192.02,
@@ -4284,7 +4609,19 @@
             "retro": {
                 "mini": 3675,
                 "owed": 1431.9699999999998,
-                "payout": 0
+                "payout": 0,
+                "total": 1431.9699999999998
+            },
+            "fni": {
+                "reserve": 7437.695,
+                "gross": 22313.085,
+                "payout": 1115.65425
+            },
+            "bonus": {
+                "unit": 375,
+                "topsales": 0,
+                "csi": 0,
+                "total": 375
             },
             "deals": [
                 {
@@ -4312,7 +4649,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -4340,7 +4678,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -4368,7 +4707,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -4396,7 +4736,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -4424,7 +4765,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 149.2,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 149.2
                     }
                 },
                 {
@@ -4452,7 +4794,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -4480,7 +4823,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -4508,7 +4852,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -4536,7 +4881,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 11.379999999999995,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 11.379999999999995
                     }
                 },
                 {
@@ -4564,7 +4910,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -4592,7 +4939,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -4620,7 +4968,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -4648,7 +4997,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -4676,15 +5026,11 @@
                     "retro": {
                         "mini": 175,
                         "owed": -3.6100000000000136,
-                        "payout": 0
+                        "payout": 0,
+                        "total": -3.6100000000000136
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 16734,
@@ -4692,6 +5038,12 @@
             "averageUnits": 19,
             "priorDraw": 2576.08,
             "spiff": 250,
+            "nps": {
+                "surveys": 4,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 20378.67,
                 "gross": -2747.779999999999,
@@ -4700,7 +5052,19 @@
             "retro": {
                 "mini": 2700,
                 "owed": 900,
-                "payout": 351.4092
+                "payout": 351.4092,
+                "total": 1251.4092000000003
+            },
+            "fni": {
+                "reserve": 5094.6675,
+                "gross": 15284.002499999999,
+                "payout": 764.200125
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 625,
+                "total": 1375
             },
             "deals": [
                 {
@@ -4728,7 +5092,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -4756,7 +5121,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -4784,7 +5150,8 @@
                     "retro": {
                         "mini": 150,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -4812,7 +5179,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -4840,7 +5208,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -4868,7 +5237,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 125.44
+                        "payout": 125.44,
+                        "total": 125.44
                     }
                 },
                 {
@@ -4896,7 +5266,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 93.3204
+                        "payout": 93.3204,
+                        "total": 93.3204
                     }
                 },
                 {
@@ -4924,7 +5295,8 @@
                     "retro": {
                         "mini": 150,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -4952,7 +5324,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -4980,7 +5353,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 65.0936
+                        "payout": 65.0936,
+                        "total": 65.0936
                     }
                 },
                 {
@@ -5008,7 +5382,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -5036,7 +5411,8 @@
                     "retro": {
                         "mini": 150,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -5064,7 +5440,8 @@
                     "retro": {
                         "mini": 150,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -5092,7 +5469,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -5120,15 +5498,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 67.5552
+                        "payout": 67.5552,
+                        "total": 67.5552
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 4,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 20993,
@@ -5136,6 +5510,12 @@
             "averageUnits": 22,
             "priorDraw": 2516.93,
             "spiff": 1500,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 50,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 55414.409999999996,
                 "gross": 3250.3700000000026,
@@ -5144,7 +5524,19 @@
             "retro": {
                 "mini": 4375,
                 "owed": 1760.94,
-                "payout": 779.8988
+                "payout": 779.8988,
+                "total": 2540.8388
+            },
+            "fni": {
+                "reserve": 13853.602499999999,
+                "gross": 41560.807499999995,
+                "payout": 2078.040375
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 0,
+                "total": 750
             },
             "deals": [
                 {
@@ -5172,7 +5564,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -5200,7 +5593,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -5228,7 +5622,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 109
+                        "payout": 109,
+                        "total": 109
                     }
                 },
                 {
@@ -5256,7 +5651,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -5284,7 +5680,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -5312,7 +5709,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -5340,7 +5738,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -5368,7 +5767,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -5396,7 +5796,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -5424,7 +5825,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -5452,7 +5854,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -5480,7 +5883,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 39.55000000000001,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 39.55000000000001
                     }
                 },
                 {
@@ -5508,7 +5912,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 670.8988
+                        "payout": 670.8988,
+                        "total": 670.8988
                     }
                 },
                 {
@@ -5536,7 +5941,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -5564,7 +5970,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -5592,7 +5999,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -5620,15 +6028,11 @@
                     "retro": {
                         "mini": 175,
                         "owed": -3.6100000000000136,
-                        "payout": 0
+                        "payout": 0,
+                        "total": -3.6100000000000136
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 50
-            }
+            ]
         },
         {
             "id": 22145,
@@ -5636,6 +6040,12 @@
             "averageUnits": 17,
             "priorDraw": 2188.16,
             "spiff": 2650,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 43226.12,
                 "gross": 21087.940000000002,
@@ -5644,7 +6054,19 @@
             "retro": {
                 "mini": 2400,
                 "owed": 760.5,
-                "payout": 1152.7468000000001
+                "payout": 1152.7468000000001,
+                "total": 1913.2468000000001
+            },
+            "fni": {
+                "reserve": 10806.53,
+                "gross": 32419.590000000004,
+                "payout": 1620.9795000000004
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 0,
+                "total": 750
             },
             "deals": [
                 {
@@ -5672,7 +6094,8 @@
                     "retro": {
                         "mini": 150,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -5700,7 +6123,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 246.36
+                        "payout": 246.36,
+                        "total": 246.36
                     }
                 },
                 {
@@ -5728,7 +6152,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -5756,7 +6181,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -5784,7 +6210,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 292.16
+                        "payout": 292.16,
+                        "total": 292.16
                     }
                 },
                 {
@@ -5812,7 +6239,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 87.08
+                        "payout": 87.08,
+                        "total": 87.08
                     }
                 },
                 {
@@ -5840,7 +6268,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -5868,7 +6297,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 213.7364
+                        "payout": 213.7364,
+                        "total": 213.7364
                     }
                 },
                 {
@@ -5896,7 +6326,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -5924,7 +6355,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -5952,7 +6384,8 @@
                     "retro": {
                         "mini": 150,
                         "owed": 10.5,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 10.5
                     }
                 },
                 {
@@ -5980,7 +6413,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 102.24000000000001
+                        "payout": 102.24000000000001,
+                        "total": 102.24000000000001
                     }
                 },
                 {
@@ -6008,7 +6442,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -6036,7 +6471,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -6064,15 +6500,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 211.1704
+                        "payout": 211.1704,
+                        "total": 211.1704
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 22478,
@@ -6080,6 +6512,11 @@
             "averageUnits": 5,
             "priorDraw": 2111.46,
             "spiff": 202.8,
+            "nps": {
+                "surveys": 0,
+                "current": 0,
+                "average": 0
+            },
             "commission": {
                 "fni": 8045.65,
                 "gross": 3454.13,
@@ -6088,7 +6525,19 @@
             "retro": {
                 "mini": 400,
                 "owed": 0,
-                "payout": 0
+                "payout": 0,
+                "total": 0
+            },
+            "fni": {
+                "reserve": 2011.4125,
+                "gross": 6034.237499999999,
+                "payout": 301.71187499999996
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -6116,7 +6565,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6144,7 +6594,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6172,7 +6623,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6200,7 +6652,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6228,7 +6681,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
             ]
@@ -6239,6 +6693,12 @@
             "averageUnits": 10,
             "priorDraw": 2518.12,
             "spiff": 1050,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 39367.74,
                 "gross": 37246.420000000006,
@@ -6247,7 +6707,19 @@
             "retro": {
                 "mini": 1300,
                 "owed": 0,
-                "payout": 2093.99
+                "payout": 2093.99,
+                "total": 2093.99
+            },
+            "fni": {
+                "reserve": 9841.935,
+                "gross": 29525.805,
+                "payout": 1476.29025
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 0,
+                "total": 750
             },
             "deals": [
                 {
@@ -6275,7 +6747,8 @@
                     "retro": {
                         "mini": 100,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6303,7 +6776,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 126.60000000000001
+                        "payout": 126.60000000000001,
+                        "total": 126.60000000000001
                     }
                 },
                 {
@@ -6331,7 +6805,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 104.98360000000001
+                        "payout": 104.98360000000001,
+                        "total": 104.98360000000001
                     }
                 },
                 {
@@ -6359,7 +6834,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6387,7 +6863,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6415,7 +6892,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 1328.08
+                        "payout": 1328.08,
+                        "total": 1328.08
                     }
                 },
                 {
@@ -6443,7 +6921,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 168.2276
+                        "payout": 168.2276,
+                        "total": 168.2276
                     }
                 },
                 {
@@ -6471,7 +6950,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 61.4388
+                        "payout": 61.4388,
+                        "total": 61.4388
                     }
                 },
                 {
@@ -6499,7 +6979,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 103
+                        "payout": 103,
+                        "total": 103
                     }
                 },
                 {
@@ -6527,7 +7008,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6555,7 +7037,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6583,7 +7066,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6611,7 +7095,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 87.7
+                        "payout": 87.7,
+                        "total": 87.7
                     }
                 },
                 {
@@ -6639,7 +7124,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6667,15 +7153,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 113.96000000000001
+                        "payout": 113.96000000000001,
+                        "total": 113.96000000000001
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 207147,
@@ -6683,6 +7165,12 @@
             "averageUnits": 12,
             "priorDraw": 2940.92,
             "spiff": 1000,
+            "nps": {
+                "surveys": 0,
+                "current": null,
+                "average": 50,
+                "outcome": "B"
+            },
             "commission": {
                 "fni": 8685.79,
                 "gross": 6743.469999999999,
@@ -6691,7 +7179,19 @@
             "retro": {
                 "mini": 1000,
                 "owed": 200,
-                "payout": 0
+                "payout": 0,
+                "total": 200
+            },
+            "fni": {
+                "reserve": 2171.4475,
+                "gross": 6514.342500000001,
+                "payout": 325.71712500000007
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -6719,7 +7219,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6747,7 +7248,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -6775,7 +7277,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -6803,7 +7306,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -6831,7 +7335,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -6859,15 +7364,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 0,
-                "current": null,
-                "average": 50
-            }
+            ]
         },
         {
             "id": 207347,
@@ -6875,6 +7376,12 @@
             "averageUnits": 12,
             "priorDraw": 2606.76,
             "spiff": 800,
+            "nps": {
+                "surveys": 1,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 15878.44,
                 "gross": 15381.06,
@@ -6883,7 +7390,19 @@
             "retro": {
                 "mini": 1000,
                 "owed": 163.12,
-                "payout": 0
+                "payout": 0,
+                "total": 163.12
+            },
+            "fni": {
+                "reserve": 3969.61,
+                "gross": 11908.83,
+                "payout": 595.4415
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -6911,7 +7430,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6939,7 +7459,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6967,7 +7488,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -6995,7 +7517,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -7023,7 +7546,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -7051,7 +7575,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 13.120000000000005,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 13.120000000000005
                     }
                 },
                 {
@@ -7079,7 +7604,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -7107,15 +7633,11 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 1,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 207462,
@@ -7123,6 +7645,12 @@
             "averageUnits": 18,
             "priorDraw": 2806.44,
             "spiff": 1100,
+            "nps": {
+                "surveys": 5,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 28677.82,
                 "gross": 2591.4599999999996,
@@ -7131,7 +7659,19 @@
             "retro": {
                 "mini": 2100,
                 "owed": 700,
-                "payout": 0
+                "payout": 0,
+                "total": 700
+            },
+            "fni": {
+                "reserve": 7169.455,
+                "gross": 21508.364999999998,
+                "payout": 1075.41825
+            },
+            "bonus": {
+                "unit": 375,
+                "topsales": 0,
+                "csi": 550,
+                "total": 925
             },
             "deals": [
                 {
@@ -7159,7 +7699,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -7187,7 +7728,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -7215,7 +7757,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -7243,7 +7786,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -7271,7 +7815,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -7299,7 +7844,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -7327,7 +7873,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -7355,7 +7902,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -7383,7 +7931,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -7411,7 +7960,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -7439,15 +7989,11 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 5,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 207573,
@@ -7455,6 +8001,12 @@
             "averageUnits": 23,
             "priorDraw": 2105.74,
             "spiff": 0,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 18865.050000000003,
                 "gross": 1030.7199999999998,
@@ -7463,7 +8015,19 @@
             "retro": {
                 "mini": 1575,
                 "owed": 675,
-                "payout": 0
+                "payout": 0,
+                "total": 675
+            },
+            "fni": {
+                "reserve": 4716.262500000001,
+                "gross": 14148.787500000002,
+                "payout": 707.4393750000002
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -7491,7 +8055,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -7519,7 +8084,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -7547,7 +8113,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -7575,7 +8142,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -7603,7 +8171,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -7631,7 +8200,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -7659,7 +8229,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -7687,7 +8258,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -7715,15 +8287,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 207580,
@@ -7731,6 +8299,12 @@
             "averageUnits": 23,
             "priorDraw": 2582.97,
             "spiff": 1450,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 93.8,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 41996.46000000001,
                 "gross": 42366.259999999995,
@@ -7739,7 +8313,19 @@
             "retro": {
                 "mini": 2800,
                 "owed": 979.31,
-                "payout": 3794.0007000000005
+                "payout": 3794.0007000000005,
+                "total": 4773.3107
+            },
+            "fni": {
+                "reserve": 10499.115000000002,
+                "gross": 31497.345000000005,
+                "payout": 1574.8672500000002
+            },
+            "bonus": {
+                "unit": 1500,
+                "topsales": 0,
+                "csi": 0,
+                "total": 1500
             },
             "deals": [
                 {
@@ -7767,7 +8353,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 110.1345
+                        "payout": 110.1345,
+                        "total": 110.1345
                     }
                 },
                 {
@@ -7795,7 +8382,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 666.9782000000001
+                        "payout": 666.9782000000001,
+                        "total": 666.9782000000001
                     }
                 },
                 {
@@ -7823,7 +8411,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 748.6542000000001
+                        "payout": 748.6542000000001,
+                        "total": 748.6542000000001
                     }
                 },
                 {
@@ -7851,7 +8440,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -7879,7 +8469,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 238.70000000000002
+                        "payout": 238.70000000000002,
+                        "total": 238.70000000000002
                     }
                 },
                 {
@@ -7907,7 +8498,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": -56.75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": -56.75
                     }
                 },
                 {
@@ -7935,7 +8527,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -7963,7 +8556,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 146.3
+                        "payout": 146.3,
+                        "total": 146.3
                     }
                 },
                 {
@@ -7991,7 +8585,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 101.50999999999999,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 101.50999999999999
                     }
                 },
                 {
@@ -8019,7 +8614,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 195.3
+                        "payout": 195.3,
+                        "total": 195.3
                     }
                 },
                 {
@@ -8047,7 +8643,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8075,7 +8672,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8103,7 +8701,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8131,7 +8730,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8159,7 +8759,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 153.62130000000002
+                        "payout": 153.62130000000002,
+                        "total": 153.62130000000002
                     }
                 },
                 {
@@ -8187,7 +8788,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 816.368
+                        "payout": 816.368,
+                        "total": 816.368
                     }
                 },
                 {
@@ -8215,7 +8817,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 717.9445000000001
+                        "payout": 717.9445000000001,
+                        "total": 717.9445000000001
                     }
                 },
                 {
@@ -8243,15 +8846,11 @@
                     "retro": {
                         "mini": 350,
                         "owed": 109.55000000000001,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 109.55000000000001
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 93.8
-            }
+            ]
         },
         {
             "id": 215323,
@@ -8259,6 +8858,12 @@
             "averageUnits": 21,
             "priorDraw": 2966.21,
             "spiff": 500,
+            "nps": {
+                "surveys": 11,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 37217.95999999999,
                 "gross": -5548.93,
@@ -8267,7 +8872,19 @@
             "retro": {
                 "mini": 4375,
                 "owed": 1712.79,
-                "payout": 1308.615
+                "payout": 1308.615,
+                "total": 3021.4049999999997
+            },
+            "fni": {
+                "reserve": 9304.489999999998,
+                "gross": 27913.469999999994,
+                "payout": 1395.6734999999999
+            },
+            "bonus": {
+                "unit": 1500,
+                "topsales": 0,
+                "csi": 800,
+                "total": 2300
             },
             "deals": [
                 {
@@ -8295,7 +8912,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8323,7 +8941,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8351,7 +8970,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 420.95550000000003
+                        "payout": 420.95550000000003,
+                        "total": 420.95550000000003
                     }
                 },
                 {
@@ -8379,7 +8999,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 546
+                        "payout": 546,
+                        "total": 546
                     }
                 },
                 {
@@ -8407,7 +9028,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8435,7 +9057,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8463,7 +9086,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": -56.75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": -56.75
                     }
                 },
                 {
@@ -8491,7 +9115,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8519,7 +9144,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 119.53999999999999,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 119.53999999999999
                     }
                 },
                 {
@@ -8547,7 +9173,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8575,7 +9202,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 165.20000000000002
+                        "payout": 165.20000000000002,
+                        "total": 165.20000000000002
                     }
                 },
                 {
@@ -8603,7 +9231,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8631,7 +9260,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8659,7 +9289,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8687,7 +9318,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8715,7 +9347,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -8743,15 +9376,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 176.45950000000002
+                        "payout": 176.45950000000002,
+                        "total": 176.45950000000002
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 11,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 217079,
@@ -8759,6 +9388,12 @@
             "averageUnits": 19,
             "priorDraw": 1813.11,
             "spiff": 0,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 22532.52,
                 "gross": -995.5,
@@ -8767,7 +9402,19 @@
             "retro": {
                 "mini": 1800,
                 "owed": 458,
-                "payout": 0
+                "payout": 0,
+                "total": 458
+            },
+            "fni": {
+                "reserve": 5633.13,
+                "gross": 16899.39,
+                "payout": 844.9695
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -8795,7 +9442,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -8823,7 +9471,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -8851,7 +9500,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -8879,7 +9529,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -8907,7 +9558,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -8935,7 +9587,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -8963,7 +9616,8 @@
                     "retro": {
                         "mini": 150,
                         "owed": 10.5,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 10.5
                     }
                 },
                 {
@@ -8991,7 +9645,8 @@
                     "retro": {
                         "mini": 150,
                         "owed": -52.5,
-                        "payout": 0
+                        "payout": 0,
+                        "total": -52.5
                     }
                 },
                 {
@@ -9019,7 +9674,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -9047,7 +9703,8 @@
                     "retro": {
                         "mini": 300,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -9075,15 +9732,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 242160,
@@ -9091,6 +9744,12 @@
             "averageUnits": 13,
             "priorDraw": 2546.96,
             "spiff": 1800,
+            "nps": {
+                "surveys": 4,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 9389.7,
                 "gross": 116.44000000000028,
@@ -9099,7 +9758,19 @@
             "retro": {
                 "mini": 1875,
                 "owed": 339.78,
-                "payout": 0
+                "payout": 0,
+                "total": 339.78
+            },
+            "fni": {
+                "reserve": 2347.425,
+                "gross": 7042.275000000001,
+                "payout": 352.11375000000004
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 400,
+                "total": 400
             },
             "deals": [
                 {
@@ -9127,7 +9798,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -9155,7 +9827,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -9183,7 +9856,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -9211,7 +9885,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -9239,7 +9914,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -9267,7 +9943,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -9295,7 +9972,8 @@
                     "retro": {
                         "mini": 125,
                         "owed": 25,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 25
                     }
                 },
                 {
@@ -9323,7 +10001,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 14.780000000000001,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 14.780000000000001
                     }
                 },
                 {
@@ -9351,15 +10030,11 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 4,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 245770,
@@ -9367,6 +10042,12 @@
             "averageUnits": 23,
             "priorDraw": 2196.87,
             "spiff": 0,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 26555.69,
                 "gross": 20058.89,
@@ -9375,7 +10056,19 @@
             "retro": {
                 "mini": 1575,
                 "owed": 675,
-                "payout": 1143.76
+                "payout": 1143.76,
+                "total": 1818.7600000000002
+            },
+            "fni": {
+                "reserve": 6638.9225,
+                "gross": 19916.767499999998,
+                "payout": 995.8383749999999
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 0,
+                "total": 750
             },
             "deals": [
                 {
@@ -9403,7 +10096,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -9431,7 +10125,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -9459,7 +10154,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 85.0592
+                        "payout": 85.0592,
+                        "total": 85.0592
                     }
                 },
                 {
@@ -9487,7 +10183,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -9515,7 +10212,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -9543,7 +10241,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 195
+                        "payout": 195,
+                        "total": 195
                     }
                 },
                 {
@@ -9571,7 +10270,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 269.92
+                        "payout": 269.92,
+                        "total": 269.92
                     }
                 },
                 {
@@ -9599,7 +10299,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 142.4
+                        "payout": 142.4,
+                        "total": 142.4
                     }
                 },
                 {
@@ -9627,7 +10328,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 91.89920000000001
+                        "payout": 91.89920000000001,
+                        "total": 91.89920000000001
                     }
                 },
                 {
@@ -9655,7 +10357,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 93.76
+                        "payout": 93.76,
+                        "total": 93.76
                     }
                 },
                 {
@@ -9683,7 +10386,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 111.24000000000001
+                        "payout": 111.24000000000001,
+                        "total": 111.24000000000001
                     }
                 },
                 {
@@ -9711,7 +10415,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 154.48160000000001
+                        "payout": 154.48160000000001,
+                        "total": 154.48160000000001
                     }
                 },
                 {
@@ -9739,15 +10444,11 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 259020,
@@ -9755,6 +10456,11 @@
             "averageUnits": 1,
             "priorDraw": 0,
             "spiff": 0,
+            "nps": {
+                "surveys": 0,
+                "current": 0,
+                "average": 0
+            },
             "commission": {
                 "fni": 419,
                 "gross": -1600,
@@ -9763,7 +10469,19 @@
             "retro": {
                 "mini": 200,
                 "owed": 0,
-                "payout": 0
+                "payout": 0,
+                "total": 0
+            },
+            "fni": {
+                "reserve": 104.75,
+                "gross": 314.25,
+                "payout": 15.7125
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -9791,7 +10509,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
             ]
@@ -9802,6 +10521,12 @@
             "averageUnits": 25,
             "priorDraw": 2587,
             "spiff": 0,
+            "nps": {
+                "surveys": 5,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 42193.4,
                 "gross": 9815.82,
@@ -9810,7 +10535,19 @@
             "retro": {
                 "mini": 5200,
                 "owed": 2600,
-                "payout": 3430.8008000000004
+                "payout": 3430.8008000000004,
+                "total": 6030.800800000001
+            },
+            "fni": {
+                "reserve": 10548.35,
+                "gross": 31645.050000000003,
+                "payout": 1582.2525000000003
+            },
+            "bonus": {
+                "unit": 2500,
+                "topsales": 500,
+                "csi": 1000,
+                "total": 4000
             },
             "deals": [
                 {
@@ -9838,7 +10575,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 1249.43
+                        "payout": 1249.43,
+                        "total": 1249.43
                     }
                 },
                 {
@@ -9866,7 +10604,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -9894,7 +10633,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -9922,7 +10662,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -9950,7 +10691,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -9978,7 +10720,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 307.51000000000005
+                        "payout": 307.51000000000005,
+                        "total": 307.51000000000005
                     }
                 },
                 {
@@ -10006,7 +10749,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -10034,7 +10778,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -10062,7 +10807,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 158.83
+                        "payout": 158.83,
+                        "total": 158.83
                     }
                 },
                 {
@@ -10090,7 +10836,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -10118,7 +10865,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -10146,7 +10894,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -10174,7 +10923,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 399.6797
+                        "payout": 399.6797,
+                        "total": 399.6797
                     }
                 },
                 {
@@ -10202,7 +10952,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -10230,7 +10981,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -10258,7 +11010,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -10286,7 +11039,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 167.72000000000003
+                        "payout": 167.72000000000003,
+                        "total": 167.72000000000003
                     }
                 },
                 {
@@ -10314,7 +11068,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 400.1802
+                        "payout": 400.1802,
+                        "total": 400.1802
                     }
                 },
                 {
@@ -10342,7 +11097,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -10370,15 +11126,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 747.4509000000002
+                        "payout": 747.4509000000002,
+                        "total": 747.4509000000002
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 5,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 261800,
@@ -10386,6 +11138,12 @@
             "averageUnits": 10,
             "priorDraw": 2325.31,
             "spiff": 506,
+            "nps": {
+                "surveys": 1,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 13027.240000000002,
                 "gross": 2112.3800000000006,
@@ -10394,7 +11152,19 @@
             "retro": {
                 "mini": 600,
                 "owed": -7.6200000000000045,
-                "payout": 0
+                "payout": 0,
+                "total": -7.6200000000000045
+            },
+            "fni": {
+                "reserve": 3256.8100000000004,
+                "gross": 9770.43,
+                "payout": 488.52150000000006
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -10422,7 +11192,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -10450,7 +11221,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -10478,7 +11250,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -10506,7 +11279,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -10534,15 +11308,11 @@
                     "retro": {
                         "mini": 200,
                         "owed": -7.6200000000000045,
-                        "payout": 0
+                        "payout": 0,
+                        "total": -7.6200000000000045
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 1,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 267623,
@@ -10550,6 +11320,12 @@
             "averageUnits": 14,
             "priorDraw": 2534.87,
             "spiff": 2460,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 17249.6,
                 "gross": -2036.7699999999988,
@@ -10558,7 +11334,19 @@
             "retro": {
                 "mini": 1500,
                 "owed": 300,
-                "payout": 0
+                "payout": 0,
+                "total": 300
+            },
+            "fni": {
+                "reserve": 4312.4,
+                "gross": 12937.199999999999,
+                "payout": 646.86
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -10586,7 +11374,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -10614,7 +11403,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -10642,7 +11432,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -10670,7 +11461,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -10698,7 +11490,8 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 },
                 {
@@ -10726,7 +11519,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -10754,7 +11548,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -10782,15 +11577,11 @@
                     "retro": {
                         "mini": 250,
                         "owed": 50,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 50
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 271828,
@@ -10798,6 +11589,12 @@
             "averageUnits": 22,
             "priorDraw": 2324.53,
             "spiff": 550,
+            "nps": {
+                "surveys": 4,
+                "current": 100,
+                "average": 100,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 51837.63,
                 "gross": 1089.9700000000012,
@@ -10806,7 +11603,19 @@
             "retro": {
                 "mini": 3325,
                 "owed": 1425,
-                "payout": 668.0576
+                "payout": 668.0576,
+                "total": 2093.0576
+            },
+            "fni": {
+                "reserve": 12959.4075,
+                "gross": 38878.222499999996,
+                "payout": 1943.9111249999999
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 700,
+                "total": 1450
             },
             "deals": [
                 {
@@ -10834,7 +11643,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -10862,7 +11672,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -10890,7 +11701,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 254.2648
+                        "payout": 254.2648,
+                        "total": 254.2648
                     }
                 },
                 {
@@ -10918,7 +11730,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -10946,7 +11759,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -10974,7 +11788,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -11002,7 +11817,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11030,7 +11846,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11058,7 +11875,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11086,7 +11904,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -11114,7 +11933,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 96.8
+                        "payout": 96.8,
+                        "total": 96.8
                     }
                 },
                 {
@@ -11142,7 +11962,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11170,7 +11991,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 100.834
+                        "payout": 100.834,
+                        "total": 100.834
                     }
                 },
                 {
@@ -11198,7 +12020,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 65.1588
+                        "payout": 65.1588,
+                        "total": 65.1588
                     }
                 },
                 {
@@ -11226,7 +12049,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11254,7 +12078,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 58
+                        "payout": 58,
+                        "total": 58
                     }
                 },
                 {
@@ -11282,15 +12107,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 93
+                        "payout": 93,
+                        "total": 93
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 4,
-                "current": 100,
-                "average": 100
-            }
+            ]
         },
         {
             "id": 277065,
@@ -11298,6 +12119,12 @@
             "averageUnits": 23,
             "priorDraw": 2639.52,
             "spiff": 0,
+            "nps": {
+                "surveys": 4,
+                "current": 100,
+                "average": 83.6,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 40930.049999999996,
                 "gross": -5484.040000000001,
@@ -11306,7 +12133,19 @@
             "retro": {
                 "mini": 2800,
                 "owed": 1200,
-                "payout": 515.462
+                "payout": 515.462,
+                "total": 1715.462
+            },
+            "fni": {
+                "reserve": 10232.512499999999,
+                "gross": 30697.5375,
+                "payout": 1534.876875
+            },
+            "bonus": {
+                "unit": 750,
+                "topsales": 0,
+                "csi": 600,
+                "total": 1350
             },
             "deals": [
                 {
@@ -11334,7 +12173,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11362,7 +12202,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 122.5068
+                        "payout": 122.5068,
+                        "total": 122.5068
                     }
                 },
                 {
@@ -11390,7 +12231,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -11418,7 +12260,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11446,7 +12289,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11474,7 +12318,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 82.2904
+                        "payout": 82.2904,
+                        "total": 82.2904
                     }
                 },
                 {
@@ -11502,7 +12347,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 168.58880000000002
+                        "payout": 168.58880000000002,
+                        "total": 168.58880000000002
                     }
                 },
                 {
@@ -11530,7 +12376,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -11558,7 +12405,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11586,7 +12434,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 74.5208
+                        "payout": 74.5208,
+                        "total": 74.5208
                     }
                 },
                 {
@@ -11614,7 +12463,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -11642,7 +12492,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11670,7 +12521,8 @@
                     "retro": {
                         "mini": 350,
                         "owed": 150,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150
                     }
                 },
                 {
@@ -11698,7 +12550,8 @@
                     "retro": {
                         "mini": 175,
                         "owed": 75,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 75
                     }
                 },
                 {
@@ -11726,15 +12579,11 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 67.5552
+                        "payout": 67.5552,
+                        "total": 67.5552
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 4,
-                "current": 100,
-                "average": 83.6
-            }
+            ]
         },
         {
             "id": 277793,
@@ -11742,6 +12591,11 @@
             "averageUnits": 0,
             "priorDraw": 0,
             "spiff": 0,
+            "nps": {
+                "surveys": 0,
+                "current": 0,
+                "average": 0
+            },
             "commission": {
                 "fni": 813.6,
                 "gross": 3202,
@@ -11750,7 +12604,19 @@
             "retro": {
                 "mini": 0,
                 "owed": 0,
-                "payout": 0
+                "payout": 0,
+                "total": 0
+            },
+            "fni": {
+                "reserve": 203.4,
+                "gross": 610.2,
+                "payout": 30.510000000000005
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -11778,7 +12644,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
             ]
@@ -11789,6 +12656,11 @@
             "averageUnits": 5,
             "priorDraw": 0,
             "spiff": 1550,
+            "nps": {
+                "surveys": 0,
+                "current": 0,
+                "average": 0
+            },
             "commission": {
                 "fni": 11253.93,
                 "gross": 6743.81,
@@ -11797,7 +12669,19 @@
             "retro": {
                 "mini": 600,
                 "owed": 0,
-                "payout": 0
+                "payout": 0,
+                "total": 0
+            },
+            "fni": {
+                "reserve": 2813.4825,
+                "gross": 8440.4475,
+                "payout": 422.022375
+            },
+            "bonus": {
+                "unit": 0,
+                "topsales": 0,
+                "csi": 0,
+                "total": 0
             },
             "deals": [
                 {
@@ -11825,7 +12709,8 @@
                     "retro": {
                         "mini": 100,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -11853,7 +12738,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -11881,7 +12767,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -11909,7 +12796,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -11937,7 +12825,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -11965,7 +12854,8 @@
                     "retro": {
                         "mini": 100,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -11993,7 +12883,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 },
                 {
@@ -12021,7 +12912,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 0
                     }
                 }
             ]
@@ -12032,6 +12924,12 @@
             "averageUnits": 33,
             "priorDraw": 2640.04,
             "spiff": 0,
+            "nps": {
+                "surveys": 3,
+                "current": 100,
+                "average": 96.6,
+                "outcome": "3P"
+            },
             "commission": {
                 "fni": 32440.590000000004,
                 "gross": -6905.38,
@@ -12040,7 +12938,19 @@
             "retro": {
                 "mini": 6000,
                 "owed": 2817.07,
-                "payout": 125.52960000000002
+                "payout": 125.52960000000002,
+                "total": 2942.5996
+            },
+            "fni": {
+                "reserve": 8110.147500000001,
+                "gross": 24330.442500000005,
+                "payout": 1216.5221250000002
+            },
+            "bonus": {
+                "unit": 1500,
+                "topsales": 0,
+                "csi": 0,
+                "total": 1500
             },
             "deals": [
                 {
@@ -12068,7 +12978,8 @@
                     "retro": {
                         "mini": 0,
                         "owed": 0,
-                        "payout": 125.52960000000002
+                        "payout": 125.52960000000002,
+                        "total": 125.52960000000002
                     }
                 },
                 {
@@ -12096,7 +13007,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 171.28,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 171.28
                     }
                 },
                 {
@@ -12124,7 +13036,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -12152,7 +13065,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12180,7 +13094,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12208,7 +13123,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12236,7 +13152,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12264,7 +13181,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12292,7 +13210,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12320,7 +13239,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12348,7 +13268,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 },
                 {
@@ -12376,7 +13297,8 @@
                     "retro": {
                         "mini": 200,
                         "owed": -4.52000000000001,
-                        "payout": 0
+                        "payout": 0,
+                        "total": -4.52000000000001
                     }
                 },
                 {
@@ -12404,7 +13326,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12432,7 +13355,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12460,7 +13384,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 150.31,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 150.31
                     }
                 },
                 {
@@ -12488,7 +13413,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12516,7 +13442,8 @@
                     "retro": {
                         "mini": 400,
                         "owed": 200,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 200
                     }
                 },
                 {
@@ -12544,15 +13471,11 @@
                     "retro": {
                         "mini": 200,
                         "owed": 100,
-                        "payout": 0
+                        "payout": 0,
+                        "total": 100
                     }
                 }
-            ],
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 96.6
-            }
+            ]
         }
     ]
 }

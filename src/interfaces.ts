@@ -3,9 +3,10 @@ interface Person {
     name: string;
 }
 
-interface SalesTotals {
+interface Units {
     new: number;
     used: number;
+    total: number;
 }
 
 interface TopSalesman {
@@ -22,6 +23,8 @@ interface FnI {
 interface Bonus {
     unit: number;
     topsales: number;
+    csi: number;
+    eom: number;
     total: number;
 }
 
@@ -35,10 +38,21 @@ interface Retro {
     mini: number;
     owed: number;
     payout: number;
+    total: number;
 }
 
 interface NPS {
     surveys: number;
     current: number;
     average: number;
+    outcome: string;
+}
+
+interface Account {
+    retro: string;
+    expense1: string;
+    expense2: string;
+    salesTax: string;
+    salesBonusTax1: string;
+    salesBonusTax2: string;
 }

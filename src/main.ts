@@ -6,7 +6,29 @@ function main(workbook: ExcelScript.Workbook) {
         const data = sheet.getUsedRange().getValues();
         let header = data.shift();
         const sheetName = sheet.getName();
-        switch(sheetName) { 
+        switch(sheetName) {
+            case 'INPUT':
+                const storeName_input = header.indexOf("Store Name");
+                const storeAbbr_input = header.indexOf("Store Abbr");
+                const regionalScore_input = header.indexOf("Regional Score");
+                const retroAcct_input = header.indexOf("Retro Acct");
+                const expenseAcct1_input = header.indexOf("Expense 1 Acct");
+                const expenseAcct2_input = header.indexOf("Expense 2 Acct");
+                const saleTaxAcct_input = header.indexOf("Sales Tax Acct");
+                const saleBonusTaxAcct1_input = header.indexOf("Sales Bonus Tax 1");
+                const saleBonusTaxAcct2_input = header.indexOf("Sales Bonus Tax 2");
+                data.forEach(row => {
+                    store.name = String(row[storeName_input]);
+                    store.abbr = String(row[storeAbbr_input]);
+                    store.regionalScore = Number(row[regionalScore_input]);
+                    store.accounts.retro = String(row[retroAcct_input]);
+                    store.accounts.expense1 = String(row[expenseAcct1_input]);
+                    store.accounts.expense2 = String(row[expenseAcct2_input]);
+                    store.accounts.salesTax = String(row[saleTaxAcct_input]);
+                    store.accounts.salesBonusTax1 = String(row[saleBonusTaxAcct1_input]);
+                    store.accounts.salesBonusTax2 = String(row[saleBonusTaxAcct2_input]);
+                });
+                break;
             case '0432':
                 const empID_0432 = header.indexOf("Salesperson#");
                 const empName_0432 = header.indexOf("Salesperson Name");
@@ -32,12 +54,6 @@ function main(workbook: ExcelScript.Workbook) {
                         const commission: Commission = { fni: Number(row[commFni_0432]), gross: Number(row[commGross_0432]), amount: Number(row[commAmount_0432]) };
                         const deal = new Deal(String(row[dealID_0432]), Number(row[dealDate_0432]), customer, vehicle, unitCount, commission );
                         employee?.deals.push(deal);
-                        // employee?.commission.fni += commission.fni;
-                        // store.commission.fni += commission.fni;
-                        // employee?.commission.gross += commission.gross;
-                        // store.commission.gross += commission.gross;
-                        // employee?.commission.amount += commission.amount;
-                        // store.commission.amount += commission.amount; 
                     }
                 });
                 break;
@@ -53,12 +69,15 @@ function main(workbook: ExcelScript.Workbook) {
                 break;
             case '3213':
                 const empID_3213 = header.indexOf("Control#");
+                const comm_3213 = header.indexOf("8321C");
                 const amount_3213 = header.indexOf("8321D");
                 data.forEach(row => {
                     const empID = Number(row[empID_3213]);
+                    const commissionBalance = Number(row[comm_3213]);
                     const amount = Number(row[amount_3213]);
                     const employee = store.employees.find(emp => emp.id === empID);
                     employee?.priorDraw = amount;
+                    employee?.commissionBalance = commissionBalance;
                 });
                 break;
             case 'SPIFFS':
@@ -80,10 +99,11 @@ function main(workbook: ExcelScript.Workbook) {
                 data.forEach(row => {
                     const empID = Number(row[empID_nps]);
                     const surveys = Number(row[surveyCount_nps]);
-                    const current = Number(row[current_nps])*100;
-                    const average = Number(row[average_nps])*100;
+                    const current = Number(row[current_nps]) * 100;
+                    const average = Number(row[average_nps]) * 100;
+                    const outcome = calculateCsiOutcome(current, average, store.regionalScore);
                     const employee = store.employees.find(emp => emp.id === empID);
-                    employee?.nps = { surveys, current, average };
+                    employee?.nps = { surveys, current, average, outcome };
                 });
                 break;
             case 'Look Up Table':
@@ -92,7 +112,11 @@ function main(workbook: ExcelScript.Workbook) {
                 break;
         }
     });
-    store.getCommission();
-    store.getRetro();
+    store.calculateAll()
+
+    new NpsSheet(workbook, store);
+    new PaySummarySheet(workbook, store);
+    new JvSheet(workbook, store);
+
     console.log(store);
 }

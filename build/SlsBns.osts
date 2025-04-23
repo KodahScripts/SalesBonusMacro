@@ -1,12 +1,28 @@
 class Store {
     public employees: Employee[];
+    public regionalScore: number;
     public commission: Commission;
     public retro: Retro;
+    public fni: FnI;
+    public bonus: Bonus;
+    public topSalesman: TopSalesman;
+    public totalCommission: number;
+    public ytdBucket: number;
+    public accounts: Account;
+    public units: Units;
     constructor(public name: string, public abbr: string) {
         this.name = name;
         this.abbr = abbr;
+        this.regionalScore = 0;
+        this.totalCommission = 0;
+        this.ytdBucket = 0;
+        this.units = { new: 0, used: 0, total: 0 };
+        this.accounts = { retro: '', expense1: '', expense2: '', salesTax: '', salesBonusTax1: '', salesBonusTax2: '' }
+        this.fni = { reserve: 0, gross: 0, payout: 0 }
         this.commission = { fni: 0, gross: 0, amount: 0 };
-        this.retro = { mini: 0, owed: 0, payout: 0 };
+        this.retro = { mini: 0, owed: 0, payout: 0, total: 0 };
+        this.bonus = { unit: 0, topsales: 0, csi: 0, eom: 0, total: 0 };
+        this.topSalesman = { id: 0, count: 0 };
         this.employees = [];
     }
 
@@ -14,18 +30,22 @@ class Store {
         return this.employees.some(emp => emp.id === employeeId);
     }
 
-    getSaleTypeTotals(): SalesTotals {
-        const sales: SalesTotals = { new: 0, used: 0 };
-        this.employees.forEach(employee => {
-            employee.deals.forEach(deal => {
-                if(deal.vehicle.saleType === "New") {
-                    sales.new++;
-                } else {
-                    sales.used++;
-                }
-            });
+    calculateAll() {
+        this.getTotalUnits();
+        this.getTopSalesman();
+        this.getCommission();
+        this.getRetro();
+        this.getFni();
+        this.getBonus();
+    }
+
+    getTotalUnits() {
+        this.employees.forEach((employee) => {
+            employee.getTotalUnits();
+            this.units.new += employee.units.new;
+            this.units.used += employee.units.used;
+            this.units.total += employee.units.total;
         });
-        return sales;
     }
 
     getCommission() {
@@ -43,7 +63,37 @@ class Store {
             this.retro.mini += employee.retro.mini;
             this.retro.owed += employee.retro.owed;
             this.retro.payout += employee.retro.payout;
+            this.retro.total += employee.retro.total;
         });
+    }
+
+    getFni() {
+        this.employees.forEach((employee) => {
+            employee.getFni();
+            this.fni.reserve += employee.fni.reserve;
+            this.fni.gross += employee.fni.gross;
+            this.fni.payout += employee.fni.payout;
+        });
+    }
+
+    getBonus() {
+        this.employees.forEach((employee) => {
+            employee.getBonus();
+            this.bonus.unit += employee.bonus.unit;
+            this.bonus.topsales += employee.bonus.topsales;
+            this.bonus.csi += employee.bonus.csi;
+            this.bonus.eom += employee.bonus.eom;
+            this.bonus.total += employee.bonus.total;
+            this.totalCommission += employee.totalCommission;
+            this.ytdBucket += employee.ytdBucket;
+        });
+    }
+
+    getTopSalesman() {
+        this.employees.forEach((employee) => {
+            if(employee.units.total > this.topSalesman.count) this.topSalesman = { id: employee.id, count: employee.units.total };
+        });
+        this.employees.filter(emp => emp.id === this.topSalesman.id)[0].bonus.topsales = 500;
     }
 }
 
@@ -55,21 +105,41 @@ class Employee {
     public nps: NPS;
     public commission: Commission;
     public retro: Retro;
+    public fni: FnI;
+    public bonus: Bonus;
+    public totalCommission: number;
+    public commissionBalance: number;
+    public ytdBucket: number;
+    public drawAmount: number;
+    public units: Units;
     constructor(public id: number, public name: string) {
         this.id = id;
         this.name = name;
         this.averageUnits = 0;
         this.priorDraw = 0;
+        this.drawAmount = 0;
         this.spiff = 0;
+        this.totalCommission = 0;
+        this.ytdBucket = 0;
+        this.commissionBalance = 0;
+        this.units = { new: 0, used: 0, total: 0 };
+        this.nps = { surveys: 0, current: 0, average: 0, outcome: "B" };
         this.commission = { fni: 0, gross: 0, amount: 0 };
-        this.retro = { mini: 0, owed: 0, payout: 0 };
+        this.retro = { mini: 0, owed: 0, payout: 0, total: 0 };
+        this.fni = { reserve: 0, gross: 0, payout: 0 };
+        this.bonus = { unit: 0, topsales: 0, csi: 0, eom: 0, total: 0 };
         this.deals = [];
     }
 
-    getTotalUnits(): number {
-        return this.deals.reduce((acc: number, curr: Deal) => {
-            return acc + curr.unitCount;
-        }, 0);
+    getTotalUnits() {
+        this.deals.forEach(deal => {
+            if(deal.vehicle.saleType === "New") {
+                this.units.new += deal.unitCount;
+            } else {
+                this.units.used += deal.unitCount;
+            }
+            this.units.total += deal.unitCount;
+        });
     }
 
     setAverageUnits(ninetyDayUnitCount: number) {
@@ -78,9 +148,8 @@ class Employee {
     }
 
     getRetroPercentage(): number {
-        const unitCount = this.getTotalUnits();
-        if (unitCount >= 16) return 0.07;
-        if (unitCount >= 12 && unitCount < 16) return 0.04;
+        if (this.units.total >= 16) return 0.07;
+        if (this.units.total >= 12 && this.units.total < 16) return 0.04;
         return 0;
     }
 
@@ -98,7 +167,35 @@ class Employee {
             this.retro.mini += retro.mini;
             this.retro.owed += retro.owed;
             this.retro.payout += retro.payout;
+            this.retro.total += retro.total;
         });
+    }
+
+    getFni() {
+        const reserve = this.commission.fni * 0.25;
+        const gross = this.commission.fni - reserve;
+        const payout = gross * 0.05;
+        this.fni = { reserve, gross, payout };
+    }
+
+    getBonus() {
+        const unitBonus = calculateUnitBonus(this.units.total);
+        const csiBonus = caclulateCsiBonus(this.nps.surveys, this.nps.outcome, this.units.total);
+        this.bonus.unit = unitBonus;
+        this.bonus.csi = csiBonus;
+        this.bonus.total = unitBonus + csiBonus + this.bonus.topsales;
+        this.bonus.eom = this.retro.total + this.fni.payout + this.bonus.total + this.spiff;
+        this.totalCommission = this.bonus.eom + this.commission.amount;
+        this.ytdBucket = calculateYtdBucket(this.totalCommission, this.priorDraw, this.spiff);
+        this.drawAmount = this.commission.amount + this.bonus.total >= this.priorDraw ? this.priorDraw : this.commission.amount + this.bonus.total;
+    }
+
+    getOwed(): number {
+        return this.totalCommission - this.priorDraw;
+    }
+
+    getDepositGross(): number {
+        return this.totalCommission - this.priorDraw - this.ytdBucket;
     }
 }
 
@@ -111,14 +208,15 @@ class Deal {
         this.vehicle = vehicle;
         this.unitCount = unitCount;
         this.commission = commission;
-        this.retro = { mini: 0, owed: 0, payout: 0 };
+        this.retro = { mini: 0, owed: 0, payout: 0, total: 0 };
     }
 
     setRetro(retroPercentage: number, averageUnits: number): Retro {
         const mini = calculateRetroMini(this.commission.amount, averageUnits, this.unitCount);
         const owed = mini > 0 ? mini - this.commission.amount : 0;
         const payout = mini === 0 ? this.commission.gross * retroPercentage : 0;
-        this.retro = { mini: mini, owed: owed, payout: payout };
+        const total = payout + owed;
+        this.retro = { mini: mini, owed: owed, payout: payout, total: total };
         return this.retro;
     }
 }
@@ -152,14 +250,47 @@ function calculateRetroMini(commissionAmount: number, unitAvg: number, dealUnitC
     return 0;
 }
 
+function calculateCsiOutcome(currentCsiScore: number, averageCsiScore: number, regionalScore: number): string {
+    const score = currentCsiScore > averageCsiScore ? currentCsiScore : averageCsiScore;
+    if(score > regionalScore + 0.03) return "3P"
+    if(score == regionalScore) return "A";
+    return "B";
+}
+
+function calculateUnitBonus(unitCount: number): number {
+    if (unitCount >= 24) return 3000;
+    if (unitCount >= 20 && unitCount < 24) return 2500;
+    if (unitCount >= 16 && unitCount < 20) return 1500;
+    if (unitCount >= 12 && unitCount < 16) return 750;
+    if (unitCount >= 10 && unitCount < 12) return 375;
+    return 0;
+}
+
+function caclulateCsiBonus(surveyCount: number, csiOutcome: string, unitCount: number) {
+    if(surveyCount >= 3) {
+        if(csiOutcome === "3P") return unitCount * 50;
+        if(csiOutcome === "A") return unitCount * 0;
+        if(csiOutcome === "B") return unitCount * -50;
+    }
+    return 0;
+}
+
+function calculateYtdBucket(totalCommission:number, priorDraw:number, spiffs:number): number {
+    if(totalCommission - priorDraw < 0) {
+        return totalCommission - priorDraw - spiffs;
+    }
+    return 0;
+}
+
 interface Person {
     id: number;
     name: string;
 }
 
-interface SalesTotals {
+interface Units {
     new: number;
     used: number;
+    total: number;
 }
 
 interface TopSalesman {
@@ -176,6 +307,8 @@ interface FnI {
 interface Bonus {
     unit: number;
     topsales: number;
+    csi: number;
+    eom: number;
     total: number;
 }
 
@@ -189,12 +322,61 @@ interface Retro {
     mini: number;
     owed: number;
     payout: number;
+    total: number;
 }
 
 interface NPS {
     surveys: number;
     current: number;
     average: number;
+    outcome: string;
+}
+
+interface Account {
+    retro: string;
+    expense1: string;
+    expense2: string;
+    salesTax: string;
+    salesBonusTax1: string;
+    salesBonusTax2: string;
+}
+
+class JvSheet {
+    constructor(protected workbook: ExcelScript.Workbook, protected store: Store) {
+        const sheet = workbook.addWorksheet("JV Posting");
+
+        sheet.getRange("A1:M1").setValues([[ "Employee #", "Employee Name", "Draw", "Commission", "Retro Commission", "F&I Commission", "Bonus", "Spiffs", "Total Commission / Bonus", "Total Due / Owed", "YTD Bucket", "Expense 1", "Expense 2" ]]);
+
+        store.employees.forEach((employee, index) => {
+            const row = index + 2;
+            const owed = employee.getOwed();
+            const newPercent = (store.units.new / store.units.total) * owed;
+            const usedPercent = (store.units.used / store.units.total) * owed;
+
+            sheet.getRange(`A${row}:M${row}`).setValues([[ 
+                employee.id,
+                employee.name,
+                employee.priorDraw,
+                employee.commission.amount,
+                employee.retro.total,
+                employee.fni.payout,
+                employee.bonus.total,
+                employee.spiff,
+                employee.totalCommission,
+                owed,
+                employee.ytdBucket,
+                newPercent,
+                usedPercent
+             ]]);
+        });
+
+        const lastRow = store.employees.length + 5;
+        sheet.getRange(`B${lastRow}:D${lastRow+2}`).setValues([
+            ["UNITS", store.units.total, ''],
+            ["NEW", store.units.new, `${(store.units.new / store.units.total) * 100}%`],
+            ["USED", store.units.used, `${(store.units.used / store.units.total) * 100}%`]
+        ]);
+    }
 }
 
 function main(workbook: ExcelScript.Workbook) {
@@ -205,7 +387,29 @@ function main(workbook: ExcelScript.Workbook) {
         const data = sheet.getUsedRange().getValues();
         let header = data.shift();
         const sheetName = sheet.getName();
-        switch(sheetName) { 
+        switch(sheetName) {
+            case 'INPUT':
+                const storeName_input = header.indexOf("Store Name");
+                const storeAbbr_input = header.indexOf("Store Abbr");
+                const regionalScore_input = header.indexOf("Regional Score");
+                const retroAcct_input = header.indexOf("Retro Acct");
+                const expenseAcct1_input = header.indexOf("Expense 1 Acct");
+                const expenseAcct2_input = header.indexOf("Expense 2 Acct");
+                const saleTaxAcct_input = header.indexOf("Sales Tax Acct");
+                const saleBonusTaxAcct1_input = header.indexOf("Sales Bonus Tax 1");
+                const saleBonusTaxAcct2_input = header.indexOf("Sales Bonus Tax 2");
+                data.forEach(row => {
+                    store.name = String(row[storeName_input]);
+                    store.abbr = String(row[storeAbbr_input]);
+                    store.regionalScore = Number(row[regionalScore_input]);
+                    store.accounts.retro = String(row[retroAcct_input]);
+                    store.accounts.expense1 = String(row[expenseAcct1_input]);
+                    store.accounts.expense2 = String(row[expenseAcct2_input]);
+                    store.accounts.salesTax = String(row[saleTaxAcct_input]);
+                    store.accounts.salesBonusTax1 = String(row[saleBonusTaxAcct1_input]);
+                    store.accounts.salesBonusTax2 = String(row[saleBonusTaxAcct2_input]);
+                });
+                break;
             case '0432':
                 const empID_0432 = header.indexOf("Salesperson#");
                 const empName_0432 = header.indexOf("Salesperson Name");
@@ -231,12 +435,6 @@ function main(workbook: ExcelScript.Workbook) {
                         const commission: Commission = { fni: Number(row[commFni_0432]), gross: Number(row[commGross_0432]), amount: Number(row[commAmount_0432]) };
                         const deal = new Deal(String(row[dealID_0432]), Number(row[dealDate_0432]), customer, vehicle, unitCount, commission );
                         employee?.deals.push(deal);
-                        // employee?.commission.fni += commission.fni;
-                        // store.commission.fni += commission.fni;
-                        // employee?.commission.gross += commission.gross;
-                        // store.commission.gross += commission.gross;
-                        // employee?.commission.amount += commission.amount;
-                        // store.commission.amount += commission.amount; 
                     }
                 });
                 break;
@@ -252,12 +450,15 @@ function main(workbook: ExcelScript.Workbook) {
                 break;
             case '3213':
                 const empID_3213 = header.indexOf("Control#");
+                const comm_3213 = header.indexOf("8321C");
                 const amount_3213 = header.indexOf("8321D");
                 data.forEach(row => {
                     const empID = Number(row[empID_3213]);
+                    const commissionBalance = Number(row[comm_3213]);
                     const amount = Number(row[amount_3213]);
                     const employee = store.employees.find(emp => emp.id === empID);
                     employee?.priorDraw = amount;
+                    employee?.commissionBalance = commissionBalance;
                 });
                 break;
             case 'SPIFFS':
@@ -279,10 +480,11 @@ function main(workbook: ExcelScript.Workbook) {
                 data.forEach(row => {
                     const empID = Number(row[empID_nps]);
                     const surveys = Number(row[surveyCount_nps]);
-                    const current = Number(row[current_nps])*100;
-                    const average = Number(row[average_nps])*100;
+                    const current = Number(row[current_nps]) * 100;
+                    const average = Number(row[average_nps]) * 100;
+                    const outcome = calculateCsiOutcome(current, average, store.regionalScore);
                     const employee = store.employees.find(emp => emp.id === empID);
-                    employee?.nps = { surveys, current, average };
+                    employee?.nps = { surveys, current, average, outcome };
                 });
                 break;
             case 'Look Up Table':
@@ -291,8 +493,62 @@ function main(workbook: ExcelScript.Workbook) {
                 break;
         }
     });
-    store.getCommission();
-    store.getRetro();
+    store.calculateAll()
+
+    new NpsSheet(workbook, store);
+    new PaySummarySheet(workbook, store);
+    new JvSheet(workbook, store);
+
     console.log(store);
+}
+
+class NpsSheet {
+    constructor(protected workbook: ExcelScript.Workbook, protected store: Store) {
+        const sheet = workbook.addWorksheet("NPS");
+
+        sheet.getRange("A1:H1").setValues([[ "Employee #", "Salesperson", "# of Surveys", "Current Score", "90 Day Score", "Score for Bonus", "CSI Outcome", "Regional Score" ]]);
+        sheet.getCell(0, 8).setValue(store.regionalScore);
+
+        store.employees.forEach((employee, index) => {
+            const row = index + 2;
+            sheet.getRange(`A${row}:G${row}`).setValues([[employee.id, employee.name, employee.nps.surveys, employee.nps.current, employee.nps.average, `=IF(D${row}>E${row},D${row},E${row})`, employee.nps.outcome]])
+        });
+    }
+}
+
+class PaySummarySheet {
+    constructor(protected workbook: ExcelScript.Workbook, protected store: Store) {
+        const sheet = workbook.addWorksheet("Pay Summary");
+
+        sheet.getRange("A1:R1").setValues([[ "Employee #", "Salesperson", "Total Units", "Gross for Rank", "Bonus Rank", "F&I Totals", "Spiffs to Pay", "Commission 3120", "Retro Commission", "F&I Commission", "Month End Bonus 3122", "Total EOM Bonus 8328", "Draw 3121", "Total Commissions", "YTD Bucket", "Deposit Gross", "Check - Should be 0", "Draw to Take" ]]);
+
+        store.employees.forEach((employee, index) => {
+            const row = index + 2;
+            const rankFormula = `=IF(C${row}<15,"",RANK.EQ(C${row},C:C,0))`;
+            const depositGross = employee.getDepositGross();
+            const balanceComm = `=H${row} + ${employee.commissionBalance}`;
+
+            sheet.getRange(`A${row}:R${row}`).setValues([[
+                employee.id, 
+                employee.name, 
+                employee.units.total, 
+                employee.commission.gross, 
+                rankFormula, 
+                employee.commission.fni, 
+                employee.spiff, 
+                employee.commission.amount, 
+                employee.retro.total, 
+                employee.fni.payout, 
+                employee.bonus.total, 
+                employee.bonus.eom, 
+                employee.priorDraw,
+                employee.totalCommission,
+                employee.ytdBucket,
+                depositGross,
+                balanceComm,
+                employee.drawAmount
+            ]]);
+        });
+    }
 }
 
