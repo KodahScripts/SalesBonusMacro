@@ -10,13 +10,24 @@ class Store {
     public ytdBucket: number;
     public accounts: Account;
     public units: Units;
+    public unitPercent: UnitPercent;
+    public date: string;
+    public expense: Expense;
+    public totalDraw: number;
+    public totalOwed: number;
+    public totalSpiffs: number;
     constructor(public name: string, public abbr: string) {
         this.name = name;
         this.abbr = abbr;
         this.regionalScore = 0;
         this.totalCommission = 0;
         this.ytdBucket = 0;
+        this.totalDraw = 0;
+        this.totalOwed = 0;
+        this.totalSpiffs = 0;
+        this.expense = { one: 0, two: 0 };
         this.units = { new: 0, used: 0, total: 0 };
+        this.unitPercent = { new: 0, used: 0 };
         this.accounts = { retro: '', expense1: '', expense2: '', salesTax: '', salesBonusTax1: '', salesBonusTax2: '' }
         this.fni = { reserve: 0, gross: 0, payout: 0 }
         this.commission = { fni: 0, gross: 0, amount: 0 };
@@ -37,6 +48,14 @@ class Store {
         this.getRetro();
         this.getFni();
         this.getBonus();
+        this.employees.forEach((employee) => {
+            employee.setExpense(this.unitPercent.new, this.unitPercent.used);
+            this.expense.one += employee.expense.one;
+            this.expense.two += employee.expense.two;
+            this.totalDraw += employee.drawAmount;
+            this.totalOwed += employee.getOwed();
+            this.totalSpiffs += employee.spiff;
+        });
     }
 
     getTotalUnits() {
@@ -46,6 +65,8 @@ class Store {
             this.units.used += employee.units.used;
             this.units.total += employee.units.total;
         });
+        this.unitPercent.new = this.units.new / this.units.total;
+        this.unitPercent.used = this.units.used / this.units.total;
     }
 
     getCommission() {
@@ -86,12 +107,13 @@ class Store {
             this.bonus.total += employee.bonus.total;
             this.totalCommission += employee.totalCommission;
             this.ytdBucket += employee.ytdBucket;
+
         });
     }
 
     getTopSalesman() {
         this.employees.forEach((employee) => {
-            if(employee.units.total > this.topSalesman.count) this.topSalesman = { id: employee.id, count: employee.units.total };
+            if (employee.units.total > this.topSalesman.count) this.topSalesman = { id: employee.id, count: employee.units.total };
         });
         this.employees.filter(emp => emp.id === this.topSalesman.id)[0].bonus.topsales = 500;
     }
@@ -112,6 +134,7 @@ class Employee {
     public ytdBucket: number;
     public drawAmount: number;
     public units: Units;
+    public expense: Expense;
     constructor(public id: number, public name: string) {
         this.id = id;
         this.name = name;
@@ -122,6 +145,7 @@ class Employee {
         this.totalCommission = 0;
         this.ytdBucket = 0;
         this.commissionBalance = 0;
+        this.expense = { one: 0, two: 0 };
         this.units = { new: 0, used: 0, total: 0 };
         this.nps = { surveys: 0, current: 0, average: 0, outcome: "B" };
         this.commission = { fni: 0, gross: 0, amount: 0 };
@@ -133,7 +157,7 @@ class Employee {
 
     getTotalUnits() {
         this.deals.forEach(deal => {
-            if(deal.vehicle.saleType === "New") {
+            if (deal.vehicle.saleType === "New") {
                 this.units.new += deal.unitCount;
             } else {
                 this.units.used += deal.unitCount;
@@ -196,6 +220,25 @@ class Employee {
 
     getDepositGross(): number {
         return this.totalCommission - this.priorDraw - this.ytdBucket;
+    }
+
+    getTotalPay(): number {
+        return (this.commission.amount + this.retro.total + this.fni.payout + this.bonus.total + this.spiff) - this.priorDraw;
+    }
+
+    getRemainder(): number {
+        return this.totalCommission - this.commission.amount
+    }
+
+    calcNewBucket(): number {
+        if (this.getTotalPay() < 0) return this.priorDraw + this.bonus.total + this.fni.payout + this.retro.total;
+        return 0;
+    }
+
+    setExpense(newPercent: number, usedPercent: number) {
+        const remainder = this.getRemainder();
+        this.expense.one = remainder * newPercent;
+        this.expense.two = remainder * usedPercent;
     }
 }
 

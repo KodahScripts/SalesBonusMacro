@@ -9,6 +9,11 @@ interface Units {
     total: number;
 }
 
+interface UnitPercent {
+    new: number;
+    used: number;
+}
+
 interface TopSalesman {
     id: number;
     count: number;
@@ -55,4 +60,9 @@ interface Account {
     salesTax: string;
     salesBonusTax1: string;
     salesBonusTax2: string;
+}
+
+interface Expense {
+    one: number,
+    two: number
 }

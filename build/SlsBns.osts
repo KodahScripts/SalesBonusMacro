@@ -1,3 +1,12 @@
+//////////////////////////////////////////////////////
+//                                                  //
+//                  Created By:                     //
+//                Matthew Beckwith                  //
+//                                                  //
+//                   April 2025                     //
+//                                                  //
+//////////////////////////////////////////////////////
+
 class Store {
     public employees: Employee[];
     public regionalScore: number;
@@ -10,13 +19,24 @@ class Store {
     public ytdBucket: number;
     public accounts: Account;
     public units: Units;
+    public unitPercent: UnitPercent;
+    public date: string;
+    public expense: Expense;
+    public totalDraw: number;
+    public totalOwed: number;
+    public totalSpiffs: number;
     constructor(public name: string, public abbr: string) {
         this.name = name;
         this.abbr = abbr;
         this.regionalScore = 0;
         this.totalCommission = 0;
         this.ytdBucket = 0;
+        this.totalDraw = 0;
+        this.totalOwed = 0;
+        this.totalSpiffs = 0;
+        this.expense = { one: 0, two: 0 };
         this.units = { new: 0, used: 0, total: 0 };
+        this.unitPercent = { new: 0, used: 0 };
         this.accounts = { retro: '', expense1: '', expense2: '', salesTax: '', salesBonusTax1: '', salesBonusTax2: '' }
         this.fni = { reserve: 0, gross: 0, payout: 0 }
         this.commission = { fni: 0, gross: 0, amount: 0 };
@@ -37,6 +57,14 @@ class Store {
         this.getRetro();
         this.getFni();
         this.getBonus();
+        this.employees.forEach((employee) => {
+            employee.setExpense(this.unitPercent.new, this.unitPercent.used);
+            this.expense.one += employee.expense.one;
+            this.expense.two += employee.expense.two;
+            this.totalDraw += employee.drawAmount;
+            this.totalOwed += employee.getOwed();
+            this.totalSpiffs += employee.spiff;
+        });
     }
 
     getTotalUnits() {
@@ -46,6 +74,8 @@ class Store {
             this.units.used += employee.units.used;
             this.units.total += employee.units.total;
         });
+        this.unitPercent.new = this.units.new / this.units.total;
+        this.unitPercent.used = this.units.used / this.units.total;
     }
 
     getCommission() {
@@ -86,12 +116,13 @@ class Store {
             this.bonus.total += employee.bonus.total;
             this.totalCommission += employee.totalCommission;
             this.ytdBucket += employee.ytdBucket;
+
         });
     }
 
     getTopSalesman() {
         this.employees.forEach((employee) => {
-            if(employee.units.total > this.topSalesman.count) this.topSalesman = { id: employee.id, count: employee.units.total };
+            if (employee.units.total > this.topSalesman.count) this.topSalesman = { id: employee.id, count: employee.units.total };
         });
         this.employees.filter(emp => emp.id === this.topSalesman.id)[0].bonus.topsales = 500;
     }
@@ -112,6 +143,7 @@ class Employee {
     public ytdBucket: number;
     public drawAmount: number;
     public units: Units;
+    public expense: Expense;
     constructor(public id: number, public name: string) {
         this.id = id;
         this.name = name;
@@ -122,6 +154,7 @@ class Employee {
         this.totalCommission = 0;
         this.ytdBucket = 0;
         this.commissionBalance = 0;
+        this.expense = { one: 0, two: 0 };
         this.units = { new: 0, used: 0, total: 0 };
         this.nps = { surveys: 0, current: 0, average: 0, outcome: "B" };
         this.commission = { fni: 0, gross: 0, amount: 0 };
@@ -133,7 +166,7 @@ class Employee {
 
     getTotalUnits() {
         this.deals.forEach(deal => {
-            if(deal.vehicle.saleType === "New") {
+            if (deal.vehicle.saleType === "New") {
                 this.units.new += deal.unitCount;
             } else {
                 this.units.used += deal.unitCount;
@@ -197,6 +230,25 @@ class Employee {
     getDepositGross(): number {
         return this.totalCommission - this.priorDraw - this.ytdBucket;
     }
+
+    getTotalPay(): number {
+        return (this.commission.amount + this.retro.total + this.fni.payout + this.bonus.total + this.spiff) - this.priorDraw;
+    }
+
+    getRemainder(): number {
+        return this.totalCommission - this.commission.amount
+    }
+
+    calcNewBucket(): number {
+        if (this.getTotalPay() < 0) return this.priorDraw + this.bonus.total + this.fni.payout + this.retro.total;
+        return 0;
+    }
+
+    setExpense(newPercent: number, usedPercent: number) {
+        const remainder = this.getRemainder();
+        this.expense.one = remainder * newPercent;
+        this.expense.two = remainder * usedPercent;
+    }
 }
 
 class Deal {
@@ -252,8 +304,8 @@ function calculateRetroMini(commissionAmount: number, unitAvg: number, dealUnitC
 
 function calculateCsiOutcome(currentCsiScore: number, averageCsiScore: number, regionalScore: number): string {
     const score = currentCsiScore > averageCsiScore ? currentCsiScore : averageCsiScore;
-    if(score > regionalScore + 0.03) return "3P"
-    if(score == regionalScore) return "A";
+    if (score > regionalScore + (regionalScore * 0.03)) return "3P"
+    if (score == regionalScore) return "A";
     return "B";
 }
 
@@ -267,16 +319,16 @@ function calculateUnitBonus(unitCount: number): number {
 }
 
 function caclulateCsiBonus(surveyCount: number, csiOutcome: string, unitCount: number) {
-    if(surveyCount >= 3) {
-        if(csiOutcome === "3P") return unitCount * 50;
-        if(csiOutcome === "A") return unitCount * 0;
-        if(csiOutcome === "B") return unitCount * -50;
+    if (surveyCount >= 3) {
+        if (csiOutcome === "3P") return unitCount * 50;
+        if (csiOutcome === "A") return unitCount * 0;
+        if (csiOutcome === "B") return unitCount * -50;
     }
     return 0;
 }
 
-function calculateYtdBucket(totalCommission:number, priorDraw:number, spiffs:number): number {
-    if(totalCommission - priorDraw < 0) {
+function calculateYtdBucket(totalCommission: number, priorDraw: number, spiffs: number): number {
+    if (totalCommission - priorDraw < 0) {
         return totalCommission - priorDraw - spiffs;
     }
     return 0;
@@ -291,6 +343,11 @@ interface Units {
     new: number;
     used: number;
     total: number;
+}
+
+interface UnitPercent {
+    new: number;
+    used: number;
 }
 
 interface TopSalesman {
@@ -341,19 +398,24 @@ interface Account {
     salesBonusTax2: string;
 }
 
+interface Expense {
+    one: number,
+    two: number
+}
+
 class JvSheet {
     constructor(protected workbook: ExcelScript.Workbook, protected store: Store) {
         const sheet = workbook.addWorksheet("JV Posting");
 
-        sheet.getRange("A1:M1").setValues([[ "Employee #", "Employee Name", "Draw", "Commission", "Retro Commission", "F&I Commission", "Bonus", "Spiffs", "Total Commission / Bonus", "Total Due / Owed", "YTD Bucket", "Expense 1", "Expense 2" ]]);
+        sheet.getRange("A1:M1").setValues([["Employee #", "Employee Name", "Draw", "Commission", "Retro Commission", "F&I Commission", "Bonus", "Spiffs", "Total Commission / Bonus", "Total Due / Owed", "YTD Bucket", "Expense 1", "Expense 2"]]);
+
+        const startRow = 2
 
         store.employees.forEach((employee, index) => {
-            const row = index + 2;
+            const row = index + startRow;
             const owed = employee.getOwed();
-            const newPercent = (store.units.new / store.units.total) * owed;
-            const usedPercent = (store.units.used / store.units.total) * owed;
 
-            sheet.getRange(`A${row}:M${row}`).setValues([[ 
+            sheet.getRange(`A${row}:M${row}`).setValues([[
                 employee.id,
                 employee.name,
                 employee.priorDraw,
@@ -365,16 +427,62 @@ class JvSheet {
                 employee.totalCommission,
                 owed,
                 employee.ytdBucket,
-                newPercent,
-                usedPercent
-             ]]);
+                employee.expense.one,
+                employee.expense.two
+            ]]);
         });
 
-        const lastRow = store.employees.length + 5;
-        sheet.getRange(`B${lastRow}:D${lastRow+2}`).setValues([
+        const reportEnd = store.employees.length + 1;
+        let totalRow = reportEnd + 1;
+        sheet.getRange(`C${totalRow}:M${totalRow}`).setValues([[
+            `=SUM(C${startRow}:C${reportEnd})`,
+            `=SUM(D${startRow}:D${reportEnd})`,
+            `=SUM(E${startRow}:E${reportEnd})`,
+            `=SUM(F${startRow}:F${reportEnd})`,
+            `=SUM(G${startRow}:G${reportEnd})`,
+            `=SUM(H${startRow}:H${reportEnd})`,
+            `=SUM(I${startRow}:I${reportEnd})`,
+            `=SUM(J${startRow}:J${reportEnd})`,
+            `=SUM(K${startRow}:K${reportEnd})`,
+            `=SUM(L${startRow}:L${reportEnd})`,
+            `=SUM(M${startRow}:M${reportEnd})`
+        ]]);
+
+        totalRow++;
+        sheet.getRange(`C${totalRow}:M${totalRow}`).setValues([[
+            store.totalDraw,
+            store.commission.amount,
+            store.retro.total,
+            store.fni.payout,
+            store.bonus.total,
+            store.totalSpiffs,
+            store.totalCommission,
+            store.totalOwed,
+            store.ytdBucket,
+            store.expense.one,
+            store.expense.two
+        ]]);
+
+        const calcRow = totalRow + 1;
+        sheet.getRange(`C${calcRow}:M${calcRow}`).setValues([[
+            `=C${calcRow - 2}-C${calcRow - 1}`,
+            `=D${calcRow - 2}-D${calcRow - 1}`,
+            `=E${calcRow - 2}-E${calcRow - 1}`,
+            `=F${calcRow - 2}-F${calcRow - 1}`,
+            `=G${calcRow - 2}-G${calcRow - 1}`,
+            `=H${calcRow - 2}-H${calcRow - 1}`,
+            `=I${calcRow - 2}-I${calcRow - 1}`,
+            `=J${calcRow - 2}-J${calcRow - 1}`,
+            `=K${calcRow - 2}-K${calcRow - 1}`,
+            `=L${calcRow - 2}-L${calcRow - 1}`,
+            `=M${calcRow - 2}-M${calcRow - 1}`
+        ]]);
+
+        const belowAllStartRow = calcRow + 3;
+        sheet.getRange(`B${belowAllStartRow}:D${belowAllStartRow + 2}`).setValues([
             ["UNITS", store.units.total, ''],
-            ["NEW", store.units.new, `${(store.units.new / store.units.total) * 100}%`],
-            ["USED", store.units.used, `${(store.units.used / store.units.total) * 100}%`]
+            ["NEW", store.units.new, store.unitPercent.new * 100],
+            ["USED", store.units.used, store.unitPercent.used * 100]
         ]);
     }
 }
@@ -387,10 +495,11 @@ function main(workbook: ExcelScript.Workbook) {
         const data = sheet.getUsedRange().getValues();
         let header = data.shift();
         const sheetName = sheet.getName();
-        switch(sheetName) {
+        switch (sheetName) {
             case 'INPUT':
                 const storeName_input = header.indexOf("Store Name");
                 const storeAbbr_input = header.indexOf("Store Abbr");
+                const date_input = header.indexOf("Date");
                 const regionalScore_input = header.indexOf("Regional Score");
                 const retroAcct_input = header.indexOf("Retro Acct");
                 const expenseAcct1_input = header.indexOf("Expense 1 Acct");
@@ -401,6 +510,7 @@ function main(workbook: ExcelScript.Workbook) {
                 data.forEach(row => {
                     store.name = String(row[storeName_input]);
                     store.abbr = String(row[storeAbbr_input]);
+                    store.date = String(row[date_input]);
                     store.regionalScore = Number(row[regionalScore_input]);
                     store.accounts.retro = String(row[retroAcct_input]);
                     store.accounts.expense1 = String(row[expenseAcct1_input]);
@@ -427,13 +537,13 @@ function main(workbook: ExcelScript.Workbook) {
                 data.forEach(row => {
                     const empID = Number(row[empID_0432]);
                     const unitCount = Number(row[units_0432]);
-                    if(!store.employeeExists(empID)) store.employees.push(new Employee(empID, String(row[empName_0432])));
+                    if (!store.employeeExists(empID)) store.employees.push(new Employee(empID, String(row[empName_0432])));
                     const employee = store.employees.find(emp => emp.id === empID);
-                    if(unitCount > 0) {
+                    if (unitCount > 0) {
                         const customer: Person = { id: Number(row[custID_0432]), name: String(row[custName_0432]) };
                         const vehicle = new Vehicle(String(row[vehID_0432]), String(row[vehDesc_0432]), String(row[saleType_0432]));
                         const commission: Commission = { fni: Number(row[commFni_0432]), gross: Number(row[commGross_0432]), amount: Number(row[commAmount_0432]) };
-                        const deal = new Deal(String(row[dealID_0432]), Number(row[dealDate_0432]), customer, vehicle, unitCount, commission );
+                        const deal = new Deal(String(row[dealID_0432]), Number(row[dealDate_0432]), customer, vehicle, unitCount, commission);
                         employee?.deals.push(deal);
                     }
                 });
@@ -495,60 +605,332 @@ function main(workbook: ExcelScript.Workbook) {
     });
     store.calculateAll()
 
-    new NpsSheet(workbook, store);
-    new PaySummarySheet(workbook, store);
-    new JvSheet(workbook, store);
+    const allSheets = [
+        new NpsSheet(workbook, store),
+        new PaySummarySheet(workbook, store),
+        // new JvSheet(workbook, store),
+        new PostSheet(workbook, store)
+    ];
+
+
+    store.employees.forEach(employee => {
+        allSheets.push(new SalesSheet(workbook, employee));
+    });
 
     console.log(store);
 }
 
 class NpsSheet {
+    private sheet: ExcelScript.Worksheet;
     constructor(protected workbook: ExcelScript.Workbook, protected store: Store) {
-        const sheet = workbook.addWorksheet("NPS");
+        this.sheet = workbook.addWorksheet("NPS");
+        this.store = store;
 
-        sheet.getRange("A1:H1").setValues([[ "Employee #", "Salesperson", "# of Surveys", "Current Score", "90 Day Score", "Score for Bonus", "CSI Outcome", "Regional Score" ]]);
+        this.sheet.getRange("A1:H1").setValues([["Employee #", "Salesperson", "# of Surveys", "Current Score", "90 Day Score", "Score for Bonus", "CSI Outcome", "Regional Score"]]);
+        this.sheet.getCell(0, 8).setValue(store.regionalScore);
+
+        store.employees.forEach((employee, index) => {
+            const row = index + 2;
+            this.sheet.getRange(`A${row}:G${row}`).setValues([[employee.id, employee.name, employee.nps.surveys, employee.nps.current / 100, employee.nps.average / 100, `=IF(D${row}>E${row},D${row},E${row})`, employee.nps.outcome]])
+        });
+        this.format();
+    }
+    format() {
+        const employeeCount = this.store.employees.length + 1;
+        const data = this.sheet.getRange(`A1:G${employeeCount}`);
+        const dataTable = this.sheet.addTable(data, true);
+        dataTable.setPredefinedTableStyle("TableStyleLight2");
+        const regionalRange = this.sheet.getRange("H1:I1").getFormat();
+
+        this.sheet.getRange(`D2:F${employeeCount}`).setNumberFormat("0.0%");
+
+        regionalRange.setColumnWidth(80);
+        regionalRange.setRowHeight(50);
+        regionalRange.getFont().setBold(true);
+        regionalRange.getFill().setColor("lightblue");
+
+        this.sheet.getRange("A:A").getFormat().setHorizontalAlignment(ExcelScript.HorizontalAlignment.center);
+        this.sheet.getRange("A:A").getFormat().setVerticalAlignment(ExcelScript.VerticalAlignment.center);
+        this.sheet.getRange("C:I").getFormat().setHorizontalAlignment(ExcelScript.HorizontalAlignment.center);
+        this.sheet.getRange("C:I").getFormat().setVerticalAlignment(ExcelScript.VerticalAlignment.center);
+        data.getFormat().autofitColumns();
+    }
+}
+
+class PaySheet {
+    constructor(protected workbook: ExcelScript.Workbook, protected store: Store) {
+        const sheet = workbook.addWorksheet("Pay Check");
+
+        sheet.getRange("A1:H1").setValues([["Acct", "Amount", "Control", "Acct Number", "SLSBN", "Score for Bonus", "CSI Outcome", "Regional Score"]]);
         sheet.getCell(0, 8).setValue(store.regionalScore);
 
         store.employees.forEach((employee, index) => {
             const row = index + 2;
-            sheet.getRange(`A${row}:G${row}`).setValues([[employee.id, employee.name, employee.nps.surveys, employee.nps.current, employee.nps.average, `=IF(D${row}>E${row},D${row},E${row})`, employee.nps.outcome]])
+            sheet.getRange(`A${row}:G${row}`).setValues([[]])
         });
     }
 }
 
 class PaySummarySheet {
+    private sheet: ExcelScript.Worksheet;
     constructor(protected workbook: ExcelScript.Workbook, protected store: Store) {
-        const sheet = workbook.addWorksheet("Pay Summary");
+        this.sheet = workbook.addWorksheet("Pay Summary");
+        this.sheet.getRange("A1:T1").setValues([["Employee #", "Salesperson", "Total Units", "Gross for Rank", "Bonus Rank", "F&I Totals", "Spiffs to Pay", "Commission 3120", "Retro Commission", "F&I Commission", "Month End Bonus 3122", "Total EOM Bonus 8328", "Draw 3121", "Total Commissions", "YTD Bucket", "Deposit Gross", "Check - Should be 0", "Draw to Take", "Expense 1", "Expense 2"]]);
 
-        sheet.getRange("A1:R1").setValues([[ "Employee #", "Salesperson", "Total Units", "Gross for Rank", "Bonus Rank", "F&I Totals", "Spiffs to Pay", "Commission 3120", "Retro Commission", "F&I Commission", "Month End Bonus 3122", "Total EOM Bonus 8328", "Draw 3121", "Total Commissions", "YTD Bucket", "Deposit Gross", "Check - Should be 0", "Draw to Take" ]]);
+        const startRow = 2
 
         store.employees.forEach((employee, index) => {
-            const row = index + 2;
+            const row = index + startRow;
             const rankFormula = `=IF(C${row}<15,"",RANK.EQ(C${row},C:C,0))`;
             const depositGross = employee.getDepositGross();
             const balanceComm = `=H${row} + ${employee.commissionBalance}`;
 
-            sheet.getRange(`A${row}:R${row}`).setValues([[
-                employee.id, 
-                employee.name, 
-                employee.units.total, 
-                employee.commission.gross, 
-                rankFormula, 
-                employee.commission.fni, 
-                employee.spiff, 
-                employee.commission.amount, 
-                employee.retro.total, 
-                employee.fni.payout, 
-                employee.bonus.total, 
-                employee.bonus.eom, 
-                employee.priorDraw,
-                employee.totalCommission,
-                employee.ytdBucket,
-                depositGross,
+            this.sheet.getRange(`A${row}:T${row}`).setValues([[
+                employee.id,
+                employee.name,
+                employee.units.total,
+                employee.commission.gross.toFixed(2),
+                rankFormula,
+                employee.commission.fni.toFixed(2),
+                employee.spiff.toFixed(2),
+                employee.commission.amount.toFixed(2),
+                employee.retro.total.toFixed(2),
+                employee.fni.payout.toFixed(2),
+                employee.bonus.total.toFixed(2),
+                employee.bonus.eom.toFixed(2),
+                employee.priorDraw.toFixed(2),
+                employee.totalCommission.toFixed(2),
+                employee.ytdBucket.toFixed(2),
+                depositGross.toFixed(2),
                 balanceComm,
-                employee.drawAmount
+                employee.drawAmount.toFixed(2),
+                employee.expense.one.toFixed(2),
+                employee.expense.two.toFixed(2)
+            ]]);
+        });
+
+        const reportEnd = store.employees.length + 1;
+        let totalRow = reportEnd + 1;
+        this.sheet.getRange(`C${totalRow}:T${totalRow}`).setValues([[
+            `=ROUND(SUM(C${startRow}:C${reportEnd}), 2)`,
+            `=ROUND(SUM(D${startRow}:D${reportEnd}), 2)`,
+            '',
+            `=ROUND(SUM(F${startRow}:F${reportEnd}), 2)`,
+            `=ROUND(SUM(G${startRow}:G${reportEnd}), 2)`,
+            `=ROUND(SUM(H${startRow}:H${reportEnd}), 2)`,
+            `=ROUND(SUM(I${startRow}:I${reportEnd}), 2)`,
+            `=ROUND(SUM(J${startRow}:J${reportEnd}), 2)`,
+            `=ROUND(SUM(K${startRow}:K${reportEnd}), 2)`,
+            `=ROUND(SUM(L${startRow}:L${reportEnd}), 2)`,
+            `=ROUND(SUM(M${startRow}:M${reportEnd}), 2)`,
+            `=ROUND(SUM(N${startRow}:N${reportEnd}), 2)`,
+            `=ROUND(SUM(O${startRow}:O${reportEnd}), 2)`,
+            `=ROUND(SUM(P${startRow}:P${reportEnd}), 2)`,
+            `=ROUND(SUM(Q${startRow}:Q${reportEnd}), 2)`,
+            `=ROUND(SUM(R${startRow}:R${reportEnd}), 2)`,
+            `=ROUND(SUM(R${startRow}:S${reportEnd}), 2)`,
+            `=ROUND(SUM(R${startRow}:T${reportEnd}), 2)`,
+        ]]);
+
+        const belowAllStartRow = totalRow + 2;
+        this.sheet.getRange(`B${belowAllStartRow}:C${belowAllStartRow + 1}`).setValues([
+            ["NEW", `${store.units.new} (${(store.unitPercent.new * 100).toFixed(1)}%)`],
+            ["USED", `${store.units.used} (${(store.unitPercent.used * 100).toFixed(1)}%)`]
+        ]);
+        this.format();
+    }
+    format() {
+        const employeeCount = this.store.employees.length + 1;
+        const data = this.sheet.getRange(`A1:T${employeeCount}`);
+        const dataTable = this.sheet.addTable(data, true);
+
+        dataTable.setPredefinedTableStyle("TableStyleLight2");
+    }
+}
+
+class PostSheet {
+    constructor(protected workbook: ExcelScript.Workbook, protected store: Store) {
+        const sheet = workbook.addWorksheet("PowerPost");
+
+        const header = ["DATE", "GL", "AMOUNT", "EMPID", "DESC"];
+        const date = new Date().toISOString().slice(0, 10);
+        const todayArr = date.split('-');
+        const descYear = todayArr[0].split('0')[1];
+        const descDate = [todayArr[1], descYear].join('');
+        const today = Number([todayArr[1], todayArr[2], descYear].join(''));
+        const employeeCount = store.employees.length;
+
+        sheet.getRange('A1:E1').setValues([header]);
+
+        let startRow = 2;
+        store.employees.forEach((employee, index) => {
+            const row = index + startRow;
+            let remainder = employee.getRemainder();
+            remainder = Number(remainder.toFixed(2));
+            sheet.getRange(`A${row}:E${row}`).setValues([[
+                `=TEXT(${today}, "000000")`,
+                store.accounts.retro,
+                remainder * -100,
+                employee.id,
+                `SLSBONUS${descDate}`
+            ]]);
+        });
+
+        startRow += employeeCount;
+        store.employees.forEach((employee, index) => {
+            const row = index + startRow;
+            const expense = Number(employee.expense.one.toFixed(2));
+            sheet.getRange(`A${row}:E${row}`).setValues([[
+                `=TEXT(${today}, "000000")`,
+                store.accounts.expense1,
+                expense * 100,
+                employee.id,
+                `EXPENSE1${descDate}`
+            ]]);
+        });
+
+        startRow += employeeCount;
+        store.employees.forEach((employee, index) => {
+            const row = index + startRow;
+            const expense = Number(employee.expense.two.toFixed(2));
+            sheet.getRange(`A${row}:E${row}`).setValues([[
+                `=TEXT(${today}, "000000")`,
+                store.accounts.expense2,
+                expense * 100,
+                employee.id,
+                `EXPENSE2${descDate}`
             ]]);
         });
     }
 }
+
+class SalesSheet {
+    private sheet: ExcelScript.Worksheet;
+    constructor(protected workbook: ExcelScript.Workbook, protected employee: Employee) {
+        if (employee.deals.length === 0) return;
+        this.sheet = workbook.addWorksheet(employee.name);
+        const startRow = 8;
+        const dealCount = employee.deals.length;
+        const lastRow = dealCount + startRow;
+        const headerRange = this.sheet.getRange("A1:B6");
+        const colHeaderRange = this.sheet.getRange("A7:P7");
+
+        headerRange.setValues([
+            ["Name", employee.name],
+            ["Employee Number", employee.id],
+            ["90 Day Rolling Average #", employee.averageUnits],
+            ["CSI", employee.nps.outcome],
+            ["# of Surveys", employee.nps.surveys],
+            ["Retro Percentage", employee.getRetroPercentage()]
+        ]);
+
+        colHeaderRange.setValues([["Date", "Reference #", "Customer #", "Customer Name", "Stock #", "Year", "Make", "Model", "Sale Type", "Commission F&I", "Commission Gross", "Units", "Commission Amount", "Retro Mini", "Retro Owed", "Retro Commission Payout"]]);
+
+        employee.deals.forEach((deal, index) => {
+            const row = index + 8;
+            this.sheet.getRange(`A${row}:P${row}`).setValues([[
+                deal.date,
+                deal.id,
+                deal.customer.id,
+                deal.customer.name,
+                deal.vehicle.id,
+                deal.vehicle.year,
+                deal.vehicle.make,
+                deal.vehicle.model,
+                deal.vehicle.saleType,
+                deal.commission.fni.toFixed(2),
+                deal.commission.gross.toFixed(2),
+                deal.unitCount,
+                deal.commission.amount.toFixed(2),
+                deal.retro.mini.toFixed(2),
+                deal.retro.owed.toFixed(2),
+                deal.retro.payout.toFixed(2)
+            ]]);
+        });
+
+        this.sheet.getRange(`J${lastRow}:P${lastRow}`).setValues([[
+            employee.commission.fni.toFixed(2),
+            employee.commission.gross.toFixed(2),
+            employee.units.total,
+            employee.commission.amount.toFixed(2),
+            employee.retro.mini.toFixed(2),
+            employee.retro.owed.toFixed(2),
+            employee.retro.payout.toFixed(2)
+        ]]);
+
+        const totalsStartRow = lastRow + 2;
+        const employeeSignatureRow = totalsStartRow + 3;
+        const managerSignatureRow = employeeSignatureRow + 6;
+        const employeeSignatureRange = this.sheet.getRange(`B${employeeSignatureRow}:D${employeeSignatureRow}`);
+        const managerSignatureRange = this.sheet.getRange(`B${managerSignatureRow}:D${managerSignatureRow}`);
+        this.sheet.getRange(`E${employeeSignatureRow}`).setValue("EMPLOYEE");
+        this.sheet.getRange(`E${managerSignatureRow}`).setValue("MANAGER");
+
+        const totalsLabels = [
+            ["Prior Draw Balance", '', employee.priorDraw],
+            ["Commission", 0.18, employee.commission.amount],
+            ["Retro Commission", employee.getRetroPercentage(), employee.retro.payout],
+            ["Retro Mini", '', employee.retro.owed],
+            ["Total Retro Commission", '', employee.retro.total],
+            ["Total F&I", '', employee.commission.fni],
+            ["25% Reserve F&I", -0.25, employee.fni.reserve],
+            ["Total F&I Payable Gross", '', employee.fni.gross],
+            ["Total F&I Payout", 0.05, employee.fni.payout],
+            ["Top Salesman Bonus", '', employee.bonus.topsales],
+            ["Unit Bonus", employee.units.total, employee.bonus.unit],
+            ["CSI", employee.nps.outcome, employee.bonus.csi],
+            ["Total Bonus", '', employee.bonus.total],
+            ["Spiff", '', employee.spiff],
+            ["Total Pay", '', employee.getTotalPay()],
+            ["Bucket Total YTD", '', employee.calcNewBucket()]
+        ];
+        totalsLabels.forEach((label, index) => {
+            const row = totalsStartRow + index;
+            this.sheet.getRange(`I${row}:K${row}`).setValues([label]);
+        });
+
+        employeeSignatureRange.getFormat().getRangeBorder(ExcelScript.BorderIndex.edgeBottom).setWeight(ExcelScript.BorderWeight.thin);
+        managerSignatureRange.getFormat().getRangeBorder(ExcelScript.BorderIndex.edgeBottom).setWeight(ExcelScript.BorderWeight.thin);
+
+        this.format();
+    }
+
+    format() {
+        const dealStartRow = 8;
+        const dealCount = this.employee.deals.length;
+        const reportRange = this.sheet.getRange(`A7:P${dealCount + dealStartRow}`);
+        const reportTable = this.sheet.addTable(reportRange, true);
+        reportTable.setPredefinedTableStyle("TableStyleLight2");
+        reportTable.setShowFilterButton(false);
+        this.sheet.getRange(`A${dealStartRow}:A${dealCount + dealStartRow}`).setNumberFormat(NumberFormat.DATE);
+        
+        this.sheet.getRange("A:C").getFormat().setHorizontalAlignment(ExcelScript.HorizontalAlignment.center);
+        this.sheet.getRange("A:C").getFormat().setVerticalAlignment(ExcelScript.VerticalAlignment.center);
+        this.sheet.getRange("E:F").getFormat().setHorizontalAlignment(ExcelScript.HorizontalAlignment.center);
+        this.sheet.getRange("E:F").getFormat().setVerticalAlignment(ExcelScript.VerticalAlignment.center);
+        this.sheet.getRange("I:P").getFormat().setHorizontalAlignment(ExcelScript.HorizontalAlignment.center);
+        this.sheet.getRange("I:P").getFormat().setVerticalAlignment(ExcelScript.VerticalAlignment.center);
+        reportRange.getFormat().autofitColumns();
+    }
+}
+
+enum Color {
+  GREY = "#C0C0C0",
+  LIGHT_GREY = "#E6E6E6",
+  GREEN = "#4CC273",
+  WHITE = "#FFFFFF",
+  YELLOW = "#FAE49D",
+  RED = "#FF1515",
+  BLUE_GREY = "#DAEEF3",
+  PEACH = "#FDE9D9"
+}
+
+enum NumberFormat {
+  NUMBER = "#.#",
+  ACCOUNTING = "_($* #,##0.00_);[Red]_($* -#,##0.00;_($* \" - \"??_);_(@_)",
+  CURRENCY = "$#,##0.00;[Red]$#,##0.00",
+  DATE = "mm/dd/yy",
+  PERCENT = "0.00%"
+}
+
 

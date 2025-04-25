@@ -6,10 +6,11 @@ function main(workbook: ExcelScript.Workbook) {
         const data = sheet.getUsedRange().getValues();
         let header = data.shift();
         const sheetName = sheet.getName();
-        switch(sheetName) {
+        switch (sheetName) {
             case 'INPUT':
                 const storeName_input = header.indexOf("Store Name");
                 const storeAbbr_input = header.indexOf("Store Abbr");
+                const date_input = header.indexOf("Date");
                 const regionalScore_input = header.indexOf("Regional Score");
                 const retroAcct_input = header.indexOf("Retro Acct");
                 const expenseAcct1_input = header.indexOf("Expense 1 Acct");
@@ -20,6 +21,7 @@ function main(workbook: ExcelScript.Workbook) {
                 data.forEach(row => {
                     store.name = String(row[storeName_input]);
                     store.abbr = String(row[storeAbbr_input]);
+                    store.date = String(row[date_input]);
                     store.regionalScore = Number(row[regionalScore_input]);
                     store.accounts.retro = String(row[retroAcct_input]);
                     store.accounts.expense1 = String(row[expenseAcct1_input]);
@@ -46,13 +48,13 @@ function main(workbook: ExcelScript.Workbook) {
                 data.forEach(row => {
                     const empID = Number(row[empID_0432]);
                     const unitCount = Number(row[units_0432]);
-                    if(!store.employeeExists(empID)) store.employees.push(new Employee(empID, String(row[empName_0432])));
+                    if (!store.employeeExists(empID)) store.employees.push(new Employee(empID, String(row[empName_0432])));
                     const employee = store.employees.find(emp => emp.id === empID);
-                    if(unitCount > 0) {
+                    if (unitCount > 0) {
                         const customer: Person = { id: Number(row[custID_0432]), name: String(row[custName_0432]) };
                         const vehicle = new Vehicle(String(row[vehID_0432]), String(row[vehDesc_0432]), String(row[saleType_0432]));
                         const commission: Commission = { fni: Number(row[commFni_0432]), gross: Number(row[commGross_0432]), amount: Number(row[commAmount_0432]) };
-                        const deal = new Deal(String(row[dealID_0432]), Number(row[dealDate_0432]), customer, vehicle, unitCount, commission );
+                        const deal = new Deal(String(row[dealID_0432]), Number(row[dealDate_0432]), customer, vehicle, unitCount, commission);
                         employee?.deals.push(deal);
                     }
                 });
@@ -114,9 +116,17 @@ function main(workbook: ExcelScript.Workbook) {
     });
     store.calculateAll()
 
-    new NpsSheet(workbook, store);
-    new PaySummarySheet(workbook, store);
-    new JvSheet(workbook, store);
+    const allSheets = [
+        new NpsSheet(workbook, store),
+        new PaySummarySheet(workbook, store),
+        // new JvSheet(workbook, store),
+        new PostSheet(workbook, store)
+    ];
+
+
+    store.employees.forEach(employee => {
+        allSheets.push(new SalesSheet(workbook, employee));
+    });
 
     console.log(store);
 }
