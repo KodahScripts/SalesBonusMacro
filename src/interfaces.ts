@@ -37,6 +37,7 @@ interface Commission {
     fni: number;
     gross: number;
     amount: number;
+    taxes: number;
 }
 
 interface Retro {
@@ -55,8 +56,10 @@ interface NPS {
 
 interface Account {
     retro: string;
-    expense1: string;
-    expense2: string;
+    expense: {
+        one: string,
+        two: string
+    };
     salesTax: string;
     salesBonusTax1: string;
     salesBonusTax2: string;

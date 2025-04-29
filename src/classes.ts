@@ -28,9 +28,9 @@ class Store {
         this.expense = { one: 0, two: 0 };
         this.units = { new: 0, used: 0, total: 0 };
         this.unitPercent = { new: 0, used: 0 };
-        this.accounts = { retro: '', expense1: '', expense2: '', salesTax: '', salesBonusTax1: '', salesBonusTax2: '' }
+        this.accounts = { retro: '', expense: { one: '', two: ''}, salesTax: '', salesBonusTax1: '', salesBonusTax2: '' }
         this.fni = { reserve: 0, gross: 0, payout: 0 }
-        this.commission = { fni: 0, gross: 0, amount: 0 };
+        this.commission = { fni: 0, gross: 0, amount: 0, taxes: 0 };
         this.retro = { mini: 0, owed: 0, payout: 0, total: 0 };
         this.bonus = { unit: 0, topsales: 0, csi: 0, eom: 0, total: 0 };
         this.topSalesman = { id: 0, count: 0 };
@@ -107,7 +107,7 @@ class Store {
             this.bonus.total += employee.bonus.total;
             this.totalCommission += employee.totalCommission;
             this.ytdBucket += employee.ytdBucket;
-
+            this.commission.taxes += employee.commission.taxes;
         });
     }
 
@@ -148,7 +148,7 @@ class Employee {
         this.expense = { one: 0, two: 0 };
         this.units = { new: 0, used: 0, total: 0 };
         this.nps = { surveys: 0, current: 0, average: 0, outcome: "B" };
-        this.commission = { fni: 0, gross: 0, amount: 0 };
+        this.commission = { fni: 0, gross: 0, amount: 0, taxes: 0 };
         this.retro = { mini: 0, owed: 0, payout: 0, total: 0 };
         this.fni = { reserve: 0, gross: 0, payout: 0 };
         this.bonus = { unit: 0, topsales: 0, csi: 0, eom: 0, total: 0 };
@@ -157,7 +157,7 @@ class Employee {
 
     getTotalUnits() {
         this.deals.forEach(deal => {
-            if (deal.vehicle.saleType === "New") {
+            if (deal.vehicle.saleType === "NEW") {
                 this.units.new += deal.unitCount;
             } else {
                 this.units.used += deal.unitCount;
@@ -212,6 +212,8 @@ class Employee {
         this.totalCommission = this.bonus.eom + this.commission.amount;
         this.ytdBucket = calculateYtdBucket(this.totalCommission, this.priorDraw, this.spiff);
         this.drawAmount = this.commission.amount + this.bonus.total >= this.priorDraw ? this.priorDraw : this.commission.amount + this.bonus.total;
+        const tax = this.bonus.eom * 0.0765;
+        this.commission.taxes += tax;
     }
 
     getOwed(): number {
