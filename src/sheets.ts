@@ -45,7 +45,7 @@ class PaySummarySheet extends Sheet {
             const data = [employee.id, employee.name, employee.units.total, employee.commission.gross.toFixed(2), rankFormula, employee.commission.fni.toFixed(2), employee.spiff.toFixed(2), employee.commission.amount.toFixed(2), employee.retro.total.toFixed(2), employee.fni.payout.toFixed(2), employee.bonus.total.toFixed(2), employee.bonus.eom.toFixed(2), employee.priorDraw.toFixed(2), employee.totalCommission.toFixed(2), employee.ytdBucket.toFixed(2), depositGross.toFixed(2), balanceComm, employee.drawAmount.toFixed(2), employee.expense.one.toFixed(2), employee.expense.two.toFixed(2)];
             this.sheet.getRangeByIndexes(row, 0, 1, data.length).setValues([data]);
         });
-        const unitRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 2, 3, 3)
+        const unitRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 2, 3, 3);
         unitRange.setValues([
             ["UNITS", store.units.total, ''],
             ["NEW", store.units.new, store.unitPercent.new.toFixed(2)],
@@ -60,7 +60,7 @@ class PaySummarySheet extends Sheet {
         ];
         const totalsDataRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 6, 4, 2);
         const percentRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 4, 4, 1);
-        percentRange.setNumberFormat("0%")
+        percentRange.setNumberFormat("0%");
         totalsDataRange.setValues(totalData);
         totalsDataRange.getFormat().getFont().setBold(true);
         totalsDataRange.setNumberFormat(NumberFormat.ACCOUNTING);
