@@ -25,7 +25,7 @@ class Store {
     public totalDraw: number;
     public totalOwed: number;
     public totalSpiffs: number;
-    constructor(public name: string, public abbr: string) {
+    constructor(public name: string, public abbr: string, public customLookup: LookupReport) {
         this.name = name;
         this.abbr = abbr;
         this.regionalScore = 0;
@@ -89,7 +89,7 @@ class Store {
 
     getRetro() {
         this.employees.forEach((employee) => {
-            employee.getRetro();
+            employee.getRetro(this.customLookup["retropercentage"]);
             this.retro.mini += employee.retro.mini;
             this.retro.owed += employee.retro.owed;
             this.retro.payout += employee.retro.payout;
@@ -108,7 +108,7 @@ class Store {
 
     getBonus() {
         this.employees.forEach((employee) => {
-            employee.getBonus();
+            employee.getBonus(this.customLookup["unit"]);
             this.bonus.unit += employee.bonus.unit;
             this.bonus.topsales += employee.bonus.topsales;
             this.bonus.csi += employee.bonus.csi;
@@ -194,9 +194,10 @@ class Employee {
         });
     }
 
-    getRetro() {
+    getRetro(lookupArr: LookupRow[]) {
+        const retroPercentage = this.lookupValue(lookupArr);
         this.deals.forEach(deal => {
-            const retro = deal.setRetro(this.getRetroPercentage(), this.averageUnits);
+            const retro = deal.setRetro(retroPercentage, this.averageUnits);
             this.retro.mini += retro.mini;
             this.retro.owed += retro.owed;
             this.retro.payout += retro.payout;
@@ -211,8 +212,8 @@ class Employee {
         this.fni = { reserve, gross, payout };
     }
 
-    getBonus() {
-        const unitBonus = calculateUnitBonus(this.units.total);
+    getBonus(lookupArr: LookupRow[]) {
+        const unitBonus = this.lookupValue(lookupArr);
         const csiBonus = caclulateCsiBonus(this.nps.surveys, this.nps.outcome, this.units.total);
         this.bonus.unit = unitBonus;
         this.bonus.csi = csiBonus;
@@ -250,6 +251,19 @@ class Employee {
         const remainder = this.getRemainder();
         this.expense.one = remainder * newPercent;
         this.expense.two = remainder * usedPercent;
+    }
+
+    lookupValue(lookupArr: LookupRow[]): number {
+        lookupArr.map(val => {
+            if (this.units.total > lookupArr[lookupArr.length - 1].min) {
+                return lookupArr[lookupArr.length - 1].val;
+            } else {
+                if (val.isWithin(this.units.total)) {
+                    return val.val;
+                }
+            }
+        });
+        return 0;
     }
 }
 
@@ -289,6 +303,20 @@ class Vehicle {
         this.make = String(data[1]);
         this.model = String(data[2]);
         this.desc = String(data[3]);
+    }
+}
+
+class LookupRow {
+    constructor(public min: number, public max: number, public val: number) {
+        this.min = min;
+        this.max = max;
+        this.val = val;
+    }
+    isWithin(amount: number): boolean {
+        if(amount >= this.min && amount < this.max) {
+            return true;
+        }
+        return false;
     }
 }
 
@@ -334,6 +362,19 @@ function calculateYtdBucket(totalCommission: number, priorDraw: number, spiffs: 
         return totalCommission - priorDraw - spiffs;
     }
     return 0;
+}
+
+
+function createLookupReport(data: Array<string | number | boolean>[]): LookupRow[] {
+    const rows: LookupRow[] = [];
+    data.map((d, i) => {
+        const next = i < data.length - 1 ? i + 1 : 0;
+        const min = Number(d[0]);
+        const max = Number(data[next][0]);
+        const val = Number(d[1]);
+        rows.push(new LookupRow(min, max, val));
+    });
+    return rows;
 }
 
 interface Person {
@@ -408,14 +449,28 @@ interface Expense {
     two: number
 }
 
+interface LookupReport {
+    [name: string]: LookupRow[];
+}
+
 function main(workbook: ExcelScript.Workbook) {
     const initialSheets = workbook.getWorksheets();
-    const store = new Store("BMW of South Miami", "BOSM");
+    const customLookups: LookupReport = {};
+    const store = new Store("BMW of South Miami", "BOSM", customLookups);
 
     initialSheets.map(sheet => {
-        const data = sheet.getUsedRange().getValues();
-        let header = data.shift();
         const sheetName = sheet.getName();
+        if(sheetName.includes("-")) {
+            const splitName = sheetName.split("-");
+            if (splitName.length > 1) {
+                const typeOfReport = splitName[0].trim().toLowerCase(); // In case we need more control
+                const reportName = splitName[1].trim().toLowerCase();
+                const data = sheet.getUsedRange().getValues();
+                store.customLookup[reportName] = createLookupReport(data);
+            }
+        } else {
+            const data = sheet.getUsedRange().getValues();
+        let header = data.shift();
         switch (sheetName) {
             case 'INPUT':
                 const storeName_input = header.indexOf("Store Name");
@@ -523,6 +578,7 @@ function main(workbook: ExcelScript.Workbook) {
             default: sheet.delete();
                 break;
         }
+        }
     });
     store.calculateAll()
 
@@ -606,7 +662,7 @@ class PaySummarySheet extends Sheet {
             const data = [employee.id, employee.name, employee.units.total, employee.commission.gross.toFixed(2), rankFormula, employee.commission.fni.toFixed(2), employee.spiff.toFixed(2), employee.commission.amount.toFixed(2), employee.retro.total.toFixed(2), employee.fni.payout.toFixed(2), employee.bonus.total.toFixed(2), employee.bonus.eom.toFixed(2), employee.priorDraw.toFixed(2), employee.totalCommission.toFixed(2), employee.ytdBucket.toFixed(2), depositGross.toFixed(2), balanceComm, employee.drawAmount.toFixed(2), employee.expense.one.toFixed(2), employee.expense.two.toFixed(2)];
             this.sheet.getRangeByIndexes(row, 0, 1, data.length).setValues([data]);
         });
-        const unitRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 2, 3, 3)
+        const unitRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 2, 3, 3);
         unitRange.setValues([
             ["UNITS", store.units.total, ''],
             ["NEW", store.units.new, store.unitPercent.new.toFixed(2)],
@@ -621,7 +677,7 @@ class PaySummarySheet extends Sheet {
         ];
         const totalsDataRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 6, 4, 2);
         const percentRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 4, 4, 1);
-        percentRange.setNumberFormat("0%")
+        percentRange.setNumberFormat("0%");
         totalsDataRange.setValues(totalData);
         totalsDataRange.getFormat().getFont().setBold(true);
         totalsDataRange.setNumberFormat(NumberFormat.ACCOUNTING);

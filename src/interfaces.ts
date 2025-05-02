@@ -69,3 +69,7 @@ interface Expense {
     one: number,
     two: number
 }
+
+interface LookupReport {
+    [name: string]: LookupRow[];
+}

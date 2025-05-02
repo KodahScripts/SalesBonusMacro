@@ -41,3 +41,16 @@ function calculateYtdBucket(totalCommission: number, priorDraw: number, spiffs: 
     }
     return 0;
 }
+
+
+function createLookupReport(data: Array<string | number | boolean>[]): LookupRow[] {
+    const rows: LookupRow[] = [];
+    data.map((d, i) => {
+        const next = i < data.length - 1 ? i + 1 : 0;
+        const min = Number(d[0]);
+        const max = Number(data[next][0]);
+        const val = Number(d[1]);
+        rows.push(new LookupRow(min, max, val));
+    });
+    return rows;
+}

@@ -1,11 +1,21 @@
 function main(workbook: ExcelScript.Workbook) {
     const initialSheets = workbook.getWorksheets();
-    const store = new Store("BMW of South Miami", "BOSM");
+    const customLookups: LookupReport = {};
+    const store = new Store("BMW of South Miami", "BOSM", customLookups);
 
     initialSheets.map(sheet => {
-        const data = sheet.getUsedRange().getValues();
-        let header = data.shift();
         const sheetName = sheet.getName();
+        if(sheetName.includes("-")) {
+            const splitName = sheetName.split("-");
+            if (splitName.length > 1) {
+                const typeOfReport = splitName[0].trim().toLowerCase(); // In case we need more control
+                const reportName = splitName[1].trim().toLowerCase();
+                const data = sheet.getUsedRange().getValues();
+                store.customLookup[reportName] = createLookupReport(data);
+            }
+        } else {
+            const data = sheet.getUsedRange().getValues();
+        let header = data.shift();
         switch (sheetName) {
             case 'INPUT':
                 const storeName_input = header.indexOf("Store Name");
@@ -112,7 +122,7 @@ function main(workbook: ExcelScript.Workbook) {
                 break;
             default: sheet.delete();
                 break;
-        }
+        }}
     });
     store.calculateAll()
 

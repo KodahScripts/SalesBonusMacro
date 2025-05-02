@@ -16,7 +16,7 @@ class Store {
     public totalDraw: number;
     public totalOwed: number;
     public totalSpiffs: number;
-    constructor(public name: string, public abbr: string) {
+    constructor(public name: string, public abbr: string, public customLookup: LookupReport) {
         this.name = name;
         this.abbr = abbr;
         this.regionalScore = 0;
@@ -80,7 +80,7 @@ class Store {
 
     getRetro() {
         this.employees.forEach((employee) => {
-            employee.getRetro();
+            employee.getRetro(this.customLookup["retropercentage"]);
             this.retro.mini += employee.retro.mini;
             this.retro.owed += employee.retro.owed;
             this.retro.payout += employee.retro.payout;
@@ -99,7 +99,7 @@ class Store {
 
     getBonus() {
         this.employees.forEach((employee) => {
-            employee.getBonus();
+            employee.getBonus(this.customLookup["unit"]);
             this.bonus.unit += employee.bonus.unit;
             this.bonus.topsales += employee.bonus.topsales;
             this.bonus.csi += employee.bonus.csi;
@@ -185,9 +185,10 @@ class Employee {
         });
     }
 
-    getRetro() {
+    getRetro(lookupArr: LookupRow[]) {
+        const retroPercentage = this.lookupValue(lookupArr);
         this.deals.forEach(deal => {
-            const retro = deal.setRetro(this.getRetroPercentage(), this.averageUnits);
+            const retro = deal.setRetro(retroPercentage, this.averageUnits);
             this.retro.mini += retro.mini;
             this.retro.owed += retro.owed;
             this.retro.payout += retro.payout;
@@ -202,8 +203,8 @@ class Employee {
         this.fni = { reserve, gross, payout };
     }
 
-    getBonus() {
-        const unitBonus = calculateUnitBonus(this.units.total);
+    getBonus(lookupArr: LookupRow[]) {
+        const unitBonus = this.lookupValue(lookupArr);
         const csiBonus = caclulateCsiBonus(this.nps.surveys, this.nps.outcome, this.units.total);
         this.bonus.unit = unitBonus;
         this.bonus.csi = csiBonus;
@@ -241,6 +242,19 @@ class Employee {
         const remainder = this.getRemainder();
         this.expense.one = remainder * newPercent;
         this.expense.two = remainder * usedPercent;
+    }
+
+    lookupValue(lookupArr: LookupRow[]): number {
+        lookupArr.map(val => {
+            if (this.units.total > lookupArr[lookupArr.length - 1].min) {
+                return lookupArr[lookupArr.length - 1].val;
+            } else {
+                if (val.isWithin(this.units.total)) {
+                    return val.val;
+                }
+            }
+        });
+        return 0;
     }
 }
 
@@ -280,5 +294,19 @@ class Vehicle {
         this.make = String(data[1]);
         this.model = String(data[2]);
         this.desc = String(data[3]);
+    }
+}
+
+class LookupRow {
+    constructor(public min: number, public max: number, public val: number) {
+        this.min = min;
+        this.max = max;
+        this.val = val;
+    }
+    isWithin(amount: number): boolean {
+        if(amount >= this.min && amount < this.max) {
+            return true;
+        }
+        return false;
     }
 }
