@@ -107,7 +107,8 @@ class SalesSheet extends Sheet {
             ["# of Surveys", employee.nps.surveys],
             ["Retro Percentage", employee.getRetroPercentage()]
         ];
-        this.sheet.getRangeByIndexes(0, 0, headerData.length, headerData[0].length).setValues(headerData);
+        const headerRange = this.sheet.getRangeByIndexes(0, 0, headerData.length, headerData[0].length).setValues(headerData);
+        headerRange.setValues(headerData);
         const dataStartRow = this.headerRow + 1;
         let dealData: Array<string | number>[] = [];
         if (employee.deals.length > 0) {
@@ -135,6 +136,23 @@ class SalesSheet extends Sheet {
             ["Bucket Total YTD", '', employee.calcNewBucket()]
         ];
         const totalsStartRow = dataStartRow + dealData.length + 2;
-        this.sheet.getRangeByIndexes(totalsStartRow, 0, totalsData.length, totalsData[0].length).setValues(totalsData);
+        const totalsRange = this.sheet.getRangeByIndexes(totalsStartRow, 0, totalsData.length, totalsData[0].length);
+        const totalAmtsRange = this.sheet.getRangeByIndexes(totalsStartRow, 2, totalsData.length, 1);
+        totalsRange.setValues(totalsData);
+
+        headerRange.getFormat().getFont().setBold(true);
+
+        const dealTable = this.sheet.addTable(`A8:P${employee.deals.length + 9}`, true);
+        dealTable.setShowTotals(true);
+        dealTable.setPredefinedTableStyle("TableStyleLight2");
+
+        this.sheet.getRange("A:A").setNumberFormat(NumberFormat.DATE);
+        this.sheet.getRange("J:K").setNumberFormat(NumberFormat.ACCOUNTING);
+        this.sheet.getRange("M:P").setNumberFormat(NumberFormat.ACCOUNTING);
+        totalAmtsRange.setNumberFormat(NumberFormat.ACCOUNTING);
+        this.sheet.getRange("B:B").getFormat().setHorizontalAlignment(ExcelScript.HorizontalAlignment.right);
+
+        totalsRange.getFormat().getFont().setBold(true);
+        this.sheet.getRange("A8:P8").getFormat().autofitColumns()
     }
 }
