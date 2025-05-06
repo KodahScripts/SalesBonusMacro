@@ -1,0 +1,100 @@
+retropercentage(3)
+min: 12
+max: 16
+val: 0.04
+
+rollingmini(7)
+min: 12
+max: 16
+val: 250
+
+unit(6)
+min: 16
+max: 20
+val: 1500
+
+retromini(6)
+min: 16
+max: 20
+val: 300
+
+globals
+storeName: "BMW of South Miami"
+storeAbbr: "BOSM"
+date: "0325"
+regionalScore: 90.9
+retroAcct: "8328"
+expenseAcct1: "4011A"
+expenseAcct2: "4011B"
+salesTaxAcct: "8323"
+salesBonusAcct1: "4025A"
+salesBonusAcct2: "4025B"
+
+deals
+[
+    {
+        "date": 45747,
+        "dealID": "8768A",
+        "employeeID": 99,
+        "employeeName": "HOUSE EMPLOYEE",
+        "customerID": 284175,
+        "customerName": "ANTHONY CERRUELA",
+        "vehicleID": "FU67523",
+        "vehicleDescription": "25,BMW,I4,4DR M50 GRAN COUPE",
+        "vehicleType": "New",
+        "commissionFnI": 0,
+        "commissionGross": -1029,
+        "dealUnitCount": 1,
+        "commissionAmount": 200
+    },
+    {
+        "date": 45721,
+        "dealID": "9330A",
+        "employeeID": 3262,
+        "employeeName": "JOHN SINDONI",
+        "customerID": 23583,
+        "customerName": "NATALIE MARTINEZ SOSA",
+        "vehicleID": "5217204",
+        "vehicleDescription": "25,BMW SAV,X2 28XI,4DR XDR 28I SAV",
+        "vehicleType": "New",
+        "commissionFnI": 1005.29,
+        "commissionGross": 234.62,
+        "dealUnitCount": 0.5,
+        "commissionAmount": 100
+    },
+    {
+        "date": 45735,
+        "dealID": "9470",
+        "employeeID": 3262,
+        "employeeName": "JOHN SINDONI",
+        "customerID": 23818,
+        "customerName": "MICHAEL GOMBOSH",
+        "vehicleID": "CU11970",
+        "vehicleDescription": "25,BMW,530I,4DR SDN 530I",
+        "vehicleType": "New",
+        "commissionFnI": 799,
+        "commissionGross": -2290,
+        "dealUnitCount": 1,
+        "commissionAmount": 200
+    }
+]
+
+averageunits(40)
+employeeID: 22478
+count: 14
+average: 4.7
+
+priordraw(37)
+employeeID: 10069
+commission: -3219.54
+draw: 2504.32
+
+spiffs(27)
+employeeID: 10303
+amount: 550
+
+nps(33)
+employeeID: 11809
+surveyCount: 6
+currentPercent: 1
+averagePercent: 1
