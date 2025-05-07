@@ -46,18 +46,41 @@ function main(workbook: ExcelScript.Workbook) {
     // console.log("Lookup", lookup);
     // console.log("Reports", reports);
 
-    for(const [k, v] of Object.entries(lookup)) {
-        console.log(k, v.rows)
-    }
+    // for(const [k, v] of Object.entries(lookup)) {
+    //     console.log(k, v.rows)
+    // }
 
-    for(const [k, v] of Object.entries(reports)) {
-        switch(k) {
-            case "globals": console.log(k, v.vars);
-                break;
-            default: console.log(k, v.list);
-                break;
-        }
-    }
+    // for(const [k, v] of Object.entries(reports)) {
+    //     switch(k) {
+    //         case "globals": console.log(k, v.vars);
+    //             break;
+    //         default: console.log(k, v.list);
+    //             break;
+    //     }
+    // }
+
+    const [storeName, storeAbbr, displayDate, regionalScore, ...accountNumbers] = reports["globals"].vars;
+    const [retro, expense1, expense2, salesTax, salesBonus1, salesBonus2] = accountNumbers;
+    const accounts: AccountNumbers = { retro, expense1, expense2, salesTax, salesBonus1, salesBonus2 };
+    const store: Store = { name: storeName, abbr: storeAbbr, displayDate, regionalScore, accountNumbers: accounts };
+    console.log(store);
+}
+
+interface Store {
+    name: string;
+    abbr: string;
+    displayDate: string;
+    regionalScore: number;
+    accountNumbers: AccountNumbers;
+}
+
+interface AccountNumbers {
+    retro: string;
+    expense1: string;
+    expense2: string;
+    salesTax: string;
+    salesBonus1: string;
+    salesBonus2: string;
 }
 
 

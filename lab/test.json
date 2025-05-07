@@ -79,22 +79,22 @@ deals
     }
 ]
 
-averageunits(40)
-employeeID: 22478
-count: 14
-average: 4.7
+// averageunits(40)
+// employeeID: 22478
+// count: 14
+// average: 4.7
 
-priordraw(37)
-employeeID: 10069
-commission: -3219.54
-draw: 2504.32
+// priordraw(37)
+// employeeID: 10069
+// commission: -3219.54
+// draw: 2504.32
 
-spiffs(27)
-employeeID: 10303
-amount: 550
+// spiffs(27)
+// employeeID: 10303
+// amount: 550
 
-nps(33)
-employeeID: 11809
-surveyCount: 6
-currentPercent: 1
-averagePercent: 1
+// nps(33)
+// employeeID: 11809
+// surveyCount: 6
+// currentPercent: 1
+// averagePercent: 1

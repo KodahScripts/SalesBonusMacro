@@ -1,71 +1,14 @@
 {
     "name": "BMW of South Miami",
     "abbr": "BOSM",
-    "regionalScore": 90.9,
-    "fni": {
-        "reserve": 242896.37749999997,
-        "gross": 728689.1325000001,
-        "payout": 36434.45662500001
-    },
-    "commission": {
-        "fni": 971585.5099999999,
-        "gross": 298141.79000000004,
-        "amount": 165264.6799999999
-    },
-    "retro": {
-        "mini": 79750,
-        "owed": 30303.72,
-        "payout": 26005.392200000006,
-        "total": 56309.11220000001
-    },
-    "bonus": {
-        "unit": 19375,
-        "topsales": 500,
-        "csi": 7725,
-        "total": 27600
-    },
-    "topSalesman": {
-        "id": 259520,
-        "count": 20
-    },
+    "displayDate": "0325",
     "employees": [
         {
             "id": 99,
             "name": "HOUSE EMPLOYEE",
-            "averageUnits": 9,
-            "priorDraw": 0,
-            "spiff": 1758,
-            "nps": {
-                "surveys": 0,
-                "current": 0,
-                "average": 0
-            },
-            "commission": {
-                "fni": 0,
-                "gross": -1029,
-                "amount": 200
-            },
-            "retro": {
-                "mini": 200,
-                "owed": 0,
-                "payout": 0,
-                "total": 0
-            },
-            "fni": {
-                "reserve": 0,
-                "gross": 0,
-                "payout": 0
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "8768A",
-                    "date": 45747,
                     "customer": {
                         "id": 284175,
                         "name": "ANTHONY CERRUELA"
@@ -92,46 +35,32 @@
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": 0,
+                "averagePercent": 0,
+                "outcome": "B"
+            },
+            "spiffsTotal": 1758,
+            "priorDraw": 0,
+            "retroPercent": 0,
+            "units": {
+                "average": 9.3,
+                "count": 1,
+                "threeMonthCount": 28,
+                "total": {
+                    "new": 1,
+                    "used": 0
+                }
+            }
         },
         {
             "id": 3262,
             "name": "JOHN SINDONI",
-            "averageUnits": 23,
-            "priorDraw": 2340,
-            "spiff": 23.61,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 24799.27,
-                "gross": -9365.780000000002,
-                "amount": 3143.9700000000003
-            },
-            "retro": {
-                "mini": 3150,
-                "owed": 1350,
-                "payout": 298.65920000000006,
-                "total": 1648.6592
-            },
-            "fni": {
-                "reserve": 6199.8175,
-                "gross": 18599.4525,
-                "payout": 929.972625
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 0,
-                "total": 750
-            },
             "deals": [
                 {
                     "id": "9330A",
-                    "date": 45721,
                     "customer": {
                         "id": 23583,
                         "name": "NATALIE MARTINEZ SOSA"
@@ -160,7 +89,6 @@
                 },
                 {
                     "id": "9470",
-                    "date": 45735,
                     "customer": {
                         "id": 23818,
                         "name": "MICHAEL GOMBOSH"
@@ -189,7 +117,6 @@
                 },
                 {
                     "id": "9459",
-                    "date": 45736,
                     "customer": {
                         "id": 272923,
                         "name": "TANIA MAZZA-MARTINEZ"
@@ -218,7 +145,6 @@
                 },
                 {
                     "id": "9636",
-                    "date": 45736,
                     "customer": {
                         "id": 24093,
                         "name": "STEPHANIE VOELL"
@@ -247,7 +173,6 @@
                 },
                 {
                     "id": "9420",
-                    "date": 45741,
                     "customer": {
                         "id": 23733,
                         "name": "ALLAN WEINSTEIN"
@@ -276,7 +201,6 @@
                 },
                 {
                     "id": "9465",
-                    "date": 45741,
                     "customer": {
                         "id": 277382,
                         "name": "EDUARDO GAMARRA"
@@ -305,7 +229,6 @@
                 },
                 {
                     "id": "9720",
-                    "date": 45743,
                     "customer": {
                         "id": 24242,
                         "name": "SIXTO FERRO"
@@ -334,7 +257,6 @@
                 },
                 {
                     "id": "9763",
-                    "date": 45744,
                     "customer": {
                         "id": 253678,
                         "name": "PRISCILLA ESPINOZA"
@@ -363,7 +285,6 @@
                 },
                 {
                     "id": "9911A",
-                    "date": 45747,
                     "customer": {
                         "id": 24464,
                         "name": "JORGE MILLER"
@@ -392,7 +313,6 @@
                 },
                 {
                     "id": "9794",
-                    "date": 45747,
                     "customer": {
                         "id": 24313,
                         "name": "ACOSTA TRACTORS INC"
@@ -421,7 +341,6 @@
                 },
                 {
                     "id": "9866",
-                    "date": 45747,
                     "customer": {
                         "id": 24444,
                         "name": "MAGIC PROFESSIONAL CLEANING SE"
@@ -450,7 +369,6 @@
                 },
                 {
                     "id": "9988",
-                    "date": 45747,
                     "customer": {
                         "id": 24541,
                         "name": "CAMILA MARCOS"
@@ -479,7 +397,6 @@
                 },
                 {
                     "id": "9512",
-                    "date": 45747,
                     "customer": {
                         "id": 23911,
                         "name": "NIURKA HERNANDEZ"
@@ -506,82 +423,32 @@
                         "total": 150
                     }
                 }
-            ]
-        },
-        {
-            "id": 10067,
-            "name": "CHRISTOPHER CALERO",
-            "averageUnits": 17,
-            "priorDraw": 3509.84,
-            "spiff": 1075,
+            ],
             "nps": {
-                "surveys": 0,
-                "current": null,
-                "average": 100,
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 1,
                 "outcome": "3P"
             },
-            "commission": {
-                "fni": 0,
-                "gross": 0,
-                "amount": 0
-            },
-            "retro": {
-                "mini": 0,
-                "owed": 0,
-                "payout": 0,
-                "total": 0
-            },
-            "fni": {
-                "reserve": 0,
-                "gross": 0,
-                "payout": 0
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
-            "deals": []
+            "spiffsTotal": 23.61,
+            "priorDraw": 2340,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 23,
+                "count": 12,
+                "threeMonthCount": 69,
+                "total": {
+                    "new": 10,
+                    "used": 2
+                }
+            }
         },
         {
             "id": 10069,
             "name": "HUGO GONZALEZ",
-            "averageUnits": 24,
-            "priorDraw": 2504.32,
-            "spiff": 0,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 95,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 22419.999999999996,
-                "gross": 9055.34,
-                "amount": 3419.54
-            },
-            "retro": {
-                "mini": 2400,
-                "owed": 1095.48,
-                "payout": 0,
-                "total": 1095.48
-            },
-            "fni": {
-                "reserve": 5604.999999999999,
-                "gross": 16814.999999999996,
-                "payout": 840.7499999999999
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9381A",
-                    "date": 45729,
                     "customer": {
                         "id": 227633,
                         "name": "RUDDY SANCHEZ"
@@ -610,7 +477,6 @@
                 },
                 {
                     "id": "9135",
-                    "date": 45733,
                     "customer": {
                         "id": 23343,
                         "name": "JARED COHEN"
@@ -639,7 +505,6 @@
                 },
                 {
                     "id": "9656",
-                    "date": 45742,
                     "customer": {
                         "id": 24133,
                         "name": "HARESH RAJAN DASWANI"
@@ -668,7 +533,6 @@
                 },
                 {
                     "id": "9976A",
-                    "date": 45747,
                     "customer": {
                         "id": 267004,
                         "name": "LIZETTE ALVAREZ"
@@ -697,7 +561,6 @@
                 },
                 {
                     "id": "9462A",
-                    "date": 45747,
                     "customer": {
                         "id": 23810,
                         "name": "YOSELIN GUERRA"
@@ -726,7 +589,6 @@
                 },
                 {
                     "id": "9710A",
-                    "date": 45747,
                     "customer": {
                         "id": 15343,
                         "name": "ALEXANDRE ORTEGA EBOLI"
@@ -755,7 +617,6 @@
                 },
                 {
                     "id": "9515A",
-                    "date": 45747,
                     "customer": {
                         "id": 23917,
                         "name": "TERESITA RODRIGUEZ-OTERO"
@@ -784,7 +645,6 @@
                 },
                 {
                     "id": "9669B",
-                    "date": 45747,
                     "customer": {
                         "id": 24163,
                         "name": "JOSEPHINE NORRIS"
@@ -813,7 +673,6 @@
                 },
                 {
                     "id": "9397A",
-                    "date": 45747,
                     "customer": {
                         "id": 219512,
                         "name": "REGLA SIBILA"
@@ -842,7 +701,6 @@
                 },
                 {
                     "id": "7299",
-                    "date": 45747,
                     "customer": {
                         "id": 20769,
                         "name": "HECTOR PALOS JASSO"
@@ -871,7 +729,6 @@
                 },
                 {
                     "id": "9836",
-                    "date": 45747,
                     "customer": {
                         "id": 24367,
                         "name": "DANIEL JAMIN"
@@ -898,46 +755,32 @@
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 0.95,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 2504.32,
+            "retroPercent": 0,
+            "units": {
+                "average": 24.3,
+                "count": 9.5,
+                "threeMonthCount": 73,
+                "total": {
+                    "new": 6.5,
+                    "used": 3
+                }
+            }
         },
         {
             "id": 10303,
             "name": "DANIEL GARCIA",
-            "averageUnits": 26,
-            "priorDraw": 2646.41,
-            "spiff": 550,
-            "nps": {
-                "surveys": 5,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 45379.55,
-                "gross": 13170.69,
-                "amount": 7308.57
-            },
-            "retro": {
-                "mini": 4200,
-                "owed": 2100,
-                "payout": 2025.5557000000003,
-                "total": 4125.5557
-            },
-            "fni": {
-                "reserve": 11344.8875,
-                "gross": 34034.662500000006,
-                "payout": 1701.7331250000004
-            },
-            "bonus": {
-                "unit": 1500,
-                "topsales": 0,
-                "csi": 825,
-                "total": 2325
-            },
             "deals": [
                 {
                     "id": "9319",
-                    "date": 45721,
                     "customer": {
                         "id": 23563,
                         "name": "MARIA DEL MAR FERNANDEZ CARBON"
@@ -966,7 +809,6 @@
                 },
                 {
                     "id": "9380",
-                    "date": 45726,
                     "customer": {
                         "id": 238649,
                         "name": "JUAN LANFRANCO"
@@ -995,7 +837,6 @@
                 },
                 {
                     "id": "9432",
-                    "date": 45726,
                     "customer": {
                         "id": 23749,
                         "name": "CARLOS MORALES"
@@ -1024,7 +865,6 @@
                 },
                 {
                     "id": "9507",
-                    "date": 45730,
                     "customer": {
                         "id": 247357,
                         "name": "ROSIMARY GONZALEZ"
@@ -1053,7 +893,6 @@
                 },
                 {
                     "id": "9479",
-                    "date": 45733,
                     "customer": {
                         "id": 23822,
                         "name": "JUNE FOYO-LORENZO"
@@ -1082,7 +921,6 @@
                 },
                 {
                     "id": "9526",
-                    "date": 45734,
                     "customer": {
                         "id": 261898,
                         "name": "BRUNO RUFINO DA SILVA"
@@ -1111,7 +949,6 @@
                 },
                 {
                     "id": "7012A",
-                    "date": 45742,
                     "customer": {
                         "id": 275177,
                         "name": "EDWARD COLINA"
@@ -1140,7 +977,6 @@
                 },
                 {
                     "id": "9700",
-                    "date": 45743,
                     "customer": {
                         "id": 24269,
                         "name": "LYNNE FLEXNER"
@@ -1169,7 +1005,6 @@
                 },
                 {
                     "id": "9738",
-                    "date": 45744,
                     "customer": {
                         "id": 24259,
                         "name": "DANIELA VALENTIN TRAJANO"
@@ -1198,7 +1033,6 @@
                 },
                 {
                     "id": "9764",
-                    "date": 45744,
                     "customer": {
                         "id": 24278,
                         "name": "ALEJANDRO CAMACHO"
@@ -1227,7 +1061,6 @@
                 },
                 {
                     "id": "9778",
-                    "date": 45747,
                     "customer": {
                         "id": 19492,
                         "name": "HANSEL HERNANDEZ SUAREZ"
@@ -1256,7 +1089,6 @@
                 },
                 {
                     "id": "9923",
-                    "date": 45747,
                     "customer": {
                         "id": 24473,
                         "name": "YADIRA LOPEZ"
@@ -1285,7 +1117,6 @@
                 },
                 {
                     "id": "9984",
-                    "date": 45747,
                     "customer": {
                         "id": 24538,
                         "name": "ROBERT SANFORD"
@@ -1314,7 +1145,6 @@
                 },
                 {
                     "id": "9907",
-                    "date": 45747,
                     "customer": {
                         "id": 10950,
                         "name": "SHANNON DE PRADO"
@@ -1343,7 +1173,6 @@
                 },
                 {
                     "id": "9819",
-                    "date": 45747,
                     "customer": {
                         "id": 24333,
                         "name": "MAXIMILIAN VALDES"
@@ -1372,7 +1201,6 @@
                 },
                 {
                     "id": "9944",
-                    "date": 45747,
                     "customer": {
                         "id": 14579,
                         "name": "ESTEBAN TRIPODI"
@@ -1401,7 +1229,6 @@
                 },
                 {
                     "id": "9903",
-                    "date": 45747,
                     "customer": {
                         "id": 24450,
                         "name": "YADELYS DOMINGUEZ CANDELARIO"
@@ -1428,46 +1255,32 @@
                         "total": 200
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 5,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 550,
+            "priorDraw": 2646.41,
+            "retroPercent": 0.07,
+            "units": {
+                "average": 26.3,
+                "count": 16.5,
+                "threeMonthCount": 79,
+                "total": {
+                    "new": 15.5,
+                    "used": 1
+                }
+            }
         },
         {
             "id": 10304,
             "name": "RICARDO PEREZ",
-            "averageUnits": 12,
-            "priorDraw": 3637.55,
-            "spiff": 1402.9,
-            "nps": {
-                "surveys": 2,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 20441.19,
-                "gross": 8543.260000000002,
-                "amount": 2750.6
-            },
-            "retro": {
-                "mini": 1000,
-                "owed": 200,
-                "payout": 0,
-                "total": 200
-            },
-            "fni": {
-                "reserve": 5110.2975,
-                "gross": 15330.892499999998,
-                "payout": 766.544625
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9325",
-                    "date": 45721,
                     "customer": {
                         "id": 267026,
                         "name": "LIUBOV BLANCO"
@@ -1488,15 +1301,14 @@
                         "amount": 100
                     },
                     "retro": {
-                        "mini": 125,
-                        "owed": 25,
+                        "mini": 100,
+                        "owed": 0,
                         "payout": 0,
-                        "total": 25
+                        "total": 0
                     }
                 },
                 {
                     "id": "9493A",
-                    "date": 45728,
                     "customer": {
                         "id": 23839,
                         "name": "DIANA CASTANO"
@@ -1525,7 +1337,6 @@
                 },
                 {
                     "id": "9442",
-                    "date": 45733,
                     "customer": {
                         "id": 23780,
                         "name": "SHELIA O BRIEN SMITH"
@@ -1546,15 +1357,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 250,
-                        "owed": 50,
+                        "mini": 200,
+                        "owed": 0,
                         "payout": 0,
-                        "total": 50
+                        "total": 0
                     }
                 },
                 {
                     "id": "9467",
-                    "date": 45735,
                     "customer": {
                         "id": 23815,
                         "name": "STEFANO PULIGNANO"
@@ -1583,7 +1393,6 @@
                 },
                 {
                     "id": "9676",
-                    "date": 45743,
                     "customer": {
                         "id": 24182,
                         "name": "MARK EBERLY"
@@ -1604,15 +1413,14 @@
                         "amount": 100
                     },
                     "retro": {
-                        "mini": 125,
-                        "owed": 25,
+                        "mini": 100,
+                        "owed": 0,
                         "payout": 0,
-                        "total": 25
+                        "total": 0
                     }
                 },
                 {
                     "id": "9762",
-                    "date": 45744,
                     "customer": {
                         "id": 24277,
                         "name": "MIGUEL DE GRANDY"
@@ -1633,15 +1441,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 250,
-                        "owed": 50,
+                        "mini": 200,
+                        "owed": 0,
                         "payout": 0,
-                        "total": 50
+                        "total": 0
                     }
                 },
                 {
                     "id": "7299",
-                    "date": 45747,
                     "customer": {
                         "id": 20769,
                         "name": "HECTOR PALOS JASSO"
@@ -1670,7 +1477,6 @@
                 },
                 {
                     "id": "9857",
-                    "date": 45747,
                     "customer": {
                         "id": 24394,
                         "name": "CATHERINE ABELL"
@@ -1699,7 +1505,6 @@
                 },
                 {
                     "id": "9910",
-                    "date": 45747,
                     "customer": {
                         "id": 24460,
                         "name": "ILYA KOZLOV"
@@ -1720,52 +1525,38 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 250,
-                        "owed": 50,
+                        "mini": 200,
+                        "owed": 0,
                         "payout": 0,
-                        "total": 50
+                        "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 2,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 1402.9,
+            "priorDraw": 3637.55,
+            "retroPercent": 0,
+            "units": {
+                "average": 11.7,
+                "count": 7.5,
+                "threeMonthCount": 35,
+                "total": {
+                    "new": 2.5,
+                    "used": 5
+                }
+            }
         },
         {
             "id": 10775,
             "name": "JEAN FREZIN",
-            "averageUnits": 20,
-            "priorDraw": 2935.67,
-            "spiff": 550,
-            "nps": {
-                "surveys": 3,
-                "current": 75,
-                "average": 88.9,
-                "outcome": "B"
-            },
-            "commission": {
-                "fni": 22989.05,
-                "gross": 2249.5700000000006,
-                "amount": 5570.15
-            },
-            "retro": {
-                "mini": 3150,
-                "owed": 1350,
-                "payout": 837.81,
-                "total": 2187.8100000000004
-            },
-            "fni": {
-                "reserve": 5747.2625,
-                "gross": 17241.7875,
-                "payout": 862.089375
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 0,
-                "total": 750
-            },
             "deals": [
                 {
                     "id": "9355",
-                    "date": 45722,
                     "customer": {
                         "id": 23616,
                         "name": "JEFFERSON LEITE"
@@ -1794,7 +1585,6 @@
                 },
                 {
                     "id": "9240",
-                    "date": 45727,
                     "customer": {
                         "id": 23481,
                         "name": "DAVID TAUBEN"
@@ -1823,7 +1613,6 @@
                 },
                 {
                     "id": "9464",
-                    "date": 45727,
                     "customer": {
                         "id": 23811,
                         "name": "ALEC AMAR"
@@ -1852,7 +1641,6 @@
                 },
                 {
                     "id": "9437",
-                    "date": 45729,
                     "customer": {
                         "id": 11088,
                         "name": "PEDRO CIRERA"
@@ -1881,7 +1669,6 @@
                 },
                 {
                     "id": "9595",
-                    "date": 45735,
                     "customer": {
                         "id": 24028,
                         "name": "DAVID BETTS"
@@ -1910,7 +1697,6 @@
                 },
                 {
                     "id": "9034",
-                    "date": 45735,
                     "customer": {
                         "id": 23171,
                         "name": "RICHARD NAZUR"
@@ -1939,7 +1725,6 @@
                 },
                 {
                     "id": "9387",
-                    "date": 45736,
                     "customer": {
                         "id": 243669,
                         "name": "COMANDO AUDIO INC."
@@ -1968,7 +1753,6 @@
                 },
                 {
                     "id": "9578A",
-                    "date": 45741,
                     "customer": {
                         "id": 11737,
                         "name": "MARY ERVIN"
@@ -1997,7 +1781,6 @@
                 },
                 {
                     "id": "9677",
-                    "date": 45742,
                     "customer": {
                         "id": 227687,
                         "name": "ROSELYN VERHELST"
@@ -2026,7 +1809,6 @@
                 },
                 {
                     "id": "9610",
-                    "date": 45743,
                     "customer": {
                         "id": 24040,
                         "name": "THOMAS PISZCZATOSKI"
@@ -2055,7 +1837,6 @@
                 },
                 {
                     "id": "9737",
-                    "date": 45744,
                     "customer": {
                         "id": 24257,
                         "name": "JACK TOLIN"
@@ -2084,7 +1865,6 @@
                 },
                 {
                     "id": "9460",
-                    "date": 45746,
                     "customer": {
                         "id": 11086,
                         "name": "DANIEL MAZANEC"
@@ -2113,7 +1893,6 @@
                 },
                 {
                     "id": "9889",
-                    "date": 45747,
                     "customer": {
                         "id": 17445,
                         "name": "ALAIN MAQUET"
@@ -2142,7 +1921,6 @@
                 },
                 {
                     "id": "9940",
-                    "date": 45747,
                     "customer": {
                         "id": 24487,
                         "name": "ANDRES OCHOA QUINTANA"
@@ -2169,46 +1947,32 @@
                         "total": 150
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 0.75,
+                "averagePercent": 0.889,
+                "outcome": "B"
+            },
+            "spiffsTotal": 550,
+            "priorDraw": 2935.67,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 20.3,
+                "count": 13,
+                "threeMonthCount": 61,
+                "total": {
+                    "new": 10,
+                    "used": 3
+                }
+            }
         },
         {
             "id": 11580,
             "name": "FREDDY JUAREZ",
-            "averageUnits": 23,
-            "priorDraw": 2612.61,
-            "spiff": 1050,
-            "nps": {
-                "surveys": 5,
-                "current": 100,
-                "average": 87.5,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 35645.47,
-                "gross": 17001.7,
-                "amount": 4761.369999999999
-            },
-            "retro": {
-                "mini": 1750,
-                "owed": 686.38,
-                "payout": 0,
-                "total": 686.38
-            },
-            "fni": {
-                "reserve": 8911.3675,
-                "gross": 26734.1025,
-                "payout": 1336.7051250000002
-            },
-            "bonus": {
-                "unit": 375,
-                "topsales": 0,
-                "csi": 575,
-                "total": 950
-            },
             "deals": [
                 {
                     "id": "9390",
-                    "date": 45727,
                     "customer": {
                         "id": 23694,
                         "name": "STEPHANIE SHEN"
@@ -2237,7 +2001,6 @@
                 },
                 {
                     "id": "9501",
-                    "date": 45728,
                     "customer": {
                         "id": 279520,
                         "name": "HAILEY SANTANA"
@@ -2266,7 +2029,6 @@
                 },
                 {
                     "id": "9021",
-                    "date": 45730,
                     "customer": {
                         "id": 23158,
                         "name": "PASTOR LOPEZ"
@@ -2295,7 +2057,6 @@
                 },
                 {
                     "id": "9521",
-                    "date": 45730,
                     "customer": {
                         "id": 256091,
                         "name": "LUIS MEDINA"
@@ -2324,7 +2085,6 @@
                 },
                 {
                     "id": "9597A",
-                    "date": 45741,
                     "customer": {
                         "id": 266642,
                         "name": "MARCO LEYTE-VIDAL"
@@ -2353,7 +2113,6 @@
                 },
                 {
                     "id": "9715",
-                    "date": 45743,
                     "customer": {
                         "id": 24239,
                         "name": "LUIS AGUIRRE"
@@ -2382,7 +2141,6 @@
                 },
                 {
                     "id": "9691",
-                    "date": 45744,
                     "customer": {
                         "id": 17503,
                         "name": "MICHAEL OLSEN"
@@ -2411,7 +2169,6 @@
                 },
                 {
                     "id": "9750",
-                    "date": 45747,
                     "customer": {
                         "id": 17739,
                         "name": "EDUARDO TABAREZ RAMIREZ"
@@ -2440,7 +2197,6 @@
                 },
                 {
                     "id": "9742",
-                    "date": 45747,
                     "customer": {
                         "id": 279748,
                         "name": "MISHELL OSPINA"
@@ -2469,7 +2225,6 @@
                 },
                 {
                     "id": "7210",
-                    "date": 45747,
                     "customer": {
                         "id": 20671,
                         "name": "ALEXIS ALVAREZ RODRIGUEZ"
@@ -2498,7 +2253,6 @@
                 },
                 {
                     "id": "9913",
-                    "date": 45747,
                     "customer": {
                         "id": 266260,
                         "name": "JESUS MEDINA"
@@ -2527,7 +2281,6 @@
                 },
                 {
                     "id": "9748",
-                    "date": 45747,
                     "customer": {
                         "id": 24273,
                         "name": "MLV MEDICAL SOLUTIONS, INC."
@@ -2556,7 +2309,6 @@
                 },
                 {
                     "id": "9978",
-                    "date": 45747,
                     "customer": {
                         "id": 273121,
                         "name": "CARLOS SULBARAN PEREZ"
@@ -2585,7 +2337,6 @@
                 },
                 {
                     "id": "9835",
-                    "date": 45747,
                     "customer": {
                         "id": 266977,
                         "name": "MARIA CHAVIRA DE MORENO"
@@ -2612,46 +2363,32 @@
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 5,
+                "currentPercent": 1,
+                "averagePercent": 0.875,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 1050,
+            "priorDraw": 2612.61,
+            "retroPercent": 0,
+            "units": {
+                "average": 23,
+                "count": 11.5,
+                "threeMonthCount": 69,
+                "total": {
+                    "new": 8.5,
+                    "used": 3
+                }
+            }
         },
         {
             "id": 11809,
             "name": "MICHAEL LAZO",
-            "averageUnits": 31,
-            "priorDraw": 2728.31,
-            "spiff": 1601.51,
-            "nps": {
-                "surveys": 6,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 58362.340000000004,
-                "gross": 21727.94,
-                "amount": 10419.87
-            },
-            "retro": {
-                "mini": 4400,
-                "owed": 2049.83,
-                "payout": 3138.2148,
-                "total": 5188.044800000001
-            },
-            "fni": {
-                "reserve": 14590.585000000001,
-                "gross": 43771.755000000005,
-                "payout": 2188.58775
-            },
-            "bonus": {
-                "unit": 1500,
-                "topsales": 0,
-                "csi": 875,
-                "total": 2375
-            },
             "deals": [
                 {
                     "id": "9345",
-                    "date": 45721,
                     "customer": {
                         "id": 23590,
                         "name": "MYRNA PEREDA"
@@ -2680,7 +2417,6 @@
                 },
                 {
                     "id": "9217",
-                    "date": 45728,
                     "customer": {
                         "id": 23449,
                         "name": "TONI BENNETT"
@@ -2709,7 +2445,6 @@
                 },
                 {
                     "id": "9444",
-                    "date": 45730,
                     "customer": {
                         "id": 21981,
                         "name": "CHRISTOPHER STAPLETON"
@@ -2738,7 +2473,6 @@
                 },
                 {
                     "id": "9525A",
-                    "date": 45733,
                     "customer": {
                         "id": 23943,
                         "name": "IVETTE LEE"
@@ -2767,7 +2501,6 @@
                 },
                 {
                     "id": "9576",
-                    "date": 45734,
                     "customer": {
                         "id": 265393,
                         "name": "BIANCA PEREIRA DIAZ"
@@ -2796,7 +2529,6 @@
                 },
                 {
                     "id": "9034",
-                    "date": 45735,
                     "customer": {
                         "id": 23171,
                         "name": "RICHARD NAZUR"
@@ -2825,7 +2557,6 @@
                 },
                 {
                     "id": "9443",
-                    "date": 45736,
                     "customer": {
                         "id": 23784,
                         "name": "DANIELA FERNANDEZ"
@@ -2854,7 +2585,6 @@
                 },
                 {
                     "id": "9488",
-                    "date": 45741,
                     "customer": {
                         "id": 23834,
                         "name": "MAURICIO RESTREPO"
@@ -2883,7 +2613,6 @@
                 },
                 {
                     "id": "9653",
-                    "date": 45742,
                     "customer": {
                         "id": 24126,
                         "name": "BRITTNY FREIRE GARCIA"
@@ -2912,7 +2641,6 @@
                 },
                 {
                     "id": "9689",
-                    "date": 45743,
                     "customer": {
                         "id": 24198,
                         "name": "ERNESTO PEREZ"
@@ -2941,7 +2669,6 @@
                 },
                 {
                     "id": "9693",
-                    "date": 45743,
                     "customer": {
                         "id": 24209,
                         "name": "JOEL GONZALEZ"
@@ -2970,7 +2697,6 @@
                 },
                 {
                     "id": "9753",
-                    "date": 45744,
                     "customer": {
                         "id": 18444,
                         "name": "JAVIER LUIS"
@@ -2999,7 +2725,6 @@
                 },
                 {
                     "id": "9664",
-                    "date": 45744,
                     "customer": {
                         "id": 260087,
                         "name": "ANDRES MORALES"
@@ -3028,7 +2753,6 @@
                 },
                 {
                     "id": "9709",
-                    "date": 45747,
                     "customer": {
                         "id": 265503,
                         "name": "YSBEL MEDINA SANTOS"
@@ -3057,7 +2781,6 @@
                 },
                 {
                     "id": "9902",
-                    "date": 45747,
                     "customer": {
                         "id": 24449,
                         "name": "JEFFREY DAVID"
@@ -3086,7 +2809,6 @@
                 },
                 {
                     "id": "9935",
-                    "date": 45747,
                     "customer": {
                         "id": 24483,
                         "name": "DAVID CALZADILLA"
@@ -3115,7 +2837,6 @@
                 },
                 {
                     "id": "9983",
-                    "date": 45747,
                     "customer": {
                         "id": 11986,
                         "name": "BEATRIZ NIEBLA"
@@ -3144,7 +2865,6 @@
                 },
                 {
                     "id": "9771",
-                    "date": 45747,
                     "customer": {
                         "id": 24284,
                         "name": "RAMON PEREZ"
@@ -3173,7 +2893,6 @@
                 },
                 {
                     "id": "9863",
-                    "date": 45747,
                     "customer": {
                         "id": 24406,
                         "name": "GLADYS CHAMORRO"
@@ -3202,7 +2921,6 @@
                 },
                 {
                     "id": "9919",
-                    "date": 45747,
                     "customer": {
                         "id": 24470,
                         "name": "MADELINE FEINBERG"
@@ -3231,7 +2949,6 @@
                 },
                 {
                     "id": "9617A",
-                    "date": 45747,
                     "customer": {
                         "id": 24047,
                         "name": "RAUL HERNANDEZ"
@@ -3258,46 +2975,32 @@
                         "total": 200
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 6,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 1601.51,
+            "priorDraw": 2728.31,
+            "retroPercent": 0.07,
+            "units": {
+                "average": 30.7,
+                "count": 17.5,
+                "threeMonthCount": 92,
+                "total": {
+                    "new": 15.5,
+                    "used": 2
+                }
+            }
         },
         {
             "id": 12104,
             "name": "JOVAN MANZANARES",
-            "averageUnits": 22,
-            "priorDraw": 1758.9,
-            "spiff": 625,
-            "nps": {
-                "surveys": 4,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 55367.89,
-                "gross": 40259.450000000004,
-                "amount": 10787.31
-            },
-            "retro": {
-                "mini": 2625,
-                "owed": 1125,
-                "payout": 2063.846,
-                "total": 3188.8459999999995
-            },
-            "fni": {
-                "reserve": 13841.9725,
-                "gross": 41525.917499999996,
-                "payout": 2076.295875
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 775,
-                "total": 1525
-            },
             "deals": [
                 {
                     "id": "9335",
-                    "date": 45722,
                     "customer": {
                         "id": 23587,
                         "name": "JORGE NOTNI"
@@ -3326,7 +3029,6 @@
                 },
                 {
                     "id": "9359",
-                    "date": 45723,
                     "customer": {
                         "id": 23630,
                         "name": "MARIA MCCONNELL SOTO"
@@ -3355,7 +3057,6 @@
                 },
                 {
                     "id": "9399",
-                    "date": 45727,
                     "customer": {
                         "id": 23709,
                         "name": "LOIPA FERNANDEZ"
@@ -3384,7 +3085,6 @@
                 },
                 {
                     "id": "9217",
-                    "date": 45728,
                     "customer": {
                         "id": 23449,
                         "name": "TONI BENNETT"
@@ -3413,7 +3113,6 @@
                 },
                 {
                     "id": "9485",
-                    "date": 45729,
                     "customer": {
                         "id": 249646,
                         "name": "MARIA TARRAU"
@@ -3442,7 +3141,6 @@
                 },
                 {
                     "id": "9571",
-                    "date": 45734,
                     "customer": {
                         "id": 24006,
                         "name": "LINDA SPRINGER"
@@ -3471,7 +3169,6 @@
                 },
                 {
                     "id": "9552",
-                    "date": 45734,
                     "customer": {
                         "id": 23978,
                         "name": "STEPHANIE FERRER"
@@ -3500,7 +3197,6 @@
                 },
                 {
                     "id": "9608",
-                    "date": 45741,
                     "customer": {
                         "id": 275659,
                         "name": "WILMER MILLA VASCONCELLOS"
@@ -3529,7 +3225,6 @@
                 },
                 {
                     "id": "9291",
-                    "date": 45741,
                     "customer": {
                         "id": 23533,
                         "name": "MICHAEL HUFFAKER"
@@ -3558,7 +3253,6 @@
                 },
                 {
                     "id": "9043",
-                    "date": 45743,
                     "customer": {
                         "id": 23180,
                         "name": "LEYLA HERNANDEZ"
@@ -3587,7 +3281,6 @@
                 },
                 {
                     "id": "9731",
-                    "date": 45743,
                     "customer": {
                         "id": 24246,
                         "name": "DIEGO HINESTROSA MANRIQUE"
@@ -3616,7 +3309,6 @@
                 },
                 {
                     "id": "9469",
-                    "date": 45744,
                     "customer": {
                         "id": 23382,
                         "name": "SABRINA GONZALEZ"
@@ -3645,7 +3337,6 @@
                 },
                 {
                     "id": "9864",
-                    "date": 45747,
                     "customer": {
                         "id": 262750,
                         "name": "RIGOBERTO JIMENEZ DEL SOL"
@@ -3674,7 +3365,6 @@
                 },
                 {
                     "id": "9907",
-                    "date": 45747,
                     "customer": {
                         "id": 10950,
                         "name": "SHANNON DE PRADO"
@@ -3703,7 +3393,6 @@
                 },
                 {
                     "id": "9680A",
-                    "date": 45747,
                     "customer": {
                         "id": 24191,
                         "name": "DANIA LIMA"
@@ -3732,7 +3421,6 @@
                 },
                 {
                     "id": "9988",
-                    "date": 45747,
                     "customer": {
                         "id": 24541,
                         "name": "CAMILA MARCOS"
@@ -3761,7 +3449,6 @@
                 },
                 {
                     "id": "9918",
-                    "date": 45747,
                     "customer": {
                         "id": 24469,
                         "name": "EDWARD PETERSON"
@@ -3790,7 +3477,6 @@
                 },
                 {
                     "id": "9790",
-                    "date": 45747,
                     "customer": {
                         "id": 24307,
                         "name": "JEAN-PAUL HART"
@@ -3817,46 +3503,32 @@
                         "total": 150
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 4,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 625,
+            "priorDraw": 1758.9,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 22.3,
+                "count": 15.5,
+                "threeMonthCount": 67,
+                "total": {
+                    "new": 13.5,
+                    "used": 2
+                }
+            }
         },
         {
             "id": 13189,
             "name": "BRYAN ALTUNAGA",
-            "averageUnits": 6,
-            "priorDraw": 0,
-            "spiff": 0,
-            "nps": {
-                "surveys": 2,
-                "current": 33.300000000000004,
-                "average": 84.6,
-                "outcome": "B"
-            },
-            "commission": {
-                "fni": 17058.65,
-                "gross": 6629.229999999999,
-                "amount": 2691.95
-            },
-            "retro": {
-                "mini": 1100,
-                "owed": -43.83000000000001,
-                "payout": 0,
-                "total": -43.83000000000001
-            },
-            "fni": {
-                "reserve": 4264.6625,
-                "gross": 12793.987500000001,
-                "payout": 639.6993750000001
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9379",
-                    "date": 45726,
                     "customer": {
                         "id": 23654,
                         "name": "EFRAIN CARMONA"
@@ -3885,7 +3557,6 @@
                 },
                 {
                     "id": "8797AA",
-                    "date": 45729,
                     "customer": {
                         "id": 22820,
                         "name": "PABLO CEJAS"
@@ -3914,7 +3585,6 @@
                 },
                 {
                     "id": "9508",
-                    "date": 45730,
                     "customer": {
                         "id": 23872,
                         "name": "POWER HOODS & RESTAURANTS EQUI"
@@ -3943,7 +3613,6 @@
                 },
                 {
                     "id": "9564",
-                    "date": 45741,
                     "customer": {
                         "id": 266917,
                         "name": "ALIUSKA DABALSA"
@@ -3972,7 +3641,6 @@
                 },
                 {
                     "id": "9982",
-                    "date": 45747,
                     "customer": {
                         "id": 259086,
                         "name": "SABRINA ARAQUE"
@@ -4001,7 +3669,6 @@
                 },
                 {
                     "id": "9787",
-                    "date": 45747,
                     "customer": {
                         "id": 24301,
                         "name": "YORDAN RIVERO"
@@ -4030,7 +3697,6 @@
                 },
                 {
                     "id": "9929",
-                    "date": 45747,
                     "customer": {
                         "id": 24478,
                         "name": "SORAYA BATISTA-GARCIA"
@@ -4059,7 +3725,6 @@
                 },
                 {
                     "id": "9969",
-                    "date": 45747,
                     "customer": {
                         "id": 210260,
                         "name": "JOSE ZAYAS"
@@ -4088,7 +3753,6 @@
                 },
                 {
                     "id": "9869",
-                    "date": 45747,
                     "customer": {
                         "id": 24414,
                         "name": "INGRID SABOGAL"
@@ -4115,46 +3779,32 @@
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 2,
+                "currentPercent": 0.333,
+                "averagePercent": 0.846,
+                "outcome": "B"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 0,
+            "retroPercent": 0,
+            "units": {
+                "average": 6.3,
+                "count": 8.5,
+                "threeMonthCount": 19,
+                "total": {
+                    "new": 7.5,
+                    "used": 1
+                }
+            }
         },
         {
             "id": 14383,
             "name": "CARLOS CORNIELES",
-            "averageUnits": 24,
-            "priorDraw": 2570.49,
-            "spiff": 0,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 52974.26,
-                "gross": 45118.67,
-                "amount": 11546.669999999998
-            },
-            "retro": {
-                "mini": 2600,
-                "owed": 1300,
-                "payout": 2277.0360000000005,
-                "total": 3577.036
-            },
-            "fni": {
-                "reserve": 13243.565,
-                "gross": 39730.695,
-                "payout": 1986.53475
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 0,
-                "total": 750
-            },
             "deals": [
                 {
                     "id": "9300",
-                    "date": 45727,
                     "customer": {
                         "id": 16060,
                         "name": "DAVID MCDEVITT"
@@ -4183,7 +3833,6 @@
                 },
                 {
                     "id": "9445",
-                    "date": 45727,
                     "customer": {
                         "id": 23785,
                         "name": "OLEG KOVALENKO"
@@ -4212,7 +3861,6 @@
                 },
                 {
                     "id": "9434",
-                    "date": 45728,
                     "customer": {
                         "id": 23752,
                         "name": "SALIM DAHER"
@@ -4241,7 +3889,6 @@
                 },
                 {
                     "id": "9518",
-                    "date": 45730,
                     "customer": {
                         "id": 283417,
                         "name": "RENZO RODRIGUEZ"
@@ -4270,7 +3917,6 @@
                 },
                 {
                     "id": "9477",
-                    "date": 45733,
                     "customer": {
                         "id": 276284,
                         "name": "KAZO MENTAL HEALTH LLC"
@@ -4299,7 +3945,6 @@
                 },
                 {
                     "id": "9596",
-                    "date": 45735,
                     "customer": {
                         "id": 289658,
                         "name": "RAFAEL ARANEDA MATURANA"
@@ -4328,7 +3973,6 @@
                 },
                 {
                     "id": "9423",
-                    "date": 45735,
                     "customer": {
                         "id": 23736,
                         "name": "LEIDY BONILLA"
@@ -4357,7 +4001,6 @@
                 },
                 {
                     "id": "9625",
-                    "date": 45736,
                     "customer": {
                         "id": 24071,
                         "name": "VANESSA KNAPP"
@@ -4386,7 +4029,6 @@
                 },
                 {
                     "id": "9618",
-                    "date": 45741,
                     "customer": {
                         "id": 24048,
                         "name": "A+ INSURANCE GROUP COMPANY"
@@ -4415,7 +4057,6 @@
                 },
                 {
                     "id": "9646",
-                    "date": 45741,
                     "customer": {
                         "id": 265359,
                         "name": "RAMIRO PEREZ"
@@ -4444,7 +4085,6 @@
                 },
                 {
                     "id": "9735",
-                    "date": 45744,
                     "customer": {
                         "id": 24252,
                         "name": "MELKI KO"
@@ -4473,7 +4113,6 @@
                 },
                 {
                     "id": "9904",
-                    "date": 45747,
                     "customer": {
                         "id": 24451,
                         "name": "NIEVES FERNANDEZ MARISTAN"
@@ -4502,7 +4141,6 @@
                 },
                 {
                     "id": "9830A",
-                    "date": 45747,
                     "customer": {
                         "id": 24352,
                         "name": "JULIANA HENAO"
@@ -4531,7 +4169,6 @@
                 },
                 {
                     "id": "9942",
-                    "date": 45747,
                     "customer": {
                         "id": 24489,
                         "name": "RICARDO CAMPODONICO"
@@ -4560,7 +4197,6 @@
                 },
                 {
                     "id": "9848A",
-                    "date": 45747,
                     "customer": {
                         "id": 20022,
                         "name": "LAZARO OLANO"
@@ -4587,46 +4223,32 @@
                         "total": 200
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 2570.49,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 24,
+                "count": 14.5,
+                "threeMonthCount": 72,
+                "total": {
+                    "new": 13.5,
+                    "used": 1
+                }
+            }
         },
         {
             "id": 16210,
             "name": "RAFAEL FIGUEREDO DE SANTIAGO",
-            "averageUnits": 20,
-            "priorDraw": 2790.58,
-            "spiff": 4600,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 29750.78,
-                "gross": -6192.02,
-                "amount": 2601.17
-            },
-            "retro": {
-                "mini": 3675,
-                "owed": 1431.9699999999998,
-                "payout": 0,
-                "total": 1431.9699999999998
-            },
-            "fni": {
-                "reserve": 7437.695,
-                "gross": 22313.085,
-                "payout": 1115.65425
-            },
-            "bonus": {
-                "unit": 375,
-                "topsales": 0,
-                "csi": 0,
-                "total": 375
-            },
             "deals": [
                 {
                     "id": "9364",
-                    "date": 45722,
                     "customer": {
                         "id": 23642,
                         "name": "ALBERTO SARDUY PEREZ"
@@ -4655,7 +4277,6 @@
                 },
                 {
                     "id": "9446",
-                    "date": 45727,
                     "customer": {
                         "id": 259127,
                         "name": "CARMEN RODRIGUEZ"
@@ -4676,15 +4297,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 350,
-                        "owed": 150,
+                        "mini": 300,
+                        "owed": 100,
                         "payout": 0,
-                        "total": 150
+                        "total": 100
                     }
                 },
                 {
                     "id": "9616",
-                    "date": 45736,
                     "customer": {
                         "id": 24046,
                         "name": "RUSSELL BENFORD"
@@ -4705,15 +4325,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 350,
-                        "owed": 150,
+                        "mini": 300,
+                        "owed": 100,
                         "payout": 0,
-                        "total": 150
+                        "total": 100
                     }
                 },
                 {
                     "id": "9643",
-                    "date": 45736,
                     "customer": {
                         "id": 24097,
                         "name": "STEPHANIE HENDRY"
@@ -4734,15 +4353,14 @@
                         "amount": 100
                     },
                     "retro": {
-                        "mini": 175,
-                        "owed": 75,
+                        "mini": 150,
+                        "owed": 50,
                         "payout": 0,
-                        "total": 75
+                        "total": 50
                     }
                 },
                 {
                     "id": "9650",
-                    "date": 45743,
                     "customer": {
                         "id": 24116,
                         "name": "DAVID GARCIA REYES"
@@ -4763,15 +4381,14 @@
                         "amount": 200.8
                     },
                     "retro": {
-                        "mini": 350,
-                        "owed": 149.2,
+                        "mini": 300,
+                        "owed": 99.19999999999999,
                         "payout": 0,
-                        "total": 149.2
+                        "total": 99.19999999999999
                     }
                 },
                 {
                     "id": "9706",
-                    "date": 45744,
                     "customer": {
                         "id": 24227,
                         "name": "JEFFREY WEISELBERG"
@@ -4792,15 +4409,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 350,
-                        "owed": 150,
+                        "mini": 300,
+                        "owed": 100,
                         "payout": 0,
-                        "total": 150
+                        "total": 100
                     }
                 },
                 {
                     "id": "9509A",
-                    "date": 45747,
                     "customer": {
                         "id": 23900,
                         "name": "PATRICIA GALLOSO"
@@ -4821,15 +4437,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 350,
-                        "owed": 150,
+                        "mini": 300,
+                        "owed": 100,
                         "payout": 0,
-                        "total": 150
+                        "total": 100
                     }
                 },
                 {
                     "id": "9750",
-                    "date": 45747,
                     "customer": {
                         "id": 17739,
                         "name": "EDUARDO TABAREZ RAMIREZ"
@@ -4850,15 +4465,14 @@
                         "amount": 100
                     },
                     "retro": {
-                        "mini": 175,
-                        "owed": 75,
+                        "mini": 150,
+                        "owed": 50,
                         "payout": 0,
-                        "total": 75
+                        "total": 50
                     }
                 },
                 {
                     "id": "9742",
-                    "date": 45747,
                     "customer": {
                         "id": 279748,
                         "name": "MISHELL OSPINA"
@@ -4879,15 +4493,14 @@
                         "amount": 163.62
                     },
                     "retro": {
-                        "mini": 175,
-                        "owed": 11.379999999999995,
+                        "mini": 150,
+                        "owed": -13.620000000000005,
                         "payout": 0,
-                        "total": 11.379999999999995
+                        "total": -13.620000000000005
                     }
                 },
                 {
                     "id": "9798",
-                    "date": 45747,
                     "customer": {
                         "id": 21789,
                         "name": "UNIVERSAL FACTORY DIRECT LLC"
@@ -4908,15 +4521,14 @@
                         "amount": 100
                     },
                     "retro": {
-                        "mini": 175,
-                        "owed": 75,
+                        "mini": 150,
+                        "owed": 50,
                         "payout": 0,
-                        "total": 75
+                        "total": 50
                     }
                 },
                 {
                     "id": "9665",
-                    "date": 45747,
                     "customer": {
                         "id": 24151,
                         "name": "HEATHER COLQUITT"
@@ -4937,15 +4549,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 350,
-                        "owed": 150,
+                        "mini": 300,
+                        "owed": 100,
                         "payout": 0,
-                        "total": 150
+                        "total": 100
                     }
                 },
                 {
                     "id": "9950",
-                    "date": 45747,
                     "customer": {
                         "id": 24385,
                         "name": "OSCAR VASQUEZ"
@@ -4966,15 +4577,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 350,
-                        "owed": 150,
+                        "mini": 300,
+                        "owed": 100,
                         "payout": 0,
-                        "total": 150
+                        "total": 100
                     }
                 },
                 {
                     "id": "9931",
-                    "date": 45747,
                     "customer": {
                         "id": 24480,
                         "name": "ETHAN HEDDITCH"
@@ -4995,15 +4605,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 350,
-                        "owed": 150,
+                        "mini": 300,
+                        "owed": 100,
                         "payout": 0,
-                        "total": 150
+                        "total": 100
                     }
                 },
                 {
                     "id": "9941",
-                    "date": 45747,
                     "customer": {
                         "id": 24488,
                         "name": "MELINDA CZINK"
@@ -5024,52 +4633,38 @@
                         "amount": 178.61
                     },
                     "retro": {
-                        "mini": 175,
-                        "owed": -3.6100000000000136,
+                        "mini": 150,
+                        "owed": -28.610000000000014,
                         "payout": 0,
-                        "total": -3.6100000000000136
+                        "total": -28.610000000000014
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 4600,
+            "priorDraw": 2790.58,
+            "retroPercent": 0,
+            "units": {
+                "average": 19.7,
+                "count": 11.5,
+                "threeMonthCount": 59,
+                "total": {
+                    "new": 1,
+                    "used": 10.5
+                }
+            }
         },
         {
             "id": 16734,
             "name": "MAXIMILIANO TORIANO",
-            "averageUnits": 19,
-            "priorDraw": 2576.08,
-            "spiff": 250,
-            "nps": {
-                "surveys": 4,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 20378.67,
-                "gross": -2747.779999999999,
-                "amount": 3381.34
-            },
-            "retro": {
-                "mini": 2700,
-                "owed": 900,
-                "payout": 351.4092,
-                "total": 1251.4092000000003
-            },
-            "fni": {
-                "reserve": 5094.6675,
-                "gross": 15284.002499999999,
-                "payout": 764.200125
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 625,
-                "total": 1375
-            },
             "deals": [
                 {
                     "id": "9349",
-                    "date": 45722,
                     "customer": {
                         "id": 23595,
                         "name": "NANCY RICARDO HERNANDEZ"
@@ -5098,7 +4693,6 @@
                 },
                 {
                     "id": "9219",
-                    "date": 45722,
                     "customer": {
                         "id": 23453,
                         "name": "JOHN WILLIS"
@@ -5127,7 +4721,6 @@
                 },
                 {
                     "id": "9367",
-                    "date": 45723,
                     "customer": {
                         "id": 23647,
                         "name": "FABIAN GHISELLINI ROYERO"
@@ -5156,7 +4749,6 @@
                 },
                 {
                     "id": "9115",
-                    "date": 45728,
                     "customer": {
                         "id": 23302,
                         "name": "SANDRA DIXON"
@@ -5185,7 +4777,6 @@
                 },
                 {
                     "id": "9514A",
-                    "date": 45734,
                     "customer": {
                         "id": 23912,
                         "name": "EYAL FADIDA"
@@ -5214,7 +4805,6 @@
                 },
                 {
                     "id": "9436",
-                    "date": 45734,
                     "customer": {
                         "id": 23760,
                         "name": "YOSI LEVI"
@@ -5243,7 +4833,6 @@
                 },
                 {
                     "id": "9605",
-                    "date": 45741,
                     "customer": {
                         "id": 24037,
                         "name": "SANDRO FREIRE"
@@ -5272,7 +4861,6 @@
                 },
                 {
                     "id": "9567",
-                    "date": 45741,
                     "customer": {
                         "id": 23998,
                         "name": "TOMMY VEREAU"
@@ -5301,7 +4889,6 @@
                 },
                 {
                     "id": "9555",
-                    "date": 45741,
                     "customer": {
                         "id": 23980,
                         "name": "EVA ZEIK"
@@ -5330,7 +4917,6 @@
                 },
                 {
                     "id": "9754",
-                    "date": 45744,
                     "customer": {
                         "id": 24268,
                         "name": "JESSICA SMITH"
@@ -5359,7 +4945,6 @@
                 },
                 {
                     "id": "9791",
-                    "date": 45747,
                     "customer": {
                         "id": 24309,
                         "name": "BETTY O'CONNOR"
@@ -5388,7 +4973,6 @@
                 },
                 {
                     "id": "9798",
-                    "date": 45747,
                     "customer": {
                         "id": 21789,
                         "name": "UNIVERSAL FACTORY DIRECT LLC"
@@ -5417,7 +5001,6 @@
                 },
                 {
                     "id": "9894A",
-                    "date": 45747,
                     "customer": {
                         "id": 24436,
                         "name": "PABLO LUKIN"
@@ -5446,7 +5029,6 @@
                 },
                 {
                     "id": "9850",
-                    "date": 45747,
                     "customer": {
                         "id": 24384,
                         "name": "CARLOS SANCHEZ"
@@ -5475,7 +5057,6 @@
                 },
                 {
                     "id": "9946",
-                    "date": 45747,
                     "customer": {
                         "id": 24492,
                         "name": "ERELIO PEREZ"
@@ -5502,46 +5083,32 @@
                         "total": 67.5552
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 4,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 250,
+            "priorDraw": 2576.08,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 18.7,
+                "count": 12.5,
+                "threeMonthCount": 56,
+                "total": {
+                    "new": 0,
+                    "used": 12.5
+                }
+            }
         },
         {
             "id": 20993,
             "name": "Lucas Bucci oddo",
-            "averageUnits": 22,
-            "priorDraw": 2516.93,
-            "spiff": 1500,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 50,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 55414.409999999996,
-                "gross": 3250.3700000000026,
-                "amount": 6123.599999999999
-            },
-            "retro": {
-                "mini": 4375,
-                "owed": 1760.94,
-                "payout": 779.8988,
-                "total": 2540.8388
-            },
-            "fni": {
-                "reserve": 13853.602499999999,
-                "gross": 41560.807499999995,
-                "payout": 2078.040375
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 0,
-                "total": 750
-            },
             "deals": [
                 {
                     "id": "9306",
-                    "date": 45723,
                     "customer": {
                         "id": 279953,
                         "name": "SUZETTE SENA"
@@ -5570,7 +5137,6 @@
                 },
                 {
                     "id": "9309",
-                    "date": 45723,
                     "customer": {
                         "id": 262043,
                         "name": "RUBEN WASHINGTON"
@@ -5599,7 +5165,6 @@
                 },
                 {
                     "id": "9498",
-                    "date": 45728,
                     "customer": {
                         "id": 23866,
                         "name": "DAVID LARSEN"
@@ -5628,7 +5193,6 @@
                 },
                 {
                     "id": "9430",
-                    "date": 45730,
                     "customer": {
                         "id": 23746,
                         "name": "STEVEN SZATKOWSKI"
@@ -5657,7 +5221,6 @@
                 },
                 {
                     "id": "9584",
-                    "date": 45734,
                     "customer": {
                         "id": 24014,
                         "name": "RACHEL GONZALEZ TORRES"
@@ -5686,7 +5249,6 @@
                 },
                 {
                     "id": "9563",
-                    "date": 45735,
                     "customer": {
                         "id": 23984,
                         "name": "BRYAN ARIAS"
@@ -5715,7 +5277,6 @@
                 },
                 {
                     "id": "9643",
-                    "date": 45736,
                     "customer": {
                         "id": 24097,
                         "name": "STEPHANIE HENDRY"
@@ -5744,7 +5305,6 @@
                 },
                 {
                     "id": "9634",
-                    "date": 45742,
                     "customer": {
                         "id": 24007,
                         "name": "SERGEI PLIUSNIN"
@@ -5773,7 +5333,6 @@
                 },
                 {
                     "id": "9681",
-                    "date": 45742,
                     "customer": {
                         "id": 24192,
                         "name": "MAGDALENA CHOINSKI"
@@ -5802,7 +5361,6 @@
                 },
                 {
                     "id": "9699",
-                    "date": 45747,
                     "customer": {
                         "id": 24217,
                         "name": "EKATERINA PLIUSNINA"
@@ -5831,7 +5389,6 @@
                 },
                 {
                     "id": "9748",
-                    "date": 45747,
                     "customer": {
                         "id": 24273,
                         "name": "MLV MEDICAL SOLUTIONS, INC."
@@ -5860,7 +5417,6 @@
                 },
                 {
                     "id": "9771",
-                    "date": 45747,
                     "customer": {
                         "id": 24284,
                         "name": "RAMON PEREZ"
@@ -5889,7 +5445,6 @@
                 },
                 {
                     "id": "9797",
-                    "date": 45747,
                     "customer": {
                         "id": 24329,
                         "name": "LA SCUOLA, INC."
@@ -5918,7 +5473,6 @@
                 },
                 {
                     "id": "9821",
-                    "date": 45747,
                     "customer": {
                         "id": 278845,
                         "name": "DENNIS MADRID"
@@ -5947,7 +5501,6 @@
                 },
                 {
                     "id": "9925",
-                    "date": 45747,
                     "customer": {
                         "id": 24475,
                         "name": "BISMAR SERRANO"
@@ -5976,7 +5529,6 @@
                 },
                 {
                     "id": "9894A",
-                    "date": 45747,
                     "customer": {
                         "id": 24436,
                         "name": "PABLO LUKIN"
@@ -6005,7 +5557,6 @@
                 },
                 {
                     "id": "9941",
-                    "date": 45747,
                     "customer": {
                         "id": 24488,
                         "name": "MELINDA CZINK"
@@ -6032,46 +5583,32 @@
                         "total": -3.6100000000000136
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 0.5,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 1500,
+            "priorDraw": 2516.93,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 21.7,
+                "count": 14.5,
+                "threeMonthCount": 65,
+                "total": {
+                    "new": 4,
+                    "used": 10.5
+                }
+            }
         },
         {
             "id": 22145,
             "name": "Sergio Betancourt",
-            "averageUnits": 17,
-            "priorDraw": 2188.16,
-            "spiff": 2650,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 43226.12,
-                "gross": 21087.940000000002,
-                "amount": 6826.860000000001
-            },
-            "retro": {
-                "mini": 2400,
-                "owed": 760.5,
-                "payout": 1152.7468000000001,
-                "total": 1913.2468000000001
-            },
-            "fni": {
-                "reserve": 10806.53,
-                "gross": 32419.590000000004,
-                "payout": 1620.9795000000004
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 0,
-                "total": 750
-            },
             "deals": [
                 {
                     "id": "9335",
-                    "date": 45722,
                     "customer": {
                         "id": 23587,
                         "name": "JORGE NOTNI"
@@ -6100,7 +5637,6 @@
                 },
                 {
                     "id": "9473",
-                    "date": 45728,
                     "customer": {
                         "id": 12454,
                         "name": "BUILDINGS-BRIDGES-ROADWAY-GROU"
@@ -6129,7 +5665,6 @@
                 },
                 {
                     "id": "9491",
-                    "date": 45728,
                     "customer": {
                         "id": 23837,
                         "name": "HANY INVESTMENTS LLC"
@@ -6158,7 +5693,6 @@
                 },
                 {
                     "id": "9439",
-                    "date": 45733,
                     "customer": {
                         "id": 23771,
                         "name": "SANDRA PEREZ"
@@ -6187,7 +5721,6 @@
                 },
                 {
                     "id": "9524",
-                    "date": 45733,
                     "customer": {
                         "id": 255550,
                         "name": "CORY JOHNSON"
@@ -6216,7 +5749,6 @@
                 },
                 {
                     "id": "9550",
-                    "date": 45733,
                     "customer": {
                         "id": 23972,
                         "name": "GISELA BOMPEZZI"
@@ -6245,7 +5777,6 @@
                 },
                 {
                     "id": "9592",
-                    "date": 45735,
                     "customer": {
                         "id": 24024,
                         "name": "THANH TRAN"
@@ -6274,7 +5805,6 @@
                 },
                 {
                     "id": "9685",
-                    "date": 45742,
                     "customer": {
                         "id": 24196,
                         "name": "PEDRO PASTORE GEORGIO"
@@ -6303,7 +5833,6 @@
                 },
                 {
                     "id": "9732",
-                    "date": 45743,
                     "customer": {
                         "id": 24247,
                         "name": "ALONDRA RUIZ"
@@ -6332,7 +5861,6 @@
                 },
                 {
                     "id": "9712",
-                    "date": 45743,
                     "customer": {
                         "id": 24234,
                         "name": "HUMBERTO CORRALES"
@@ -6361,7 +5889,6 @@
                 },
                 {
                     "id": "9756",
-                    "date": 45744,
                     "customer": {
                         "id": 226994,
                         "name": "EFREN MORALES"
@@ -6390,7 +5917,6 @@
                 },
                 {
                     "id": "9974",
-                    "date": 45747,
                     "customer": {
                         "id": 24529,
                         "name": "LUIS RODRIGUEZ"
@@ -6419,7 +5945,6 @@
                 },
                 {
                     "id": "9928",
-                    "date": 45747,
                     "customer": {
                         "id": 24477,
                         "name": "ERIK RODRIGUEZ"
@@ -6448,7 +5973,6 @@
                 },
                 {
                     "id": "9627",
-                    "date": 45747,
                     "customer": {
                         "id": 23388,
                         "name": "JOSHUA ARRECHAVALA"
@@ -6477,7 +6001,6 @@
                 },
                 {
                     "id": "9765A",
-                    "date": 45747,
                     "customer": {
                         "id": 24234,
                         "name": "HUMBERTO CORRALES"
@@ -6504,45 +6027,32 @@
                         "total": 211.1704
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 2650,
+            "priorDraw": 2188.16,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 16.7,
+                "count": 14,
+                "threeMonthCount": 50,
+                "total": {
+                    "new": 14,
+                    "used": 0
+                }
+            }
         },
         {
             "id": 22478,
             "name": "Armand Perrier",
-            "averageUnits": 5,
-            "priorDraw": 2111.46,
-            "spiff": 202.8,
-            "nps": {
-                "surveys": 0,
-                "current": 0,
-                "average": 0
-            },
-            "commission": {
-                "fni": 8045.65,
-                "gross": 3454.13,
-                "amount": 1862.81
-            },
-            "retro": {
-                "mini": 400,
-                "owed": 0,
-                "payout": 0,
-                "total": 0
-            },
-            "fni": {
-                "reserve": 2011.4125,
-                "gross": 6034.237499999999,
-                "payout": 301.71187499999996
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9333",
-                    "date": 45721,
                     "customer": {
                         "id": 23586,
                         "name": "VIVAN CAO"
@@ -6571,7 +6081,6 @@
                 },
                 {
                     "id": "9481",
-                    "date": 45734,
                     "customer": {
                         "id": 23824,
                         "name": "MARIA GARCIA"
@@ -6600,7 +6109,6 @@
                 },
                 {
                     "id": "9786",
-                    "date": 45747,
                     "customer": {
                         "id": 24300,
                         "name": "JORGE DOMINICIS"
@@ -6629,7 +6137,6 @@
                 },
                 {
                     "id": "9823",
-                    "date": 45747,
                     "customer": {
                         "id": 24345,
                         "name": "JOAN REY"
@@ -6658,7 +6165,6 @@
                 },
                 {
                     "id": "9934",
-                    "date": 45747,
                     "customer": {
                         "id": 274833,
                         "name": "YESENIA MARTINEZ"
@@ -6685,46 +6191,32 @@
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": 0,
+                "averagePercent": 0,
+                "outcome": "B"
+            },
+            "spiffsTotal": 202.8,
+            "priorDraw": 2111.46,
+            "retroPercent": 0,
+            "units": {
+                "average": 4.7,
+                "count": 5,
+                "threeMonthCount": 14,
+                "total": {
+                    "new": 5,
+                    "used": 0
+                }
+            }
         },
         {
             "id": 22564,
             "name": "Adam Partridge",
-            "averageUnits": 10,
-            "priorDraw": 2518.12,
-            "spiff": 1050,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 39367.74,
-                "gross": 37246.420000000006,
-                "amount": 10722.949999999999
-            },
-            "retro": {
-                "mini": 1300,
-                "owed": 0,
-                "payout": 2093.99,
-                "total": 2093.99
-            },
-            "fni": {
-                "reserve": 9841.935,
-                "gross": 29525.805,
-                "payout": 1476.29025
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 0,
-                "total": 750
-            },
             "deals": [
                 {
                     "id": "9330A",
-                    "date": 45721,
                     "customer": {
                         "id": 23583,
                         "name": "NATALIE MARTINEZ SOSA"
@@ -6753,7 +6245,6 @@
                 },
                 {
                     "id": "9326",
-                    "date": 45721,
                     "customer": {
                         "id": 23576,
                         "name": "ULISES MARTINEZ"
@@ -6782,7 +6273,6 @@
                 },
                 {
                     "id": "9418",
-                    "date": 45727,
                     "customer": {
                         "id": 23725,
                         "name": "OCTAVIOUS MOODY"
@@ -6811,7 +6301,6 @@
                 },
                 {
                     "id": "9466",
-                    "date": 45728,
                     "customer": {
                         "id": 23813,
                         "name": "LEONIDAS LAVDAS"
@@ -6840,7 +6329,6 @@
                 },
                 {
                     "id": "9583",
-                    "date": 45734,
                     "customer": {
                         "id": 24013,
                         "name": "JOSHLYN BRUNA"
@@ -6869,7 +6357,6 @@
                 },
                 {
                     "id": "9527A",
-                    "date": 45741,
                     "customer": {
                         "id": 23945,
                         "name": "JOHN FERNANDEZ"
@@ -6898,7 +6385,6 @@
                 },
                 {
                     "id": "9566",
-                    "date": 45741,
                     "customer": {
                         "id": 23997,
                         "name": "DEISY BLAIN VALDES"
@@ -6927,7 +6413,6 @@
                 },
                 {
                     "id": "9684",
-                    "date": 45742,
                     "customer": {
                         "id": 24194,
                         "name": "NATIONWIDE REALTORS CORP"
@@ -6956,7 +6441,6 @@
                 },
                 {
                     "id": "9747",
-                    "date": 45744,
                     "customer": {
                         "id": 24264,
                         "name": "ANGELICA BAEZ BAEZ"
@@ -6985,7 +6469,6 @@
                 },
                 {
                     "id": "9930",
-                    "date": 45747,
                     "customer": {
                         "id": 24479,
                         "name": "ROMMEL VALVERDE"
@@ -7014,7 +6497,6 @@
                 },
                 {
                     "id": "9908",
-                    "date": 45747,
                     "customer": {
                         "id": 221677,
                         "name": "JOSE JIMENEZ"
@@ -7043,7 +6525,6 @@
                 },
                 {
                     "id": "9867",
-                    "date": 45747,
                     "customer": {
                         "id": 24412,
                         "name": "ADRIAN MARTINEZ"
@@ -7072,7 +6553,6 @@
                 },
                 {
                     "id": "9933A",
-                    "date": 45747,
                     "customer": {
                         "id": 24482,
                         "name": "FABRICE PELLEGRINO"
@@ -7101,7 +6581,6 @@
                 },
                 {
                     "id": "9986",
-                    "date": 45747,
                     "customer": {
                         "id": 24540,
                         "name": "JOHN LEE"
@@ -7130,7 +6609,6 @@
                 },
                 {
                     "id": "9708",
-                    "date": 45747,
                     "customer": {
                         "id": 24229,
                         "name": "ORLANDO PORRAS"
@@ -7157,46 +6635,32 @@
                         "total": 113.96000000000001
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 1050,
+            "priorDraw": 2518.12,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 9.7,
+                "count": 14,
+                "threeMonthCount": 29,
+                "total": {
+                    "new": 11,
+                    "used": 3
+                }
+            }
         },
         {
             "id": 207147,
             "name": "WEBER GUILBAUD",
-            "averageUnits": 12,
-            "priorDraw": 2940.92,
-            "spiff": 1000,
-            "nps": {
-                "surveys": 0,
-                "current": null,
-                "average": 50,
-                "outcome": "B"
-            },
-            "commission": {
-                "fni": 8685.79,
-                "gross": 6743.469999999999,
-                "amount": 1859.83
-            },
-            "retro": {
-                "mini": 1000,
-                "owed": 200,
-                "payout": 0,
-                "total": 200
-            },
-            "fni": {
-                "reserve": 2171.4475,
-                "gross": 6514.342500000001,
-                "payout": 325.71712500000007
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9600",
-                    "date": 45735,
                     "customer": {
                         "id": 24031,
                         "name": "ZORAIDA HUERTAS LUGO"
@@ -7225,7 +6689,6 @@
                 },
                 {
                     "id": "9734",
-                    "date": 45744,
                     "customer": {
                         "id": 24250,
                         "name": "TARA TATE"
@@ -7246,15 +6709,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 250,
-                        "owed": 50,
+                        "mini": 200,
+                        "owed": 0,
                         "payout": 0,
-                        "total": 50
+                        "total": 0
                     }
                 },
                 {
                     "id": "9838",
-                    "date": 45747,
                     "customer": {
                         "id": 265171,
                         "name": "MELANIE SUARIS"
@@ -7275,15 +6737,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 250,
-                        "owed": 50,
+                        "mini": 200,
+                        "owed": 0,
                         "payout": 0,
-                        "total": 50
+                        "total": 0
                     }
                 },
                 {
                     "id": "9531",
-                    "date": 45747,
                     "customer": {
                         "id": 23955,
                         "name": "YEVGENIY SOLOVYEV"
@@ -7304,15 +6765,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 250,
-                        "owed": 50,
+                        "mini": 200,
+                        "owed": 0,
                         "payout": 0,
-                        "total": 50
+                        "total": 0
                     }
                 },
                 {
                     "id": "9854",
-                    "date": 45747,
                     "customer": {
                         "id": 24389,
                         "name": "WILLIAM DAVID SKINNER, JR. DEC"
@@ -7333,15 +6793,14 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 250,
-                        "owed": 50,
+                        "mini": 200,
+                        "owed": 0,
                         "payout": 0,
-                        "total": 50
+                        "total": 0
                     }
                 },
                 {
                     "id": "9484",
-                    "date": 45747,
                     "customer": {
                         "id": 23852,
                         "name": "MORGAN WILLIAMS"
@@ -7368,46 +6827,32 @@
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": null,
+                "averagePercent": 0.5,
+                "outcome": "B"
+            },
+            "spiffsTotal": 1000,
+            "priorDraw": 2940.92,
+            "retroPercent": 0,
+            "units": {
+                "average": 11.7,
+                "count": 6,
+                "threeMonthCount": 35,
+                "total": {
+                    "new": 0,
+                    "used": 6
+                }
+            }
         },
         {
             "id": 207347,
             "name": "GONZALO SOSA",
-            "averageUnits": 12,
-            "priorDraw": 2606.76,
-            "spiff": 800,
-            "nps": {
-                "surveys": 1,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 15878.44,
-                "gross": 15381.06,
-                "amount": 3672.2
-            },
-            "retro": {
-                "mini": 1000,
-                "owed": 163.12,
-                "payout": 0,
-                "total": 163.12
-            },
-            "fni": {
-                "reserve": 3969.61,
-                "gross": 11908.83,
-                "payout": 595.4415
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9351",
-                    "date": 45721,
                     "customer": {
                         "id": 23597,
                         "name": "ARMANDO VASQUEZ"
@@ -7436,7 +6881,6 @@
                 },
                 {
                     "id": "7234",
-                    "date": 45721,
                     "customer": {
                         "id": 274867,
                         "name": "MIRIAM SUAREZ"
@@ -7465,7 +6909,6 @@
                 },
                 {
                     "id": "9716",
-                    "date": 45743,
                     "customer": {
                         "id": 278659,
                         "name": "MARLEN MORALES"
@@ -7494,7 +6937,6 @@
                 },
                 {
                     "id": "9739",
-                    "date": 45744,
                     "customer": {
                         "id": 245457,
                         "name": "JOANNE RUDD"
@@ -7523,7 +6965,6 @@
                 },
                 {
                     "id": "9845A",
-                    "date": 45747,
                     "customer": {
                         "id": 24381,
                         "name": "KAREN HERNANDEZ"
@@ -7552,7 +6993,6 @@
                 },
                 {
                     "id": "9915",
-                    "date": 45747,
                     "customer": {
                         "id": 24465,
                         "name": "JUAN JARAMILLO"
@@ -7581,7 +7021,6 @@
                 },
                 {
                     "id": "9695",
-                    "date": 45747,
                     "customer": {
                         "id": 289529,
                         "name": "GREGORY KEMENY"
@@ -7610,7 +7049,6 @@
                 },
                 {
                     "id": "9877",
-                    "date": 45747,
                     "customer": {
                         "id": 227351,
                         "name": "ILEANA CALVO"
@@ -7637,46 +7075,32 @@
                         "total": 50
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 1,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 800,
+            "priorDraw": 2606.76,
+            "retroPercent": 0,
+            "units": {
+                "average": 12.3,
+                "count": 8,
+                "threeMonthCount": 37,
+                "total": {
+                    "new": 7,
+                    "used": 1
+                }
+            }
         },
         {
             "id": 207462,
             "name": "OMAR CRUZ",
-            "averageUnits": 18,
-            "priorDraw": 2806.44,
-            "spiff": 1100,
-            "nps": {
-                "surveys": 5,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 28677.82,
-                "gross": 2591.4599999999996,
-                "amount": 3104.4500000000003
-            },
-            "retro": {
-                "mini": 2100,
-                "owed": 700,
-                "payout": 0,
-                "total": 700
-            },
-            "fni": {
-                "reserve": 7169.455,
-                "gross": 21508.364999999998,
-                "payout": 1075.41825
-            },
-            "bonus": {
-                "unit": 375,
-                "topsales": 0,
-                "csi": 550,
-                "total": 925
-            },
             "deals": [
                 {
                     "id": "9365",
-                    "date": 45723,
                     "customer": {
                         "id": 242605,
                         "name": "LUIS NAVARRO"
@@ -7705,7 +7129,6 @@
                 },
                 {
                     "id": "9429",
-                    "date": 45726,
                     "customer": {
                         "id": 280461,
                         "name": "LILIBETH GARCIA"
@@ -7734,7 +7157,6 @@
                 },
                 {
                     "id": "8239",
-                    "date": 45727,
                     "customer": {
                         "id": 261684,
                         "name": "HERNANDO MEJIA"
@@ -7763,7 +7185,6 @@
                 },
                 {
                     "id": "9438A",
-                    "date": 45729,
                     "customer": {
                         "id": 206631,
                         "name": "REYMUNDO MIRANDA"
@@ -7792,7 +7213,6 @@
                 },
                 {
                     "id": "9580",
-                    "date": 45734,
                     "customer": {
                         "id": 266920,
                         "name": "OSMARA ZAMORA MORALES"
@@ -7821,7 +7241,6 @@
                 },
                 {
                     "id": "9356",
-                    "date": 45742,
                     "customer": {
                         "id": 202540,
                         "name": "MARCO LICEAGA SERRANO"
@@ -7850,7 +7269,6 @@
                 },
                 {
                     "id": "9565",
-                    "date": 45742,
                     "customer": {
                         "id": 215183,
                         "name": "JOAQUIN ALVAREZ"
@@ -7879,7 +7297,6 @@
                 },
                 {
                     "id": "9654",
-                    "date": 45742,
                     "customer": {
                         "id": 254678,
                         "name": "P&R FINANCIAL CONSULTANTS LLC"
@@ -7908,7 +7325,6 @@
                 },
                 {
                     "id": "9723",
-                    "date": 45744,
                     "customer": {
                         "id": 266951,
                         "name": "A & S CONSTRUCTION AND MANAGEM"
@@ -7937,7 +7353,6 @@
                 },
                 {
                     "id": "9767",
-                    "date": 45747,
                     "customer": {
                         "id": 20104,
                         "name": "JONATHAN HARDY"
@@ -7966,7 +7381,6 @@
                 },
                 {
                     "id": "9776",
-                    "date": 45747,
                     "customer": {
                         "id": 265653,
                         "name": "ANITA PANDEY"
@@ -7993,46 +7407,32 @@
                         "total": 100
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 5,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 1100,
+            "priorDraw": 2806.44,
+            "retroPercent": 0,
+            "units": {
+                "average": 17.7,
+                "count": 11,
+                "threeMonthCount": 53,
+                "total": {
+                    "new": 9,
+                    "used": 2
+                }
+            }
         },
         {
             "id": 207573,
             "name": "PATRICK MCCLOSKEY",
-            "averageUnits": 23,
-            "priorDraw": 2105.74,
-            "spiff": 0,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 18865.050000000003,
-                "gross": 1030.7199999999998,
-                "amount": 3149.22
-            },
-            "retro": {
-                "mini": 1575,
-                "owed": 675,
-                "payout": 0,
-                "total": 675
-            },
-            "fni": {
-                "reserve": 4716.262500000001,
-                "gross": 14148.787500000002,
-                "payout": 707.4393750000002
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9569",
-                    "date": 45734,
                     "customer": {
                         "id": 24001,
                         "name": "ANDREA MARR-PERALTO"
@@ -8061,7 +7461,6 @@
                 },
                 {
                     "id": "9585",
-                    "date": 45735,
                     "customer": {
                         "id": 24015,
                         "name": "VERONICA SARANTES"
@@ -8090,7 +7489,6 @@
                 },
                 {
                     "id": "9601",
-                    "date": 45735,
                     "customer": {
                         "id": 24033,
                         "name": "ANDRES LOPEZ CAVANZO"
@@ -8119,7 +7517,6 @@
                 },
                 {
                     "id": "9653",
-                    "date": 45742,
                     "customer": {
                         "id": 24126,
                         "name": "BRITTNY FREIRE GARCIA"
@@ -8148,7 +7545,6 @@
                 },
                 {
                     "id": "9661",
-                    "date": 45742,
                     "customer": {
                         "id": 24144,
                         "name": "VANESSA PEREIRA"
@@ -8177,7 +7573,6 @@
                 },
                 {
                     "id": "9733",
-                    "date": 45743,
                     "customer": {
                         "id": 24249,
                         "name": "SEAN MURPHY"
@@ -8206,7 +7601,6 @@
                 },
                 {
                     "id": "9469",
-                    "date": 45744,
                     "customer": {
                         "id": 23382,
                         "name": "SABRINA GONZALEZ"
@@ -8235,7 +7629,6 @@
                 },
                 {
                     "id": "9785",
-                    "date": 45747,
                     "customer": {
                         "id": 24299,
                         "name": "KATHLEEN MC WEBER"
@@ -8264,7 +7657,6 @@
                 },
                 {
                     "id": "9981",
-                    "date": 45747,
                     "customer": {
                         "id": 24537,
                         "name": "MICHAEL HABER"
@@ -8291,46 +7683,32 @@
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 2105.74,
+            "retroPercent": 0,
+            "units": {
+                "average": 23.3,
+                "count": 8,
+                "threeMonthCount": 70,
+                "total": {
+                    "new": 6,
+                    "used": 2
+                }
+            }
         },
         {
             "id": 207580,
             "name": "MANUEL GINORI",
-            "averageUnits": 23,
-            "priorDraw": 2582.97,
-            "spiff": 1450,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 93.8,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 41996.46000000001,
-                "gross": 42366.259999999995,
-                "amount": 11576.699999999999
-            },
-            "retro": {
-                "mini": 2800,
-                "owed": 979.31,
-                "payout": 3794.0007000000005,
-                "total": 4773.3107
-            },
-            "fni": {
-                "reserve": 10499.115000000002,
-                "gross": 31497.345000000005,
-                "payout": 1574.8672500000002
-            },
-            "bonus": {
-                "unit": 1500,
-                "topsales": 0,
-                "csi": 0,
-                "total": 1500
-            },
             "deals": [
                 {
                     "id": "9464",
-                    "date": 45727,
                     "customer": {
                         "id": 23811,
                         "name": "ALEC AMAR"
@@ -8359,7 +7737,6 @@
                 },
                 {
                     "id": "9494",
-                    "date": 45734,
                     "customer": {
                         "id": 274672,
                         "name": "SUZANNE AMARO"
@@ -8388,7 +7765,6 @@
                 },
                 {
                     "id": "9602",
-                    "date": 45735,
                     "customer": {
                         "id": 24034,
                         "name": "NINETT LLERENA RODRIGUEZ"
@@ -8417,7 +7793,6 @@
                 },
                 {
                     "id": "9506",
-                    "date": 45735,
                     "customer": {
                         "id": 23890,
                         "name": "ROBERTO VERDUGO ALIAGA"
@@ -8446,7 +7821,6 @@
                 },
                 {
                     "id": "9582",
-                    "date": 45736,
                     "customer": {
                         "id": 24012,
                         "name": "ALRIC MALCOLM"
@@ -8475,7 +7849,6 @@
                 },
                 {
                     "id": "8916A",
-                    "date": 45741,
                     "customer": {
                         "id": 23000,
                         "name": "ODILEXYS RODRIGUEZ"
@@ -8504,7 +7877,6 @@
                 },
                 {
                     "id": "9676",
-                    "date": 45743,
                     "customer": {
                         "id": 24182,
                         "name": "MARK EBERLY"
@@ -8533,7 +7905,6 @@
                 },
                 {
                     "id": "9755",
-                    "date": 45744,
                     "customer": {
                         "id": 279004,
                         "name": "ARLETTE SOSA"
@@ -8562,7 +7933,6 @@
                 },
                 {
                     "id": "7874",
-                    "date": 45747,
                     "customer": {
                         "id": 21555,
                         "name": "AARON DOTSON"
@@ -8591,7 +7961,6 @@
                 },
                 {
                     "id": "9483A",
-                    "date": 45747,
                     "customer": {
                         "id": 23828,
                         "name": "MICHELLE ULLOA"
@@ -8620,7 +7989,6 @@
                 },
                 {
                     "id": "9749B",
-                    "date": 45747,
                     "customer": {
                         "id": 24266,
                         "name": "FLORANNA ROCHE HIDALGO"
@@ -8649,7 +8017,6 @@
                 },
                 {
                     "id": "9992",
-                    "date": 45747,
                     "customer": {
                         "id": 24544,
                         "name": "HECTOR TORRES ROBLES"
@@ -8678,7 +8045,6 @@
                 },
                 {
                     "id": "9841",
-                    "date": 45747,
                     "customer": {
                         "id": 24377,
                         "name": "PRISCILLA HUERTA"
@@ -8707,7 +8073,6 @@
                 },
                 {
                     "id": "9898",
-                    "date": 45747,
                     "customer": {
                         "id": 24442,
                         "name": "CHRISTIAN SUNDBLAD"
@@ -8736,7 +8101,6 @@
                 },
                 {
                     "id": "9871",
-                    "date": 45747,
                     "customer": {
                         "id": 24418,
                         "name": "ZOE JOVE"
@@ -8765,7 +8129,6 @@
                 },
                 {
                     "id": "9893A",
-                    "date": 45747,
                     "customer": {
                         "id": 261405,
                         "name": "JUAN PEREZ"
@@ -8794,7 +8157,6 @@
                 },
                 {
                     "id": "9847A",
-                    "date": 45747,
                     "customer": {
                         "id": 24382,
                         "name": "YIZENIA ALVARE-GARCIA"
@@ -8823,7 +8185,6 @@
                 },
                 {
                     "id": "9682",
-                    "date": 45747,
                     "customer": {
                         "id": 24193,
                         "name": "ALI HASANLI"
@@ -8850,46 +8211,32 @@
                         "total": 109.55000000000001
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 0.938,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 1450,
+            "priorDraw": 2582.97,
+            "retroPercent": 0.07,
+            "units": {
+                "average": 23,
+                "count": 16,
+                "threeMonthCount": 69,
+                "total": {
+                    "new": 13.5,
+                    "used": 2.5
+                }
+            }
         },
         {
             "id": 215323,
             "name": "ALEX PALACIOS",
-            "averageUnits": 21,
-            "priorDraw": 2966.21,
-            "spiff": 500,
-            "nps": {
-                "surveys": 11,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 37217.95999999999,
-                "gross": -5548.93,
-                "amount": 6027.2300000000005
-            },
-            "retro": {
-                "mini": 4375,
-                "owed": 1712.79,
-                "payout": 1308.615,
-                "total": 3021.4049999999997
-            },
-            "fni": {
-                "reserve": 9304.489999999998,
-                "gross": 27913.469999999994,
-                "payout": 1395.6734999999999
-            },
-            "bonus": {
-                "unit": 1500,
-                "topsales": 0,
-                "csi": 800,
-                "total": 2300
-            },
             "deals": [
                 {
                     "id": "9081",
-                    "date": 45722,
                     "customer": {
                         "id": 223861,
                         "name": "JOSE FERNANDEZ"
@@ -8918,7 +8265,6 @@
                 },
                 {
                     "id": "9368",
-                    "date": 45723,
                     "customer": {
                         "id": 14689,
                         "name": "ANISIA RODRIGUEZ DEL REY"
@@ -8947,7 +8293,6 @@
                 },
                 {
                     "id": "9341",
-                    "date": 45727,
                     "customer": {
                         "id": 23589,
                         "name": "FIDEL CASTILLO"
@@ -8976,7 +8321,6 @@
                 },
                 {
                     "id": "9480",
-                    "date": 45728,
                     "customer": {
                         "id": 23823,
                         "name": "STEVEN FLORES"
@@ -9005,7 +8349,6 @@
                 },
                 {
                     "id": "8545",
-                    "date": 45729,
                     "customer": {
                         "id": 272786,
                         "name": "ESPERANZA PEREZ"
@@ -9034,7 +8377,6 @@
                 },
                 {
                     "id": "9641",
-                    "date": 45736,
                     "customer": {
                         "id": 249183,
                         "name": "ASTRID EVANS"
@@ -9063,7 +8405,6 @@
                 },
                 {
                     "id": "8916A",
-                    "date": 45741,
                     "customer": {
                         "id": 23000,
                         "name": "ODILEXYS RODRIGUEZ"
@@ -9092,7 +8433,6 @@
                 },
                 {
                     "id": "9503",
-                    "date": 45742,
                     "customer": {
                         "id": 23883,
                         "name": "CLIFFORD LOSH"
@@ -9121,7 +8461,6 @@
                 },
                 {
                     "id": "9670",
-                    "date": 45742,
                     "customer": {
                         "id": 258792,
                         "name": "ALEXANDER RAMEY"
@@ -9150,7 +8489,6 @@
                 },
                 {
                     "id": "9672",
-                    "date": 45742,
                     "customer": {
                         "id": 277243,
                         "name": "LAWRENCE ELGARRESTA"
@@ -9179,7 +8517,6 @@
                 },
                 {
                     "id": "9714",
-                    "date": 45743,
                     "customer": {
                         "id": 20845,
                         "name": "AARON LANDEIRO"
@@ -9208,7 +8545,6 @@
                 },
                 {
                     "id": "9927",
-                    "date": 45747,
                     "customer": {
                         "id": 248897,
                         "name": "MARIA ROMANO"
@@ -9237,7 +8573,6 @@
                 },
                 {
                     "id": "9943",
-                    "date": 45747,
                     "customer": {
                         "id": 24490,
                         "name": "KRISTEN SKLADD"
@@ -9266,7 +8601,6 @@
                 },
                 {
                     "id": "9789",
-                    "date": 45747,
                     "customer": {
                         "id": 24306,
                         "name": "YANELIS CUTINO"
@@ -9295,7 +8629,6 @@
                 },
                 {
                     "id": "9679",
-                    "date": 45747,
                     "customer": {
                         "id": 24186,
                         "name": "JONATHAN MARTINEZ"
@@ -9324,7 +8657,6 @@
                 },
                 {
                     "id": "9975",
-                    "date": 45747,
                     "customer": {
                         "id": 211254,
                         "name": "YALILA GUTIERREZ"
@@ -9353,7 +8685,6 @@
                 },
                 {
                     "id": "9433A",
-                    "date": 45747,
                     "customer": {
                         "id": 23750,
                         "name": "KETANYA JACOBS"
@@ -9380,46 +8711,32 @@
                         "total": 176.45950000000002
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 11,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 500,
+            "priorDraw": 2966.21,
+            "retroPercent": 0.07,
+            "units": {
+                "average": 20.7,
+                "count": 16,
+                "threeMonthCount": 62,
+                "total": {
+                    "new": 12.5,
+                    "used": 3.5
+                }
+            }
         },
         {
             "id": 217079,
             "name": "FRANCISCO LLANO",
-            "averageUnits": 19,
-            "priorDraw": 1813.11,
-            "spiff": 0,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 22532.52,
-                "gross": -995.5,
-                "amount": 2854.28
-            },
-            "retro": {
-                "mini": 1800,
-                "owed": 458,
-                "payout": 0,
-                "total": 458
-            },
-            "fni": {
-                "reserve": 5633.13,
-                "gross": 16899.39,
-                "payout": 844.9695
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9337",
-                    "date": 45726,
                     "customer": {
                         "id": 257900,
                         "name": "WALTER ELIAS"
@@ -9448,7 +8765,6 @@
                 },
                 {
                     "id": "9404",
-                    "date": 45728,
                     "customer": {
                         "id": 23721,
                         "name": "JONATHAN PEREZ MARTIN"
@@ -9477,7 +8793,6 @@
                 },
                 {
                     "id": "9611",
-                    "date": 45735,
                     "customer": {
                         "id": 24041,
                         "name": "CARLOS NAYA"
@@ -9506,7 +8821,6 @@
                 },
                 {
                     "id": "9570",
-                    "date": 45736,
                     "customer": {
                         "id": 225699,
                         "name": "GLADYS MOURE"
@@ -9535,7 +8849,6 @@
                 },
                 {
                     "id": "9597A",
-                    "date": 45741,
                     "customer": {
                         "id": 266642,
                         "name": "MARCO LEYTE-VIDAL"
@@ -9564,7 +8877,6 @@
                 },
                 {
                     "id": "9721",
-                    "date": 45743,
                     "customer": {
                         "id": 24244,
                         "name": "VALERY VIRGILIO AMARE"
@@ -9593,7 +8905,6 @@
                 },
                 {
                     "id": "9756",
-                    "date": 45744,
                     "customer": {
                         "id": 226994,
                         "name": "EFREN MORALES"
@@ -9622,7 +8933,6 @@
                 },
                 {
                     "id": "9753",
-                    "date": 45744,
                     "customer": {
                         "id": 18444,
                         "name": "JAVIER LUIS"
@@ -9651,7 +8961,6 @@
                 },
                 {
                     "id": "9980",
-                    "date": 45747,
                     "customer": {
                         "id": 24536,
                         "name": "THELMA COSME"
@@ -9680,7 +8989,6 @@
                 },
                 {
                     "id": "9853",
-                    "date": 45747,
                     "customer": {
                         "id": 277687,
                         "name": "FRANCISCO AMADOR"
@@ -9709,7 +9017,6 @@
                 },
                 {
                     "id": "9933A",
-                    "date": 45747,
                     "customer": {
                         "id": 24482,
                         "name": "FABRICE PELLEGRINO"
@@ -9736,46 +9043,32 @@
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 1813.11,
+            "retroPercent": 0,
+            "units": {
+                "average": 19,
+                "count": 9,
+                "threeMonthCount": 57,
+                "total": {
+                    "new": 8,
+                    "used": 1
+                }
+            }
         },
         {
             "id": 242160,
             "name": "FRANCESCO DIAZ",
-            "averageUnits": 13,
-            "priorDraw": 2546.96,
-            "spiff": 1800,
-            "nps": {
-                "surveys": 4,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 9389.7,
-                "gross": 116.44000000000028,
-                "amount": 1905.53
-            },
-            "retro": {
-                "mini": 1875,
-                "owed": 339.78,
-                "payout": 0,
-                "total": 339.78
-            },
-            "fni": {
-                "reserve": 2347.425,
-                "gross": 7042.275000000001,
-                "payout": 352.11375000000004
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 400,
-                "total": 400
-            },
             "deals": [
                 {
                     "id": "9461",
-                    "date": 45729,
                     "customer": {
                         "id": 23807,
                         "name": "SERGE ROSOV"
@@ -9804,7 +9097,6 @@
                 },
                 {
                     "id": "9619",
-                    "date": 45735,
                     "customer": {
                         "id": 24050,
                         "name": "IVONNE HERNANDEZ"
@@ -9833,7 +9125,6 @@
                 },
                 {
                     "id": "9645",
-                    "date": 45741,
                     "customer": {
                         "id": 223234,
                         "name": "JUAN PENA"
@@ -9862,7 +9153,6 @@
                 },
                 {
                     "id": "9688",
-                    "date": 45742,
                     "customer": {
                         "id": 211426,
                         "name": "EDGARDO SANCHEZ"
@@ -9891,7 +9181,6 @@
                 },
                 {
                     "id": "9828A",
-                    "date": 45747,
                     "customer": {
                         "id": 273457,
                         "name": "JUDITH CEBALLOS COLMENARES"
@@ -9920,7 +9209,6 @@
                 },
                 {
                     "id": "9948",
-                    "date": 45747,
                     "customer": {
                         "id": 24493,
                         "name": "ARTURO OBREGON"
@@ -9949,7 +9237,6 @@
                 },
                 {
                     "id": "9840A",
-                    "date": 45747,
                     "customer": {
                         "id": 24374,
                         "name": "MARIA ROMERO"
@@ -9978,7 +9265,6 @@
                 },
                 {
                     "id": "9551",
-                    "date": 45747,
                     "customer": {
                         "id": 23974,
                         "name": "JODI-ANN CAMACHO"
@@ -10007,7 +9293,6 @@
                 },
                 {
                     "id": "9577",
-                    "date": 45747,
                     "customer": {
                         "id": 24008,
                         "name": "ALICE SOSA GARCIA"
@@ -10034,46 +9319,32 @@
                         "total": 50
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 4,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 1800,
+            "priorDraw": 2546.96,
+            "retroPercent": 0,
+            "units": {
+                "average": 13.3,
+                "count": 8,
+                "threeMonthCount": 40,
+                "total": {
+                    "new": 3.5,
+                    "used": 4.5
+                }
+            }
         },
         {
             "id": 245770,
             "name": "ROBERT HUNTER",
-            "averageUnits": 23,
-            "priorDraw": 2196.87,
-            "spiff": 0,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 26555.69,
-                "gross": 20058.89,
-                "amount": 6046.93
-            },
-            "retro": {
-                "mini": 1575,
-                "owed": 675,
-                "payout": 1143.76,
-                "total": 1818.7600000000002
-            },
-            "fni": {
-                "reserve": 6638.9225,
-                "gross": 19916.767499999998,
-                "payout": 995.8383749999999
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 0,
-                "total": 750
-            },
             "deals": [
                 {
                     "id": "9388",
-                    "date": 45727,
                     "customer": {
                         "id": 23687,
                         "name": "FERNANDO ISOLA"
@@ -10102,7 +9373,6 @@
                 },
                 {
                     "id": "9521",
-                    "date": 45730,
                     "customer": {
                         "id": 256091,
                         "name": "LUIS MEDINA"
@@ -10131,7 +9401,6 @@
                 },
                 {
                     "id": "9572",
-                    "date": 45734,
                     "customer": {
                         "id": 292271,
                         "name": "ELENA GOLOVAC"
@@ -10160,7 +9429,6 @@
                 },
                 {
                     "id": "9590",
-                    "date": 45736,
                     "customer": {
                         "id": 293217,
                         "name": "MARCIA LAAS"
@@ -10189,7 +9457,6 @@
                 },
                 {
                     "id": "9624",
-                    "date": 45736,
                     "customer": {
                         "id": 273737,
                         "name": "PATRICK RUSSELL, P.A."
@@ -10218,7 +9485,6 @@
                 },
                 {
                     "id": "9652",
-                    "date": 45742,
                     "customer": {
                         "id": 24122,
                         "name": "EFRAIN COLLADO"
@@ -10247,7 +9513,6 @@
                 },
                 {
                     "id": "9505",
-                    "date": 45743,
                     "customer": {
                         "id": 23888,
                         "name": "JUANITA STEWART"
@@ -10276,7 +9541,6 @@
                 },
                 {
                     "id": "9701",
-                    "date": 45743,
                     "customer": {
                         "id": 24221,
                         "name": "ALEJANDRO PARRA"
@@ -10305,7 +9569,6 @@
                 },
                 {
                     "id": "9916",
-                    "date": 45747,
                     "customer": {
                         "id": 258081,
                         "name": "TARIKA QUINN"
@@ -10334,7 +9597,6 @@
                 },
                 {
                     "id": "9952",
-                    "date": 45747,
                     "customer": {
                         "id": 24497,
                         "name": "ILENE FLECHNER"
@@ -10363,7 +9625,6 @@
                 },
                 {
                     "id": "8042",
-                    "date": 45747,
                     "customer": {
                         "id": 220512,
                         "name": "MARIA BOTERO"
@@ -10392,7 +9653,6 @@
                 },
                 {
                     "id": "9990",
-                    "date": 45747,
                     "customer": {
                         "id": 275157,
                         "name": "SIGMA AI GROUP LLC"
@@ -10421,7 +9681,6 @@
                 },
                 {
                     "id": "9703",
-                    "date": 45747,
                     "customer": {
                         "id": 24226,
                         "name": "EDWARD DRINKS"
@@ -10448,45 +9707,32 @@
                         "total": 150
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 2196.87,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 23,
+                "count": 12.5,
+                "threeMonthCount": 69,
+                "total": {
+                    "new": 10.5,
+                    "used": 2
+                }
+            }
         },
         {
             "id": 259020,
             "name": "NIMA ZARE",
-            "averageUnits": 1,
-            "priorDraw": 0,
-            "spiff": 0,
-            "nps": {
-                "surveys": 0,
-                "current": 0,
-                "average": 0
-            },
-            "commission": {
-                "fni": 419,
-                "gross": -1600,
-                "amount": 200
-            },
-            "retro": {
-                "mini": 200,
-                "owed": 0,
-                "payout": 0,
-                "total": 0
-            },
-            "fni": {
-                "reserve": 104.75,
-                "gross": 314.25,
-                "payout": 15.7125
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9606",
-                    "date": 45736,
                     "customer": {
                         "id": 24038,
                         "name": "DIEGO LIRMAN KALWILL"
@@ -10507,52 +9753,38 @@
                         "amount": 200
                     },
                     "retro": {
-                        "mini": 200,
+                        "mini": 0,
                         "owed": 0,
                         "payout": 0,
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": 0,
+                "averagePercent": 0,
+                "outcome": "B"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 0,
+            "retroPercent": 0,
+            "units": {
+                "average": 0.7,
+                "count": 1,
+                "threeMonthCount": 2,
+                "total": {
+                    "new": 1,
+                    "used": 0
+                }
+            }
         },
         {
             "id": 259520,
             "name": "FRANK GARCIA ECHEMENDIA",
-            "averageUnits": 25,
-            "priorDraw": 2587,
-            "spiff": 0,
-            "nps": {
-                "surveys": 5,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 42193.4,
-                "gross": 9815.82,
-                "amount": 11422.060000000001
-            },
-            "retro": {
-                "mini": 5200,
-                "owed": 2600,
-                "payout": 3430.8008000000004,
-                "total": 6030.800800000001
-            },
-            "fni": {
-                "reserve": 10548.35,
-                "gross": 31645.050000000003,
-                "payout": 1582.2525000000003
-            },
-            "bonus": {
-                "unit": 2500,
-                "topsales": 500,
-                "csi": 1000,
-                "total": 4000
-            },
             "deals": [
                 {
                     "id": "9362",
-                    "date": 45726,
                     "customer": {
                         "id": 23646,
                         "name": "MARIA HERNANDEZ"
@@ -10581,7 +9813,6 @@
                 },
                 {
                     "id": "9339",
-                    "date": 45726,
                     "customer": {
                         "id": 11756,
                         "name": "GUSTAVO GOMEZ BORRAS"
@@ -10610,7 +9841,6 @@
                 },
                 {
                     "id": "9463",
-                    "date": 45727,
                     "customer": {
                         "id": 291206,
                         "name": "DAYANA RODRIGUEZ GARCIA"
@@ -10639,7 +9869,6 @@
                 },
                 {
                     "id": "9372",
-                    "date": 45729,
                     "customer": {
                         "id": 23649,
                         "name": "LEYANY MORALES"
@@ -10668,7 +9897,6 @@
                 },
                 {
                     "id": "9478",
-                    "date": 45730,
                     "customer": {
                         "id": 263636,
                         "name": "ARTURO ALVAREZ DE PRADA"
@@ -10697,7 +9925,6 @@
                 },
                 {
                     "id": "9536",
-                    "date": 45733,
                     "customer": {
                         "id": 23970,
                         "name": "CYNTHIA MILLER"
@@ -10726,7 +9953,6 @@
                 },
                 {
                     "id": "9639",
-                    "date": 45736,
                     "customer": {
                         "id": 275602,
                         "name": "GOLNOOSH GOLTAPEH"
@@ -10755,7 +9981,6 @@
                 },
                 {
                     "id": "9609A",
-                    "date": 45742,
                     "customer": {
                         "id": 276781,
                         "name": "JOSE PEREZ MARRERO"
@@ -10784,7 +10009,6 @@
                 },
                 {
                     "id": "9705",
-                    "date": 45743,
                     "customer": {
                         "id": 266067,
                         "name": "BARBARA CABANA"
@@ -10813,7 +10037,6 @@
                 },
                 {
                     "id": "9642",
-                    "date": 45743,
                     "customer": {
                         "id": 24096,
                         "name": "JEMMIE CALDERA LIMONCHE"
@@ -10842,7 +10065,6 @@
                 },
                 {
                     "id": "9719",
-                    "date": 45743,
                     "customer": {
                         "id": 24241,
                         "name": "MIGUEL SOLANO FRANCHI"
@@ -10871,7 +10093,6 @@
                 },
                 {
                     "id": "9780B",
-                    "date": 45747,
                     "customer": {
                         "id": 279071,
                         "name": "LUIS GONZALEZ GONZALEZ"
@@ -10900,7 +10121,6 @@
                 },
                 {
                     "id": "7840",
-                    "date": 45747,
                     "customer": {
                         "id": 263505,
                         "name": "ZORAIDA DIAZ"
@@ -10929,7 +10149,6 @@
                 },
                 {
                     "id": "9824",
-                    "date": 45747,
                     "customer": {
                         "id": 24346,
                         "name": "ERICK MARTINEZ ILLAS"
@@ -10958,7 +10177,6 @@
                 },
                 {
                     "id": "9922",
-                    "date": 45747,
                     "customer": {
                         "id": 24472,
                         "name": "MARIA VALDES"
@@ -10987,7 +10205,6 @@
                 },
                 {
                     "id": "9938",
-                    "date": 45747,
                     "customer": {
                         "id": 266035,
                         "name": "JESSICA RODRIGUEZ RIEHL"
@@ -11016,7 +10233,6 @@
                 },
                 {
                     "id": "9979",
-                    "date": 45747,
                     "customer": {
                         "id": 259026,
                         "name": "MELVIN ORTEGA"
@@ -11045,7 +10261,6 @@
                 },
                 {
                     "id": "9612A",
-                    "date": 45747,
                     "customer": {
                         "id": 24042,
                         "name": "GABRIELA ROJAS FERNANDEZ"
@@ -11074,7 +10289,6 @@
                 },
                 {
                     "id": "9826A",
-                    "date": 45747,
                     "customer": {
                         "id": 24348,
                         "name": "LAZARA MARTINEZ"
@@ -11103,7 +10317,6 @@
                 },
                 {
                     "id": "9666",
-                    "date": 45747,
                     "customer": {
                         "id": 24155,
                         "name": "IVAN COTAYO"
@@ -11130,46 +10343,32 @@
                         "total": 747.4509000000002
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 5,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 2587,
+            "retroPercent": 0.07,
+            "units": {
+                "average": 25.3,
+                "count": 20,
+                "threeMonthCount": 76,
+                "total": {
+                    "new": 17,
+                    "used": 3
+                }
+            }
         },
         {
             "id": 261800,
             "name": "CHRISTOPHER MANNING",
-            "averageUnits": 10,
-            "priorDraw": 2325.31,
-            "spiff": 506,
-            "nps": {
-                "surveys": 1,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 13027.240000000002,
-                "gross": 2112.3800000000006,
-                "amount": 1532.33
-            },
-            "retro": {
-                "mini": 600,
-                "owed": -7.6200000000000045,
-                "payout": 0,
-                "total": -7.6200000000000045
-            },
-            "fni": {
-                "reserve": 3256.8100000000004,
-                "gross": 9770.43,
-                "payout": 488.52150000000006
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9396",
-                    "date": 45728,
                     "customer": {
                         "id": 23707,
                         "name": "VIVIEN CAMPBELL"
@@ -11198,7 +10397,6 @@
                 },
                 {
                     "id": "9321",
-                    "date": 45729,
                     "customer": {
                         "id": 23569,
                         "name": "HOLLIE CHAFIN"
@@ -11227,7 +10425,6 @@
                 },
                 {
                     "id": "9761",
-                    "date": 45747,
                     "customer": {
                         "id": 24276,
                         "name": "ALISA AZZARELLI"
@@ -11256,7 +10453,6 @@
                 },
                 {
                     "id": "9991",
-                    "date": 45747,
                     "customer": {
                         "id": 24542,
                         "name": "ANA RUIZ"
@@ -11285,7 +10481,6 @@
                 },
                 {
                     "id": "9833",
-                    "date": 45747,
                     "customer": {
                         "id": 24363,
                         "name": "KLEA AGOLLARI"
@@ -11312,46 +10507,32 @@
                         "total": -7.6200000000000045
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 1,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 506,
+            "priorDraw": 2325.31,
+            "retroPercent": 0,
+            "units": {
+                "average": 10.3,
+                "count": 4.5,
+                "threeMonthCount": 31,
+                "total": {
+                    "new": 0,
+                    "used": 4.5
+                }
+            }
         },
         {
             "id": 267623,
             "name": "PEDRO CANAS",
-            "averageUnits": 14,
-            "priorDraw": 2534.87,
-            "spiff": 2460,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 17249.6,
-                "gross": -2036.7699999999988,
-                "amount": 2112.65
-            },
-            "retro": {
-                "mini": 1500,
-                "owed": 300,
-                "payout": 0,
-                "total": 300
-            },
-            "fni": {
-                "reserve": 4312.4,
-                "gross": 12937.199999999999,
-                "payout": 646.86
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9422",
-                    "date": 45729,
                     "customer": {
                         "id": 23734,
                         "name": "AUSTIN PRADO"
@@ -11380,7 +10561,6 @@
                 },
                 {
                     "id": "9424",
-                    "date": 45734,
                     "customer": {
                         "id": 273221,
                         "name": "JEANNINE MARCOS"
@@ -11409,7 +10589,6 @@
                 },
                 {
                     "id": "9607A",
-                    "date": 45735,
                     "customer": {
                         "id": 24039,
                         "name": "NITSUGA SANCHEZ"
@@ -11438,7 +10617,6 @@
                 },
                 {
                     "id": "9533",
-                    "date": 45741,
                     "customer": {
                         "id": 274898,
                         "name": "LUIS BEVILACQUA RIVERA"
@@ -11467,7 +10645,6 @@
                 },
                 {
                     "id": "8453",
-                    "date": 45743,
                     "customer": {
                         "id": 202027,
                         "name": "FELIPE LOBOGUERRERO"
@@ -11496,7 +10673,6 @@
                 },
                 {
                     "id": "9917",
-                    "date": 45747,
                     "customer": {
                         "id": 24466,
                         "name": "YORYANA MANRRESA CORDERO"
@@ -11525,7 +10701,6 @@
                 },
                 {
                     "id": "9972",
-                    "date": 45747,
                     "customer": {
                         "id": 292531,
                         "name": "MAYRA VAZQUEZ"
@@ -11554,7 +10729,6 @@
                 },
                 {
                     "id": "9964",
-                    "date": 45747,
                     "customer": {
                         "id": 24519,
                         "name": "LISSETTE GUON"
@@ -11581,46 +10755,32 @@
                         "total": 50
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 2460,
+            "priorDraw": 2534.87,
+            "retroPercent": 0,
+            "units": {
+                "average": 14,
+                "count": 8,
+                "threeMonthCount": 42,
+                "total": {
+                    "new": 7,
+                    "used": 1
+                }
+            }
         },
         {
             "id": 271828,
             "name": "JORGE SUAREZ",
-            "averageUnits": 22,
-            "priorDraw": 2324.53,
-            "spiff": 550,
-            "nps": {
-                "surveys": 4,
-                "current": 100,
-                "average": 100,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 51837.63,
-                "gross": 1089.9700000000012,
-                "amount": 4906.27
-            },
-            "retro": {
-                "mini": 3325,
-                "owed": 1425,
-                "payout": 668.0576,
-                "total": 2093.0576
-            },
-            "fni": {
-                "reserve": 12959.4075,
-                "gross": 38878.222499999996,
-                "payout": 1943.9111249999999
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 700,
-                "total": 1450
-            },
             "deals": [
                 {
                     "id": "9325",
-                    "date": 45721,
                     "customer": {
                         "id": 267026,
                         "name": "LIUBOV BLANCO"
@@ -11649,7 +10809,6 @@
                 },
                 {
                     "id": "9360",
-                    "date": 45729,
                     "customer": {
                         "id": 23633,
                         "name": "CELESTIAL TREASURES NETWORK LL"
@@ -11678,7 +10837,6 @@
                 },
                 {
                     "id": "9444",
-                    "date": 45730,
                     "customer": {
                         "id": 21981,
                         "name": "CHRISTOPHER STAPLETON"
@@ -11707,7 +10865,6 @@
                 },
                 {
                     "id": "9492",
-                    "date": 45730,
                     "customer": {
                         "id": 23838,
                         "name": "ROBERTO HEQUIN"
@@ -11736,7 +10893,6 @@
                 },
                 {
                     "id": "9476",
-                    "date": 45733,
                     "customer": {
                         "id": 23820,
                         "name": "PAULO BELLO"
@@ -11765,7 +10921,6 @@
                 },
                 {
                     "id": "9567",
-                    "date": 45741,
                     "customer": {
                         "id": 23998,
                         "name": "TOMMY VEREAU"
@@ -11794,7 +10949,6 @@
                 },
                 {
                     "id": "9671",
-                    "date": 45742,
                     "customer": {
                         "id": 24169,
                         "name": "AKRISHT PANDEY"
@@ -11823,7 +10977,6 @@
                 },
                 {
                     "id": "9707",
-                    "date": 45743,
                     "customer": {
                         "id": 279960,
                         "name": "PHILLIP TREMBLEY"
@@ -11852,7 +11005,6 @@
                 },
                 {
                     "id": "9678",
-                    "date": 45744,
                     "customer": {
                         "id": 278398,
                         "name": "GIANLUCA ZIGNI"
@@ -11881,7 +11033,6 @@
                 },
                 {
                     "id": "9631",
-                    "date": 45744,
                     "customer": {
                         "id": 24087,
                         "name": "PAUL KEENAN"
@@ -11910,7 +11061,6 @@
                 },
                 {
                     "id": "9745",
-                    "date": 45747,
                     "customer": {
                         "id": 24263,
                         "name": "ISEL ANARELA RODRIGUEZ"
@@ -11939,7 +11089,6 @@
                 },
                 {
                     "id": "9865",
-                    "date": 45747,
                     "customer": {
                         "id": 24408,
                         "name": "CECIL COOPER"
@@ -11968,7 +11117,6 @@
                 },
                 {
                     "id": "9433A",
-                    "date": 45747,
                     "customer": {
                         "id": 23750,
                         "name": "KETANYA JACOBS"
@@ -11997,7 +11145,6 @@
                 },
                 {
                     "id": "9991",
-                    "date": 45747,
                     "customer": {
                         "id": 24542,
                         "name": "ANA RUIZ"
@@ -12026,7 +11173,6 @@
                 },
                 {
                     "id": "9741",
-                    "date": 45747,
                     "customer": {
                         "id": 24261,
                         "name": "DMYTRO KUTERGIN"
@@ -12055,7 +11201,6 @@
                 },
                 {
                     "id": "9792",
-                    "date": 45747,
                     "customer": {
                         "id": 24317,
                         "name": "THE MILLER FAMILY REVOCABLE LI"
@@ -12084,7 +11229,6 @@
                 },
                 {
                     "id": "9896",
-                    "date": 45747,
                     "customer": {
                         "id": 24440,
                         "name": "SHAHROKH MEMARBASHI"
@@ -12111,46 +11255,32 @@
                         "total": 93
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 4,
+                "currentPercent": 1,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 550,
+            "priorDraw": 2324.53,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 22,
+                "count": 14,
+                "threeMonthCount": 66,
+                "total": {
+                    "new": 3.5,
+                    "used": 10.5
+                }
+            }
         },
         {
             "id": 277065,
             "name": "JAIME WEVER",
-            "averageUnits": 23,
-            "priorDraw": 2639.52,
-            "spiff": 0,
-            "nps": {
-                "surveys": 4,
-                "current": 100,
-                "average": 83.6,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 40930.049999999996,
-                "gross": -5484.040000000001,
-                "amount": 3919.58
-            },
-            "retro": {
-                "mini": 2800,
-                "owed": 1200,
-                "payout": 515.462,
-                "total": 1715.462
-            },
-            "fni": {
-                "reserve": 10232.512499999999,
-                "gross": 30697.5375,
-                "payout": 1534.876875
-            },
-            "bonus": {
-                "unit": 750,
-                "topsales": 0,
-                "csi": 600,
-                "total": 1350
-            },
             "deals": [
                 {
                     "id": "9338",
-                    "date": 45722,
                     "customer": {
                         "id": 23588,
                         "name": "VLADIMIR KURIMSKY"
@@ -12179,7 +11309,6 @@
                 },
                 {
                     "id": "9487",
-                    "date": 45728,
                     "customer": {
                         "id": 23833,
                         "name": "ENA NUNEZ"
@@ -12208,7 +11337,6 @@
                 },
                 {
                     "id": "9518",
-                    "date": 45730,
                     "customer": {
                         "id": 283417,
                         "name": "RENZO RODRIGUEZ"
@@ -12237,7 +11365,6 @@
                 },
                 {
                     "id": "9395",
-                    "date": 45734,
                     "customer": {
                         "id": 23700,
                         "name": "RAMEZ MOUSA"
@@ -12266,7 +11393,6 @@
                 },
                 {
                     "id": "9640",
-                    "date": 45736,
                     "customer": {
                         "id": 22089,
                         "name": "VALENTIN ARENAS"
@@ -12295,7 +11421,6 @@
                 },
                 {
                     "id": "9688",
-                    "date": 45742,
                     "customer": {
                         "id": 211426,
                         "name": "EDGARDO SANCHEZ"
@@ -12324,7 +11449,6 @@
                 },
                 {
                     "id": "9698",
-                    "date": 45743,
                     "customer": {
                         "id": 14282,
                         "name": "LAWRENCE RIOS"
@@ -12353,7 +11477,6 @@
                 },
                 {
                     "id": "9631",
-                    "date": 45744,
                     "customer": {
                         "id": 24087,
                         "name": "PAUL KEENAN"
@@ -12382,7 +11505,6 @@
                 },
                 {
                     "id": "9760",
-                    "date": 45744,
                     "customer": {
                         "id": 24274,
                         "name": "JOHN CRAWFORD"
@@ -12411,7 +11533,6 @@
                 },
                 {
                     "id": "9751",
-                    "date": 45744,
                     "customer": {
                         "id": 24267,
                         "name": "BARBARA PFEIFFER"
@@ -12440,7 +11561,6 @@
                 },
                 {
                     "id": "9840A",
-                    "date": 45747,
                     "customer": {
                         "id": 24374,
                         "name": "MARIA ROMERO"
@@ -12469,7 +11589,6 @@
                 },
                 {
                     "id": "9561",
-                    "date": 45747,
                     "customer": {
                         "id": 23968,
                         "name": "JOHN LOBAIDO"
@@ -12498,7 +11617,6 @@
                 },
                 {
                     "id": "9777",
-                    "date": 45747,
                     "customer": {
                         "id": 24285,
                         "name": "TYQUAN TAYLOR"
@@ -12527,7 +11645,6 @@
                 },
                 {
                     "id": "9900",
-                    "date": 45747,
                     "customer": {
                         "id": 24447,
                         "name": "LISANDRO SANTANGELO"
@@ -12556,7 +11673,6 @@
                 },
                 {
                     "id": "9946",
-                    "date": 45747,
                     "customer": {
                         "id": 24492,
                         "name": "ERELIO PEREZ"
@@ -12583,45 +11699,32 @@
                         "total": 67.5552
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 4,
+                "currentPercent": 1,
+                "averagePercent": 0.836,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 2639.52,
+            "retroPercent": 0.04,
+            "units": {
+                "average": 22.7,
+                "count": 12,
+                "threeMonthCount": 68,
+                "total": {
+                    "new": 1,
+                    "used": 11
+                }
+            }
         },
         {
             "id": 277793,
             "name": "MARLON BOSCH",
-            "averageUnits": 0,
-            "priorDraw": 0,
-            "spiff": 0,
-            "nps": {
-                "surveys": 0,
-                "current": 0,
-                "average": 0
-            },
-            "commission": {
-                "fni": 813.6,
-                "gross": 3202,
-                "amount": 576.36
-            },
-            "retro": {
-                "mini": 0,
-                "owed": 0,
-                "payout": 0,
-                "total": 0
-            },
-            "fni": {
-                "reserve": 203.4,
-                "gross": 610.2,
-                "payout": 30.510000000000005
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9474",
-                    "date": 45730,
                     "customer": {
                         "id": 275002,
                         "name": "BRIAN SHAKNAITIS"
@@ -12648,45 +11751,32 @@
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": 0,
+                "averagePercent": 0,
+                "outcome": "B"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 0,
+            "retroPercent": 0,
+            "units": {
+                "average": 0,
+                "count": 1,
+                "threeMonthCount": 0,
+                "total": {
+                    "new": 1,
+                    "used": 0
+                }
+            }
         },
         {
             "id": 283245,
             "name": "ALEJANDRO DE LA TERGA",
-            "averageUnits": 5,
-            "priorDraw": 0,
-            "spiff": 1550,
-            "nps": {
-                "surveys": 0,
-                "current": 0,
-                "average": 0
-            },
-            "commission": {
-                "fni": 11253.93,
-                "gross": 6743.81,
-                "amount": 2774.6099999999997
-            },
-            "retro": {
-                "mini": 600,
-                "owed": 0,
-                "payout": 0,
-                "total": 0
-            },
-            "fni": {
-                "reserve": 2813.4825,
-                "gross": 8440.4475,
-                "payout": 422.022375
-            },
-            "bonus": {
-                "unit": 0,
-                "topsales": 0,
-                "csi": 0,
-                "total": 0
-            },
             "deals": [
                 {
                     "id": "9689",
-                    "date": 45743,
                     "customer": {
                         "id": 24198,
                         "name": "ERNESTO PEREZ"
@@ -12715,7 +11805,6 @@
                 },
                 {
                     "id": "9755",
-                    "date": 45744,
                     "customer": {
                         "id": 279004,
                         "name": "ARLETTE SOSA"
@@ -12744,7 +11833,6 @@
                 },
                 {
                     "id": "9736A",
-                    "date": 45744,
                     "customer": {
                         "id": 24254,
                         "name": "YANETH HURTADO RUBIANO"
@@ -12773,7 +11861,6 @@
                 },
                 {
                     "id": "9912",
-                    "date": 45747,
                     "customer": {
                         "id": 278203,
                         "name": "GEOFFREY MANNA"
@@ -12802,7 +11889,6 @@
                 },
                 {
                     "id": "9951",
-                    "date": 45747,
                     "customer": {
                         "id": 24495,
                         "name": "SUDNY BOSCH"
@@ -12831,7 +11917,6 @@
                 },
                 {
                     "id": "9969",
-                    "date": 45747,
                     "customer": {
                         "id": 210260,
                         "name": "JOSE ZAYAS"
@@ -12860,7 +11945,6 @@
                 },
                 {
                     "id": "9963",
-                    "date": 45747,
                     "customer": {
                         "id": 24516,
                         "name": "RODOLFO MOLINA"
@@ -12889,7 +11973,6 @@
                 },
                 {
                     "id": "9788",
-                    "date": 45747,
                     "customer": {
                         "id": 24302,
                         "name": "RICHARD GOMEZ"
@@ -12916,46 +11999,32 @@
                         "total": 0
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": 0,
+                "averagePercent": 0,
+                "outcome": "B"
+            },
+            "spiffsTotal": 1550,
+            "priorDraw": 0,
+            "retroPercent": 0,
+            "units": {
+                "average": 5.3,
+                "count": 6.5,
+                "threeMonthCount": 16,
+                "total": {
+                    "new": 4.5,
+                    "used": 2
+                }
+            }
         },
         {
             "id": 284175,
             "name": "ANTHONY CERRUELA",
-            "averageUnits": 33,
-            "priorDraw": 2640.04,
-            "spiff": 0,
-            "nps": {
-                "surveys": 3,
-                "current": 100,
-                "average": 96.6,
-                "outcome": "3P"
-            },
-            "commission": {
-                "fni": 32440.590000000004,
-                "gross": -6905.38,
-                "amount": 3505.7200000000003
-            },
-            "retro": {
-                "mini": 6000,
-                "owed": 2817.07,
-                "payout": 125.52960000000002,
-                "total": 2942.5996
-            },
-            "fni": {
-                "reserve": 8110.147500000001,
-                "gross": 24330.442500000005,
-                "payout": 1216.5221250000002
-            },
-            "bonus": {
-                "unit": 1500,
-                "topsales": 0,
-                "csi": 0,
-                "total": 1500
-            },
             "deals": [
                 {
                     "id": "9245",
-                    "date": 45721,
                     "customer": {
                         "id": 23493,
                         "name": "ANGELINA BARTUTIS"
@@ -12984,7 +12053,6 @@
                 },
                 {
                     "id": "9350",
-                    "date": 45722,
                     "customer": {
                         "id": 23596,
                         "name": "ELISET HERNANDEZ"
@@ -13013,7 +12081,6 @@
                 },
                 {
                     "id": "9367",
-                    "date": 45723,
                     "customer": {
                         "id": 23647,
                         "name": "FABIAN GHISELLINI ROYERO"
@@ -13042,7 +12109,6 @@
                 },
                 {
                     "id": "9389",
-                    "date": 45723,
                     "customer": {
                         "id": 23689,
                         "name": "PAUL BEN"
@@ -13071,7 +12137,6 @@
                 },
                 {
                     "id": "9528",
-                    "date": 45734,
                     "customer": {
                         "id": 274812,
                         "name": "GLORIA SARAVIA"
@@ -13100,7 +12165,6 @@
                 },
                 {
                     "id": "9743",
-                    "date": 45744,
                     "customer": {
                         "id": 24262,
                         "name": "GUY STEWART"
@@ -13129,7 +12193,6 @@
                 },
                 {
                     "id": "9614A",
-                    "date": 45747,
                     "customer": {
                         "id": 24043,
                         "name": "ISMAEL ESCANDELL"
@@ -13158,7 +12221,6 @@
                 },
                 {
                     "id": "9568B",
-                    "date": 45747,
                     "customer": {
                         "id": 23999,
                         "name": "SEBASTIEN FREDENUCCI"
@@ -13187,7 +12249,6 @@
                 },
                 {
                     "id": "9353A",
-                    "date": 45747,
                     "customer": {
                         "id": 23614,
                         "name": "TERRY BAXTER"
@@ -13216,7 +12277,6 @@
                 },
                 {
                     "id": "9620A",
-                    "date": 45747,
                     "customer": {
                         "id": 24051,
                         "name": "CARLOTA CANO"
@@ -13245,7 +12305,6 @@
                 },
                 {
                     "id": "9462A",
-                    "date": 45747,
                     "customer": {
                         "id": 23810,
                         "name": "YOSELIN GUERRA"
@@ -13274,7 +12333,6 @@
                 },
                 {
                     "id": "9515A",
-                    "date": 45747,
                     "customer": {
                         "id": 23917,
                         "name": "TERESITA RODRIGUEZ-OTERO"
@@ -13303,7 +12361,6 @@
                 },
                 {
                     "id": "9598A",
-                    "date": 45747,
                     "customer": {
                         "id": 276308,
                         "name": "BRIAN GOLDSTEIN"
@@ -13332,7 +12389,6 @@
                 },
                 {
                     "id": "9897",
-                    "date": 45747,
                     "customer": {
                         "id": 24441,
                         "name": "GARRY POPOFSKY"
@@ -13361,7 +12417,6 @@
                 },
                 {
                     "id": "9987",
-                    "date": 45747,
                     "customer": {
                         "id": 24484,
                         "name": "ANDREA TRAVANI"
@@ -13390,7 +12445,6 @@
                 },
                 {
                     "id": "9667",
-                    "date": 45747,
                     "customer": {
                         "id": 24158,
                         "name": "ERROLL SULT"
@@ -13419,7 +12473,6 @@
                 },
                 {
                     "id": "9909",
-                    "date": 45747,
                     "customer": {
                         "id": 24458,
                         "name": "KENNETH DUBIN"
@@ -13448,7 +12501,6 @@
                 },
                 {
                     "id": "9900",
-                    "date": 45747,
                     "customer": {
                         "id": 24447,
                         "name": "LISANDRO SANTANGELO"
@@ -13475,7 +12527,172 @@
                         "total": 100
                     }
                 }
-            ]
+            ],
+            "nps": {
+                "surveyCount": 3,
+                "currentPercent": 1,
+                "averagePercent": 0.966,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 2640.04,
+            "retroPercent": 0.07,
+            "units": {
+                "average": 33.3,
+                "count": 16,
+                "threeMonthCount": 100,
+                "total": {
+                    "new": 8,
+                    "used": 8
+                }
+            }
+        },
+        {
+            "id": 16655,
+            "name": "BRIAN PERRI",
+            "deals": [],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": null,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 509.86,
+            "retroPercent": 0,
+            "units": {
+                "average": 5,
+                "count": 0,
+                "threeMonthCount": 15,
+                "total": {
+                    "new": 0,
+                    "used": 0
+                }
+            }
+        },
+        {
+            "id": 18357,
+            "name": "CARLOS DIAZ",
+            "deals": [],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": 0,
+                "averagePercent": 0,
+                "outcome": "B"
+            },
+            "spiffsTotal": 1100,
+            "priorDraw": 1523.67,
+            "retroPercent": 0,
+            "units": {
+                "average": 2.7,
+                "count": 0,
+                "threeMonthCount": 8,
+                "total": {
+                    "new": 0,
+                    "used": 0
+                }
+            }
+        },
+        {
+            "id": 10067,
+            "name": "CHRISTOPHER CALERO",
+            "deals": [],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": null,
+                "averagePercent": 1,
+                "outcome": "3P"
+            },
+            "spiffsTotal": 1075,
+            "priorDraw": 3509.84,
+            "retroPercent": 0,
+            "units": {
+                "average": 17,
+                "count": 0,
+                "threeMonthCount": 51,
+                "total": {
+                    "new": 0,
+                    "used": 0
+                }
+            }
+        },
+        {
+            "id": 206864,
+            "name": "MARTIN FARR",
+            "deals": [],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": 0,
+                "averagePercent": 0,
+                "outcome": "B"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 0,
+            "retroPercent": 0,
+            "units": {
+                "average": 0.3,
+                "count": 0,
+                "threeMonthCount": 1,
+                "total": {
+                    "new": 0,
+                    "used": 0
+                }
+            }
+        },
+        {
+            "id": 277324,
+            "name": "PABLO ZERPA",
+            "deals": [],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": 0,
+                "averagePercent": 0,
+                "outcome": "B"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 0,
+            "retroPercent": 0,
+            "units": {
+                "average": 0.3,
+                "count": 0,
+                "threeMonthCount": 1,
+                "total": {
+                    "new": 0,
+                    "used": 0
+                }
+            }
+        },
+        {
+            "id": 14906,
+            "name": "STEVEN SUAZO",
+            "deals": [],
+            "nps": {
+                "surveyCount": 0,
+                "currentPercent": null,
+                "averagePercent": 0,
+                "outcome": "B"
+            },
+            "spiffsTotal": 0,
+            "priorDraw": 4062.18,
+            "retroPercent": 0,
+            "units": {
+                "average": 5.7,
+                "count": 0,
+                "threeMonthCount": 17,
+                "total": {
+                    "new": 0,
+                    "used": 0
+                }
+            }
         }
-    ]
+    ],
+    "regionalScore": 90.9,
+    "accountNumbers": {
+        "retro": "8328",
+        "expense1": "4011A",
+        "expense2": "4011B",
+        "salesTax": "8323",
+        "salesBonus1": "4025A",
+        "salesBonus2": "4025B"
+    }
 }
