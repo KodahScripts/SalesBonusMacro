@@ -7,285 +7,329 @@
 //                                                  //
 //////////////////////////////////////////////////////
 
-class Store {
-    public employees: Employee[];
-    public regionalScore: number;
-    public commission: Commission;
-    public retro: Retro;
-    public fni: FnI;
-    public bonus: Bonus;
-    public topSalesman: TopSalesman;
-    public totalCommission: number;
-    public ytdBucket: number;
-    public accounts: Account;
-    public units: Units;
-    public unitPercent: UnitPercent;
-    public date: string;
-    public expense: Expense;
-    public totalDraw: number;
-    public totalOwed: number;
-    public totalSpiffs: number;
-    constructor(public name: string, public abbr: string, public customLookup: LookupReport) {
-        this.name = name;
-        this.abbr = abbr;
-        this.regionalScore = 0;
-        this.totalCommission = 0;
-        this.ytdBucket = 0;
-        this.totalDraw = 0;
-        this.totalOwed = 0;
-        this.totalSpiffs = 0;
-        this.expense = { one: 0, two: 0 };
-        this.units = { new: 0, used: 0, total: 0 };
-        this.unitPercent = { new: 0, used: 0 };
-        this.accounts = { retro: '', expense: { one: '', two: ''}, salesTax: '', salesBonusTax1: '', salesBonusTax2: '' }
-        this.fni = { reserve: 0, gross: 0, payout: 0 }
-        this.commission = { fni: 0, gross: 0, amount: 0, taxes: 0 };
-        this.retro = { mini: 0, owed: 0, payout: 0, total: 0 };
-        this.bonus = { unit: 0, topsales: 0, csi: 0, eom: 0, total: 0 };
-        this.topSalesman = { id: 0, count: 0 };
-        this.employees = [];
-    }
+function main(workbook: ExcelScript.Workbook) {
+    const initialSheets = workbook.getWorksheets();
 
-    employeeExists(employeeId: number): boolean {
-        return this.employees.some(emp => emp.id === employeeId);
-    }
+    const lookup = {};
+    const reports = {};
 
-    calculateAll() {
-        this.getTotalUnits();
-        this.getTopSalesman();
-        this.getCommission();
-        this.getRetro();
-        this.getFni();
-        this.getBonus();
-        this.employees.forEach((employee) => {
-            employee.setExpense(this.unitPercent.new, this.unitPercent.used);
-            this.expense.one += employee.expense.one;
-            this.expense.two += employee.expense.two;
-            this.totalDraw += employee.drawAmount;
-            this.totalOwed += employee.getOwed();
-            this.totalSpiffs += employee.spiff;
+    initialSheets.map(sheet => {
+        const sheetName = sheet.getName();
+        const data = sheet.getUsedRange().getValues();
+        if (sheetName.includes("-")) {
+            const splitName = sheetName.split("-");
+            if (splitName.length > 1) {
+                const typeOfReport = splitName[0].trim().toLowerCase(); // In case we need more control
+                const reportName = splitName[1].trim().toLowerCase();
+                lookup[reportName] = new LookupReport(data);
+            }
+        } else {
+            switch (sheetName) {
+                case "INPUT": reports["globals"] = new InputReport(data);
+                    break;
+                case "0432": reports["deals"] = new DealsReport(data);
+                    break;
+                case "90": reports["averageunits"] = new AverageUnitReport(data);
+                    break;
+                case "3213": reports["priordraw"] = new PriorDrawReport(data);
+                    break;
+                case "SPIFFS": reports["spiffs"] = new SpiffReport(data);
+                    break;
+                case "NpsSheet":
+                    const head = data[2];
+                    const body = data.slice(3)
+                    reports["nps"] = new NpsReport([head, ...body]);
+                    break;
+                default:
+                    sheet.delete();
+                    break;
+            }
+        }
+    });
+
+    const { storeName, storeAbbr, date, regionalScore, topsalesAmount, ...accounts }: Store = reports["globals"].vars;
+    const { retroAcct, expenseAcct1, expenseAcct2, salesTaxAcct, salesBonusAcct1, salesBonusAcct2 }: AccountNumbers = accounts;
+    const accountNumbers: AccountNumbers = { retro: retroAcct, expense1: expenseAcct1, expense2: expenseAcct2, salesTax: salesTaxAcct, salesBonus1: salesBonusAcct1, salesBonus2: salesBonusAcct2 }
+    const store: Store = {
+        name: storeName, abbr: storeAbbr, displayDate: date, employees: [],
+        regionalScore: regionalScore, topsalesAmount, accountNumbers
+    };
+
+    const employeeList = getAllEmployees(reports);
+    attachSpiffs(reports["spiffs"].list, employeeList);
+    attachNps(reports["nps"].list, employeeList, store.regionalScore);
+    attachPriorDraw(reports["priordraw"].list, employeeList);
+    attachUnits(reports["averageunits"].list, employeeList);
+    attachDeals(reports["deals"].list, employeeList);
+    calculateRetro(lookup["retromini"], lookup["retropercentage"], employeeList);
+    calculateUnitBonus(lookup["unit"], employeeList);
+    caclulateNpsBonus(regionalScore, employeeList);
+
+    store.employees = employeeList;
+    console.log(store);
+}
+
+
+function getAllEmployees(reports: InputReport | DealsReport | AverageUnitReport | PriorDrawReport | SpiffReport | NpsReport) {
+    const allEmps: Employee[] = [];
+    for (const [key, val] of Object.entries(reports)) {
+        switch (key) {
+            case "globals":
+            case "spiffs":
+                break;
+            default:
+                val.list.map(v => {
+                    const employee = allEmps.filter(emp => emp.id === v.employeeID)[0];
+                    const nps = new Nps();
+                    const averageUnits = new AverageUnits(0);
+                    const units = new Units();
+                    if (!employee) allEmps.push({ id: v.employeeID, name: v.employeeName, deals: [], nps, spiffsTotal: 0, priorDraw: 0, retroPercent: 0, bonus: { unit: 0, topsales: 0, nps: 0 }, averageUnits, units });
+                });
+                break;
+        }
+    }
+    return allEmps;
+}
+
+
+function attachSpiffs(spiffs: EmployeeSpiff[], employeeList: Employee[]) {
+    spiffs.forEach(spiff => {
+        employeeList.filter(emp => emp.id === spiff.employeeID)[0].spiffsTotal = spiff.amount;
+    });
+}
+
+
+function attachNps(npsList: EmployeeNps[], employeeList: Employee[], regionalScore: number) {
+    npsList.forEach(nps => {
+        const employee = employeeList.filter(emp => emp.id === nps.employeeID)[0];
+        employee.nps.surveyCount = nps.surveyCount;
+        employee.nps.averagePercent = nps.averagePercent;
+        employee.nps.currentPercent = nps.currentPercent;
+    });
+}
+
+
+function attachPriorDraw(pd: PriorDraw[], employeeList: Employee[]) {
+    pd.forEach(d => {
+        employeeList.filter(emp => emp.id === d.employeeID)[0].priorDraw = d.draw;
+    });
+}
+
+
+function attachUnits(units: EmployeeUnits[], employeeList: Employee[]) {
+    units.forEach(unit => {
+        const employee = employeeList.filter(emp => emp.id === unit.employeeID)[0];
+        employee.averageUnits.threeMonthCount = unit.count;
+    });
+}
+
+
+function attachDeals(deals: DealRow[], employeeList: Employee[]) {
+    employeeList.forEach(employee => {
+        employee.deals = deals.filter(emp => emp.employeeID === employee.id).map(deal => {
+            employee.units[deal.vehicleType.toLowerCase()] += deal.dealUnitCount;
+            return {
+                id: deal.dealID,
+                customer: { id: deal.customerID, name: deal.customerName },
+                vehicle: new Vehicle(deal.vehicleID, deal.vehicleDescription, deal.vehicleType),
+                unitCount: deal.dealUnitCount,
+                commission: { fni: deal.commissionFnI, gross: deal.commissionGross, amount: deal.commissionAmount },
+                retro: new Retro()
+            }
+        });
+    });
+}
+
+
+function calculateRetro(retroMiniLookup: LookupReport, retroPercentLookup: LookupReport, employeeList: Employee[]) {
+    employeeList.forEach(employee => {
+        employee.retroPercent = retroPercentLookup.getValue(employee.units.getTotal());
+        employee.deals.forEach(deal => {
+          const dealRetro = new Retro();
+          dealRetro.calculateMini(retroMiniLookup, deal.commission.amount, employee.averageUnits.getAverage(), deal.unitCount);
+          dealRetro.calculateOwed(deal.commission.amount);
+          dealRetro.calculatePayout(deal.commission.gross, employee.retroPercent);
+            deal.retro = dealRetro;
+        });
+    });
+}
+
+
+function calculateUnitBonus(unitBonusLookup: LookupReport, employeeList: Employee[]) {
+    employeeList.forEach(employee => {
+        employee.bonus.unit = unitBonusLookup.getValue(employee.units.getTotal());
+    });
+}
+
+function caclulateNpsBonus(regionalScore: number, employeeList: Employee[]) {
+    employeeList.forEach(employee => {
+        const unitCount = employee.units.getTotal();
+        employee.bonus.nps = employee.nps.getBonus(unitCount, regionalScore);
+    });
+}
+
+interface Store {
+    name: string;
+    abbr: string;
+    displayDate: string;
+    employees: Employee[];
+    regionalScore: number;
+    topsalesAmount: number;
+    accountNumbers: AccountNumbers;
+}
+
+interface AccountNumbers {
+    retro: string;
+    expense1: string;
+    expense2: string;
+    salesTax: string;
+    salesBonus1: string;
+    salesBonus2: string;
+}
+
+interface Employee {
+    id: number;
+    name: string;
+    deals: Deal[];
+    nps: Nps;
+    spiffsTotal: number;
+    priorDraw: number;
+    retroPercent: number;
+    bonus: Bonus;
+    averageUnits: AverageUnits;
+    units: Units;
+}
+
+interface Deal {
+    id: string;
+    customer: {
+        id: number;
+        name: string;
+    };
+    vehicle: Vehicle;
+    unitCount: number;
+    commission: Commission;
+    retro: Retro;
+}
+
+interface Commission {
+    fni: number;
+    gross: number;
+    amount: number;
+}
+
+interface Bonus {
+    unit: number;
+    topsales: number;
+    nps: number;
+}
+
+interface LookupRow {
+    min: number;
+    max: number;
+    val: number;
+}
+
+interface StoreVars {
+    storeName: string;
+    storeAbbr: string;
+    date: string;
+    regionalScore: number;
+    topsalesmanBonusAmount: number;
+    retroAcct: string;
+    expenseAcct1: string;
+    expenseAcct2: string;
+    salesTaxAcct: string;
+    salesBonusAcct1: string;
+    salesBonusAcct2: string;
+}
+
+interface EmployeeUnits {
+    employeeID: number;
+    employeeName: string;
+    count: number;
+    average: number;
+}
+
+interface PriorDraw {
+    employeeID: number;
+    employeeName: string;
+    commission: number;
+    draw: number;
+}
+
+interface EmployeeSpiff {
+    employeeID: number;
+    amount: number;
+}
+
+interface DealRow {
+    date: number;
+    dealID: string;
+    employeeID: number;
+    employeeName: string;
+    customerID: number;
+    customerName: string;
+    vehicleID: string;
+    vehicleDescription: string;
+    vehicleType: string;
+    commissionFnI: number;
+    commissionGross: number;
+    dealUnitCount: number;
+    commissionAmount: number;
+}
+
+interface EmployeeNps {
+    employeeID: number;
+    employeeName: string;
+    surveyCount: number;
+    currentPercent: number;
+    averagePercent: number;
+}
+
+class LookupReport {
+    public rows: LookupRow[];
+    constructor(private data: Array<string | number | boolean>[]) {
+        this.rows = [];
+        data.map((d, i) => {
+            const next = data[i + 1];
+            const max = next ? Number(data[i + 1][0]) : 100000000000;
+            this.rows.push({ min: Number(d[0]), max, val: Number(d[1]) });
         });
     }
-
-    getTotalUnits() {
-        this.employees.forEach((employee) => {
-            employee.getTotalUnits();
-            this.units.new += employee.units.new;
-            this.units.used += employee.units.used;
-            this.units.total += employee.units.total;
-        });
-        this.unitPercent.new = this.units.new / this.units.total;
-        this.unitPercent.used = this.units.used / this.units.total;
-    }
-
-    getCommission() {
-        this.employees.forEach((employee) => {
-            employee.getCommission();
-            this.commission.fni += employee.commission.fni;
-            this.commission.gross += employee.commission.gross;
-            this.commission.amount += employee.commission.amount;
-        });
-    }
-
-    getRetro() {
-        this.employees.forEach((employee) => {
-            employee.getRetro(this.customLookup["retropercentage"]);
-            this.retro.mini += employee.retro.mini;
-            this.retro.owed += employee.retro.owed;
-            this.retro.payout += employee.retro.payout;
-            this.retro.total += employee.retro.total;
-        });
-    }
-
-    getFni() {
-        this.employees.forEach((employee) => {
-            employee.getFni();
-            this.fni.reserve += employee.fni.reserve;
-            this.fni.gross += employee.fni.gross;
-            this.fni.payout += employee.fni.payout;
-        });
-    }
-
-    getBonus() {
-        this.employees.forEach((employee) => {
-            employee.getBonus(this.customLookup["unit"]);
-            this.bonus.unit += employee.bonus.unit;
-            this.bonus.topsales += employee.bonus.topsales;
-            this.bonus.csi += employee.bonus.csi;
-            this.bonus.eom += employee.bonus.eom;
-            this.bonus.total += employee.bonus.total;
-            this.totalCommission += employee.totalCommission;
-            this.ytdBucket += employee.ytdBucket;
-            this.commission.taxes += employee.commission.taxes;
-        });
-    }
-
-    getTopSalesman() {
-        this.employees.forEach((employee) => {
-            if (employee.units.total > this.topSalesman.count) this.topSalesman = { id: employee.id, count: employee.units.total };
-        });
-        this.employees.filter(emp => emp.id === this.topSalesman.id)[0].bonus.topsales = 500;
+    getValue(query: number) {
+        if (this.rows.some(row => query >= row.min && query < row.max)) return this.rows.filter(row => query >= row.min && query < row.max)[0].val;
+        return 0;
     }
 }
 
-class Employee {
-    public deals: Deal[];
-    public spiff: number;
-    public priorDraw: number;
-    public averageUnits: number;
-    public nps: NPS;
-    public commission: Commission;
-    public retro: Retro;
-    public fni: FnI;
-    public bonus: Bonus;
-    public totalCommission: number;
-    public commissionBalance: number;
-    public ytdBucket: number;
-    public drawAmount: number;
-    public units: Units;
-    public expense: Expense;
-    constructor(public id: number, public name: string) {
-        this.id = id;
-        this.name = name;
-        this.averageUnits = 0;
-        this.priorDraw = 0;
-        this.drawAmount = 0;
-        this.spiff = 0;
-        this.totalCommission = 0;
-        this.ytdBucket = 0;
-        this.commissionBalance = 0;
-        this.expense = { one: 0, two: 0 };
-        this.units = { new: 0, used: 0, total: 0 };
-        this.nps = { surveys: 0, current: 0, average: 0, outcome: "B" };
-        this.commission = { fni: 0, gross: 0, amount: 0, taxes: 0 };
-        this.retro = { mini: 0, owed: 0, payout: 0, total: 0 };
-        this.fni = { reserve: 0, gross: 0, payout: 0 };
-        this.bonus = { unit: 0, topsales: 0, csi: 0, eom: 0, total: 0 };
-        this.deals = [];
+class Units {
+    public new: number;
+    public used: number;
+    constructor() {
+        this.new = 0;
+        this.used = 0;
     }
-
-    getTotalUnits() {
-        this.deals.forEach(deal => {
-            if (deal.vehicle.saleType === "NEW") {
-                this.units.new += deal.unitCount;
-            } else {
-                this.units.used += deal.unitCount;
-            }
-            this.units.total += deal.unitCount;
-        });
+    calculatePercent(): object {
+        const total = this.getTotal();
+        return {
+            new: this.new / total,
+            used: this.used / total
+        };
     }
-
-    setAverageUnits(ninetyDayUnitCount: number) {
-        const average = ninetyDayUnitCount / 3;
-        this.averageUnits = Math.round(average);
+    getTotal(): number {
+        return this.new + this.used;
     }
-
-    getRetroPercentage(): number {
-        if (this.units.total >= 16) return 0.07;
-        if (this.units.total >= 12 && this.units.total < 16) return 0.04;
-        return 0;
-    }
-
-    getCommission() {
-        this.deals.forEach((deal) => {
-            this.commission.fni += deal.commission.fni;
-            this.commission.gross += deal.commission.gross;
-            this.commission.amount += deal.commission.amount;
-        });
-    }
-
-    getRetro(lookupArr: LookupRow[]) {
-        const retroPercentage = this.lookupValue(lookupArr);
-        this.deals.forEach(deal => {
-            const retro = deal.setRetro(retroPercentage, this.averageUnits);
-            this.retro.mini += retro.mini;
-            this.retro.owed += retro.owed;
-            this.retro.payout += retro.payout;
-            this.retro.total += retro.total;
-        });
-    }
-
-    getFni() {
-        const reserve = this.commission.fni * 0.25;
-        const gross = this.commission.fni - reserve;
-        const payout = gross * 0.05;
-        this.fni = { reserve, gross, payout };
-    }
-
-    getBonus(lookupArr: LookupRow[]) {
-        const unitBonus = this.lookupValue(lookupArr);
-        const csiBonus = caclulateCsiBonus(this.nps.surveys, this.nps.outcome, this.units.total);
-        this.bonus.unit = unitBonus;
-        this.bonus.csi = csiBonus;
-        this.bonus.total = unitBonus + csiBonus + this.bonus.topsales;
-        this.bonus.eom = this.retro.total + this.fni.payout + this.bonus.total + this.spiff;
-        this.totalCommission = this.bonus.eom + this.commission.amount;
-        this.ytdBucket = calculateYtdBucket(this.totalCommission, this.priorDraw, this.spiff);
-        this.drawAmount = this.commission.amount + this.bonus.total >= this.priorDraw ? this.priorDraw : this.commission.amount + this.bonus.total;
-        const tax = this.bonus.eom * 0.0765;
-        this.commission.taxes += tax;
-    }
-
-    getOwed(): number {
-        return this.totalCommission - this.priorDraw;
-    }
-
-    getDepositGross(): number {
-        return this.totalCommission - this.priorDraw - this.ytdBucket;
-    }
-
-    getTotalPay(): number {
-        return (this.commission.amount + this.retro.total + this.fni.payout + this.bonus.total + this.spiff) - this.priorDraw;
-    }
-
-    getRemainder(): number {
-        return this.totalCommission - this.commission.amount
-    }
-
-    calcNewBucket(): number {
-        if (this.getTotalPay() < 0) return this.priorDraw + this.bonus.total + this.fni.payout + this.retro.total;
-        return 0;
-    }
-
-    setExpense(newPercent: number, usedPercent: number) {
-        const remainder = this.getRemainder();
-        this.expense.one = remainder * newPercent;
-        this.expense.two = remainder * usedPercent;
-    }
-
-    lookupValue(lookupArr: LookupRow[]): number {
-        lookupArr.map(val => {
-            if (this.units.total > lookupArr[lookupArr.length - 1].min) {
-                return lookupArr[lookupArr.length - 1].val;
-            } else {
-                if (val.isWithin(this.units.total)) {
-                    return val.val;
-                }
-            }
-        });
-        return 0;
+    getBonus(unitBonusLookup: LookupReport) {
+        const total = this.getTotal();
+        return unitBonusLookup.getValue(total);
     }
 }
 
-class Deal {
-    public retro: Retro;
-    constructor(public id: string, public date: number, public customer: Person, public vehicle: Vehicle, public unitCount: number, public commission: Commission) {
-        this.id = id;
-        this.date = date;
-        this.customer = customer;
-        this.vehicle = vehicle;
-        this.unitCount = unitCount;
-        this.commission = commission;
-        this.retro = { mini: 0, owed: 0, payout: 0, total: 0 };
-    }
-
-    setRetro(retroPercentage: number, averageUnits: number): Retro {
-        const mini = calculateRetroMini(this.commission.amount, averageUnits, this.unitCount);
-        const owed = mini > 0 ? mini - this.commission.amount : 0;
-        const payout = mini === 0 ? this.commission.gross * retroPercentage : 0;
-        const total = payout + owed;
-        this.retro = { mini: mini, owed: owed, payout: payout, total: total };
-        return this.retro;
+class AverageUnits {
+    constructor(public threeMonthCount: number) { }
+    getAverage(): number {
+        return Math.round(this.threeMonthCount / 3);
     }
 }
 
@@ -294,7 +338,7 @@ class Vehicle {
     public make: string;
     public model: string;
     public desc: string;
-    constructor(public id: string, protected description: string, public saleType: string) {
+    constructor(public id: string, private description: string, public saleType: string) {
         this.id = id;
         this.saleType = saleType;
 
@@ -306,453 +350,172 @@ class Vehicle {
     }
 }
 
-class LookupRow {
-    constructor(public min: number, public max: number, public val: number) {
-        this.min = min;
-        this.max = max;
-        this.val = val;
+class Retro {
+    public mini: number;
+    public owed: number;
+    public payout: number;
+    constructor() {
+        this.mini = 0;
+        this.owed = 0;
+        this.payout = 0;
     }
-    isWithin(amount: number): boolean {
-        if(amount >= this.min && amount < this.max) {
-            return true;
-        }
-        return false;
+    calculateMini(retroMiniLookup: LookupReport, dealCommissionAmount: number, employeeAverageUnits: number, dealUnitCount: number) {
+        this.mini = dealCommissionAmount <= 251 ? retroMiniLookup.getValue(employeeAverageUnits) * dealUnitCount : 0;
+    }
+    calculateOwed(dealCommissionAmount: number) {
+        this.owed = this.mini > 0 ? this.mini - dealCommissionAmount : 0;
+    }
+    calculatePayout(dealCommissionGross: number, employeeRetroPercent) {
+        this.payout = this.mini === 0 ? dealCommissionGross * employeeRetroPercent : 0;
+    }
+    getPercent(retroPercentLookup: LookupReport, employeeUnitCount: number): number {
+        return retroPercentLookup.getValue(employeeUnitCount);
+    }
+    getTotal(): number {
+        return this.owed + this.payout;
     }
 }
 
-function calculateRetroMini(commissionAmount: number, unitAvg: number, dealUnitCount: number): number {
-    if (commissionAmount <= 251) {
-        if (unitAvg >= 24) return 400 * dealUnitCount;
-        if (unitAvg >= 20 && unitAvg < 24) return 350 * dealUnitCount;
-        if (unitAvg >= 16 && unitAvg < 20) return 300 * dealUnitCount;
-        if (unitAvg >= 12 && unitAvg < 16) return 250 * dealUnitCount;
-        if (unitAvg >= 1 && unitAvg < 12) return 200 * dealUnitCount;
+
+class Nps {
+    public surveyCount: number;
+    public currentPercent: number;
+    public averagePercent: number;
+    constructor() {
+        this.surveyCount = 0;
+        this.currentPercent = 0;
+        this.averagePercent = 0;
+    }
+    getBonus(dealUnitCount: number, regionalScore: number): number {
+        const outcome = this.getOutcome(regionalScore);
+        if(outcome === '3P') return dealUnitCount * 50;
+        if(outcome === 'B') return dealUnitCount * -50;
         return 0;
     }
-    return 0;
-}
-
-function calculateCsiOutcome(currentCsiScore: number, averageCsiScore: number, regionalScore: number): string {
-    const score = currentCsiScore > averageCsiScore ? currentCsiScore : averageCsiScore;
-    if (score > regionalScore + (regionalScore * 0.03)) return "3P"
-    if (score == regionalScore) return "A";
-    return "B";
-}
-
-function calculateUnitBonus(unitCount: number): number {
-    if (unitCount >= 24) return 3000;
-    if (unitCount >= 20 && unitCount < 24) return 2500;
-    if (unitCount >= 16 && unitCount < 20) return 1500;
-    if (unitCount >= 12 && unitCount < 16) return 750;
-    if (unitCount >= 10 && unitCount < 12) return 375;
-    return 0;
-}
-
-function caclulateCsiBonus(surveyCount: number, csiOutcome: string, unitCount: number) {
-    if (surveyCount >= 3) {
-        if (csiOutcome === "3P") return unitCount * 50;
-        if (csiOutcome === "A") return unitCount * 0;
-        if (csiOutcome === "B") return unitCount * -50;
+    getOutcome(regionalScore: number) {
+        const score = (this.currentPercent > this.averagePercent ? this.currentPercent : this.averagePercent) * 100;
+        const buffed = regionalScore + 0.03;
+        if(score >= buffed) return '3P';
+        if(score === regionalScore) return 'A';
+        return 'B';
     }
-    return 0;
 }
 
-function calculateYtdBucket(totalCommission: number, priorDraw: number, spiffs: number): number {
-    if (totalCommission - priorDraw < 0) {
-        return totalCommission - priorDraw - spiffs;
+class Report {
+    private header: Array<string | number | boolean>;
+    constructor(protected data: Array<string | number | boolean>[]) {
+        this.header = data.shift();
+        this.data = data;
     }
-    return 0;
+    getColumn(columnLabel: string): number {
+        return this.header.indexOf(columnLabel);
+    }
+    getValue(columnLabel: string, rowIndex: number = 0): string | number | boolean {
+        return this.data[rowIndex][this.getColumn(columnLabel)];
+    }
 }
 
-
-function createLookupReport(data: Array<string | number | boolean>[]): LookupRow[] {
-    const rows: LookupRow[] = [];
-    data.map((d, i) => {
-        const next = i < data.length - 1 ? i + 1 : 0;
-        const min = Number(d[0]);
-        const max = Number(data[next][0]);
-        const val = Number(d[1]);
-        rows.push(new LookupRow(min, max, val));
-    });
-    return rows;
-}
-
-interface Person {
-    id: number;
-    name: string;
-}
-
-interface Units {
-    new: number;
-    used: number;
-    total: number;
-}
-
-interface UnitPercent {
-    new: number;
-    used: number;
-}
-
-interface TopSalesman {
-    id: number;
-    count: number;
-}
-
-interface FnI {
-    reserve: number;
-    gross: number;
-    payout: number;
-}
-
-interface Bonus {
-    unit: number;
-    topsales: number;
-    csi: number;
-    eom: number;
-    total: number;
-}
-
-interface Commission {
-    fni: number;
-    gross: number;
-    amount: number;
-    taxes: number;
-}
-
-interface Retro {
-    mini: number;
-    owed: number;
-    payout: number;
-    total: number;
-}
-
-interface NPS {
-    surveys: number;
-    current: number;
-    average: number;
-    outcome: string;
-}
-
-interface Account {
-    retro: string;
-    expense: {
-        one: string,
-        two: string
-    };
-    salesTax: string;
-    salesBonusTax1: string;
-    salesBonusTax2: string;
-}
-
-interface Expense {
-    one: number,
-    two: number
-}
-
-interface LookupReport {
-    [name: string]: LookupRow[];
-}
-
-function main(workbook: ExcelScript.Workbook) {
-    const initialSheets = workbook.getWorksheets();
-    const customLookups: LookupReport = {};
-    const store = new Store("BMW of South Miami", "BOSM", customLookups);
-
-    initialSheets.map(sheet => {
-        const sheetName = sheet.getName();
-        if(sheetName.includes("-")) {
-            const splitName = sheetName.split("-");
-            if (splitName.length > 1) {
-                const typeOfReport = splitName[0].trim().toLowerCase(); // In case we need more control
-                const reportName = splitName[1].trim().toLowerCase();
-                const data = sheet.getUsedRange().getValues();
-                store.customLookup[reportName] = createLookupReport(data);
-            }
-        } else {
-            const data = sheet.getUsedRange().getValues();
-        let header = data.shift();
-        switch (sheetName) {
-            case 'INPUT':
-                const storeName_input = header.indexOf("Store Name");
-                const storeAbbr_input = header.indexOf("Store Abbr");
-                const date_input = header.indexOf("Date");
-                const regionalScore_input = header.indexOf("Regional Score");
-                const retroAcct_input = header.indexOf("Retro Acct");
-                const expenseAcct1_input = header.indexOf("Expense 1 Acct");
-                const expenseAcct2_input = header.indexOf("Expense 2 Acct");
-                const saleTaxAcct_input = header.indexOf("Sales Tax Acct");
-                const saleBonusTaxAcct1_input = header.indexOf("Sales Bonus Tax 1");
-                const saleBonusTaxAcct2_input = header.indexOf("Sales Bonus Tax 2");
-                data.map(row => {
-                    store.name = String(row[storeName_input]).toUpperCase();
-                    store.abbr = String(row[storeAbbr_input]).toUpperCase();
-                    store.date = String(row[date_input]);
-                    store.regionalScore = Number(row[regionalScore_input]);
-                    store.accounts.retro = String(row[retroAcct_input]).toUpperCase();
-                    store.accounts.expense.one = String(row[expenseAcct1_input]).toUpperCase();
-                    store.accounts.expense.two = String(row[expenseAcct2_input]).toUpperCase();
-                    store.accounts.salesTax = String(row[saleTaxAcct_input]).toUpperCase();
-                    store.accounts.salesBonusTax1 = String(row[saleBonusTaxAcct1_input]).toUpperCase();
-                    store.accounts.salesBonusTax2 = String(row[saleBonusTaxAcct2_input]).toUpperCase();
-                });
-                break;
-            case '0432':
-                const empID_0432 = header.indexOf("Salesperson#");
-                const empName_0432 = header.indexOf("Salesperson Name");
-                const dealID_0432 = header.indexOf("Reference#");
-                const dealDate_0432 = header.indexOf("Date");
-                const custID_0432 = header.indexOf("Customer#");
-                const custName_0432 = header.indexOf("Customer Name");
-                const vehID_0432 = header.indexOf("Stock#");
-                const vehDesc_0432 = header.indexOf("Description");
-                const saleType_0432 = header.indexOf("Sale Type");
-                const commFni_0432 = header.indexOf("COMMBL F&I");
-                const commGross_0432 = header.indexOf("COMMBL FRONT");
-                const units_0432 = header.indexOf("Units");
-                const commAmount_0432 = header.indexOf("Commission Amount");
-                data.map(row => {
-                    const empID = Number(row[empID_0432]);
-                    const unitCount = Number(row[units_0432]);
-                    if (!store.employeeExists(empID)) store.employees.push(new Employee(empID, String(row[empName_0432]).toUpperCase()));
-                    const employee = store.employees.find(emp => emp.id === empID);
-                    if (unitCount > 0) {
-                        const customer: Person = { id: Number(row[custID_0432]), name: String(row[custName_0432]).toUpperCase() };
-                        const vehicle = new Vehicle(String(row[vehID_0432]).toUpperCase(), String(row[vehDesc_0432]).toUpperCase(), String(row[saleType_0432]).toUpperCase());
-                        const commission: Commission = { fni: Number(row[commFni_0432]), gross: Number(row[commGross_0432]), amount: Number(row[commAmount_0432]), taxes: 0 };
-                        const deal = new Deal(String(row[dealID_0432]).toUpperCase(), Number(row[dealDate_0432]), customer, vehicle, unitCount, commission);
-                        employee?.deals.push(deal);
-                    }
-                });
-                break;
-            case '90':
-                const empID_90 = header.indexOf("Salesperson#");
-                const units_90 = header.indexOf("units");
-                data.map(row => {
-                    const empID = Number(row[empID_90]);
-                    const unitCount = Number(row[units_90]);
-                    const employee = store.employees.find(emp => emp.id === empID);
-                    employee?.setAverageUnits(unitCount);
-                });
-                break;
-            case '3213':
-                const empID_3213 = header.indexOf("Control#");
-                const comm_3213 = header.indexOf("8321C");
-                const amount_3213 = header.indexOf("8321D");
-                data.map(row => {
-                    const empID = Number(row[empID_3213]);
-                    const commissionBalance = Number(row[comm_3213]);
-                    const amount = Number(row[amount_3213]);
-                    const employee = store.employees.find(emp => emp.id === empID);
-                    employee?.priorDraw = amount;
-                    employee?.commissionBalance = commissionBalance;
-                });
-                break;
-            case 'SPIFFS':
-                const empID_spiff = header.indexOf("Employee #");
-                const amount_spiff = header.indexOf("Total");
-                data.map(row => {
-                    const empID = Number(row[empID_spiff]);
-                    const amount = Number(row[amount_spiff]);
-                    const employee = store.employees.find(emp => emp.id === empID);
-                    employee?.spiff = amount;
-                });
-                break;
-            case 'NPS Sheet':
-                header = data[1];
-                const empID_nps = header.indexOf("Employee #");
-                const surveyCount_nps = header.indexOf("PROMOTER");
-                const current_nps = 8;
-                const average_nps = 23;
-                data.map(row => {
-                    const empID = Number(row[empID_nps]);
-                    const surveys = Number(row[surveyCount_nps]);
-                    const current = Number(row[current_nps]) * 100;
-                    const average = Number(row[average_nps]) * 100;
-                    const outcome = calculateCsiOutcome(current, average, store.regionalScore);
-                    const employee = store.employees.find(emp => emp.id === empID);
-                    employee?.nps = { surveys, current, average, outcome };
-                });
-                break;
-            case 'Look Up Table':
-                break;
-            default: sheet.delete();
-                break;
+class InputReport extends Report {
+    public vars: StoreVars;
+    constructor(protected data: Array<string | number | boolean>[]) {
+        super(data);
+        this.vars = {
+            storeName: String(this.getValue("Store Name")),
+            storeAbbr: String(this.getValue("Store Abbr")),
+            date: String(this.getValue("Date")),
+            regionalScore: Number(this.getValue("Regional Score")),
+            topsalesmanBonusAmount: Number(this.getValue("Topsalesman Bonus")),
+            retroAcct: String(this.getValue("Retro Acct")),
+            expenseAcct1: String(this.getValue("Expense 1 Acct")),
+            expenseAcct2: String(this.getValue("Expense 2 Acct")),
+            salesTaxAcct: String(this.getValue("Sales Tax Acct")),
+            salesBonusAcct1: String(this.getValue("Sales Bonus Tax 1")),
+            salesBonusAcct2: String(this.getValue("Sales Bonus Tax 2")),
         }
-        }
-    });
-    store.calculateAll()
-
-    const allSheets: Sheet[] = [
-        new NpsSheet(workbook, store),
-        new PaySummarySheet(workbook, store),
-        new PostSheet(workbook, store)
-    ];
-
-    store.employees.map(employee => {
-        allSheets.push(new SalesSheet(workbook, employee));
-    });
-
-    console.log(store);
-}
-
-enum Color {
-  GREY = "#C0C0C0",
-  LIGHT_GREY = "#E6E6E6",
-  GREEN = "#4CC273",
-  WHITE = "#FFFFFF",
-  YELLOW = "#FAE49D",
-  RED = "#FF1515",
-  BLUE_GREY = "#DAEEF3",
-  PEACH = "#FDE9D9"
-}
-
-enum NumberFormat {
-  NUMBER = "#.#",
-  ACCOUNTING = "_($* #,##0.00_);[Red]_($* -#,##0.00;_($* \" - \"??_);_(@_)",
-  CURRENCY = "$#,##0.00;[Red]$#,##0.00",
-  DATE = "mm/dd/yy",
-  PERCENT = "0.00%"
-}
-
-
-class Sheet {
-    protected sheet: ExcelScript.Worksheet;
-    constructor(protected workbook: ExcelScript.Workbook, protected sheetName: string, protected columnNames: Array<string>, protected headerRow: number = 0) {
-        this.sheet = workbook.addWorksheet(sheetName);
-        this.sheet.getRangeByIndexes(headerRow, 0, 1, columnNames.length).setValues([columnNames]);
     }
 }
 
-class DisplayDate {
-    public descDate: string;
-    public today: number;
-    constructor() {
-        const date = new Date().toISOString().slice(0, 10);
-        const todayArr = date.split('-');
-        const descYear = todayArr[0].split('0')[1];
-        this.descDate = [todayArr[1], descYear].join('');
-        this.today = Number([todayArr[1], todayArr[2], descYear].join(''));     
-    }
-}
-
-class NpsSheet extends Sheet {
-    constructor(protected workbook: ExcelScript.Workbook, private store: Store) {
-        super(workbook, "NPS", ["Employee #", "Salesperson", "# of Surveys", "Current Score", "90 Day Score", "Score for Bonus", "CSI Outcome", "Regional Score", String(store.regionalScore)]);
-        store.employees.map((employee, index) => {
-            const row = index + 1;
-            const data = [employee.id, employee.name, employee.nps.surveys, employee.nps.current / 100, employee.nps.average / 100, `=IF(D${row}>E${row},D${row},E${row})`, employee.nps.outcome];
-            this.sheet.getRangeByIndexes(row, 0, 1, data.length).setValues([data]);
-        });
-        this.sheet.addTable(`A1:G${store.employees.length + 1}`, true);
-        this.sheet.getRange(`D2:G${store.employees.length + 1}`).setNumberFormat("0.0%");
-        this.sheet.getRange("H1:I1").getFormat().getFont().setBold(true);
-        this.sheet.getRange("1:1").getFormat().autofitColumns();
-    }
-}
-
-class PaySummarySheet extends Sheet {
-    constructor(protected workbook: ExcelScript.Workbook, private store: Store) {
-        super(workbook, "Pay Summary", ["Employee #", "Salesperson", "Total Units", "Gross for Rank", "Bonus Rank", "F&I Totals", "Spiffs to Pay", "Commission 3120", "Retro Commission", "F&I Commission", "Month End Bonus 3122", "Total EOM Bonus 8328", "Draw 3121", "Total Commissions", "YTD Bucket", "Deposit Gross", "Check - Should be 0", "Draw to Take", "Expense 1", "Expense 2"]);
-        store.employees.map((employee, index) => {
-            const row = index + 1;
-            const rowStr = index + 2;
-            const rankFormula = `=IF(C${rowStr}<15,"",RANK.EQ(C${rowStr},C:C,0))`;
-            const depositGross = employee.getDepositGross();
-            const balanceComm = `=H${rowStr} + ${employee.commissionBalance}`;
-            const data = [employee.id, employee.name, employee.units.total, employee.commission.gross.toFixed(2), rankFormula, employee.commission.fni.toFixed(2), employee.spiff.toFixed(2), employee.commission.amount.toFixed(2), employee.retro.total.toFixed(2), employee.fni.payout.toFixed(2), employee.bonus.total.toFixed(2), employee.bonus.eom.toFixed(2), employee.priorDraw.toFixed(2), employee.totalCommission.toFixed(2), employee.ytdBucket.toFixed(2), depositGross.toFixed(2), balanceComm, employee.drawAmount.toFixed(2), employee.expense.one.toFixed(2), employee.expense.two.toFixed(2)];
-            this.sheet.getRangeByIndexes(row, 0, 1, data.length).setValues([data]);
-        });
-        const unitRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 2, 3, 3);
-        unitRange.setValues([
-            ["UNITS", store.units.total, ''],
-            ["NEW", store.units.new, store.unitPercent.new.toFixed(2)],
-            ["USED", store.units.used, store.unitPercent.used.toFixed(2)]
-        ]);
-        unitRange.getFormat().getFont().setBold(true);
-        const totalData = [
-            [store.commission.taxes.toFixed(2), "SLSTAX"],
-            [(store.commission.taxes * store.unitPercent.new).toFixed(2), "SLSBNSTAX"],
-            [(store.commission.taxes * store.unitPercent.used).toFixed(2), "SLSBNSTAX"],
-            [store.commission.fni, "TOTAL BONUS"]
-        ];
-        const totalsDataRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 6, 4, 2);
-        const percentRange = this.sheet.getRangeByIndexes(store.employees.length + 4, 4, 4, 1);
-        percentRange.setNumberFormat("0%");
-        totalsDataRange.setValues(totalData);
-        totalsDataRange.getFormat().getFont().setBold(true);
-        totalsDataRange.setNumberFormat(NumberFormat.ACCOUNTING);
-        this.sheet.addTable(`A1:T${store.employees.length + 1}`, true).setShowTotals(true);
-        this.sheet.getRange(`D2:D${store.employees.length + 1}`).setNumberFormat(NumberFormat.CURRENCY);
-        this.sheet.getRange(`F2:T${store.employees.length + 1}`).setNumberFormat(NumberFormat.CURRENCY);
-        this.sheet.getRange("1:1").getFormat().autofitColumns();
-    }
-}
-
-class PostSheet extends Sheet {
-    constructor(protected workbook: ExcelScript.Workbook, private store: Store) {
-        super(workbook, "PowerPost", ["DATE", "GL", "AMOUNT", "EMPID", "DESC"]);
-        const { descDate, today } = new DisplayDate();
-        const dataArr: Array<string | number>[] = [];
-        store.employees.map(employee => {
-            const remainder = employee.getRemainder().toFixed(2);
-            const expenseOne = employee.expense.one.toFixed(2);
-            const expenseTwo = employee.expense.two.toFixed(2);
-            dataArr.push(
-                [`=TEXT(${today}, "000000")`, store.accounts.retro, Number(remainder) * -100, employee.id, `SLSBONUS${descDate}`],
-                [`=TEXT(${today}, "000000")`, store.accounts.expense.one, Number(expenseOne) * 100, employee.id, `EXPENSE1${descDate}`],
-                [`=TEXT(${today}, "000000")`, store.accounts.expense.two, Number(expenseTwo) * 100, employee.id, `EXPENSE2${descDate}`]
-            );
-        });
-        dataArr.push([`=TEXT(${today}, "000000")`, store.accounts.salesTax, store.commission.gross * 100, '', `SLSTAX${descDate}`]);
-        dataArr.push([`=TEXT(${today}, "000000")`, store.accounts.salesBonusTax1, (store.commission.gross * store.unitPercent.new) * -100, '', `SLSBNSTAX${descDate}`]);
-        dataArr.push([`=TEXT(${today}, "000000")`, store.accounts.salesBonusTax2, (store.commission.gross * store.unitPercent.used) * -100, '', `SLSBNSTAX${descDate}`]);
-        dataArr.map((data, index) => {
-            const row = index + 1;
-            this.sheet.getRangeByIndexes(row, 0, 1, data.length).setValues([data]);
+class AverageUnitReport extends Report {
+    public list: EmployeeUnits[];
+    constructor(protected data: Array<string | number | boolean>[]) {
+        super(data);
+        this.list = [];
+        this.data.map((d, i) => {
+            const employeeID = Number(this.getValue("Salesperson#", i));
+            const employeeName = String(this.getValue("Salesperson Name", i));
+            const count = Number(this.getValue("units", i));
+            const average = Number((count / 3).toFixed(1));
+            this.list.push({ employeeID, employeeName, count, average });
         });
     }
 }
 
-class SalesSheet extends Sheet {
-    constructor(protected workbook: ExcelScript.Workbook, private employee: Employee) {
-        super(workbook, employee.name, ["Date", "Reference #", "Customer #", "Customer Name", "Stock #", "Year", "Make", "Model", "Sale Type", "Commission F&I", "Commission Gross", "Units", "Commission Amount", "Retro Mini", "Retro Owed", "Retro Commission Payout"], 7);
-        const headerData = [
-            ["Name", employee.name],
-            ["Employee Number", employee.id],
-            ["90 Day Rolling Average #", employee.averageUnits],
-            ["CSI", employee.nps.outcome],
-            ["# of Surveys", employee.nps.surveys],
-            ["Retro Percentage", employee.getRetroPercentage()]
-        ];
-        this.sheet.getRangeByIndexes(0, 0, headerData.length, headerData[0].length).setValues(headerData);
-        const dataStartRow = this.headerRow + 1;
-        let dealData: Array<string | number>[] = [];
-        if (employee.deals.length > 0) {
-            dealData = employee.deals.map(deal => {
-                return [deal.date, deal.id, deal.customer.id, deal.customer.name, deal.vehicle.id, deal.vehicle.year, deal.vehicle.make, deal.vehicle.model, deal.vehicle.saleType, deal.commission.fni.toFixed(2), deal.commission.gross.toFixed(2), deal.unitCount, deal.commission.amount.toFixed(2), deal.retro.mini.toFixed(2), deal.retro.owed.toFixed(2), deal.retro.payout.toFixed(2)];
-            });
-            this.sheet.getRangeByIndexes(dataStartRow, 0, dealData.length, dealData[0].length).setValues(dealData);
-        }
-        const totalsData = [
-            ["Prior Draw Balance", '', employee.priorDraw],
-            ["Commission", 0.18, employee.commission.amount],
-            ["Retro Commission", employee.getRetroPercentage(), employee.retro.payout],
-            ["Retro Mini", '', employee.retro.owed],
-            ["Total Retro Commission", '', employee.retro.total],
-            ["Total F&I", '', employee.commission.fni],
-            ["25% Reserve F&I", -0.25, employee.fni.reserve],
-            ["Total F&I Payable Gross", '', employee.fni.gross],
-            ["Total F&I Payout", 0.05, employee.fni.payout],
-            ["Top Salesman Bonus", '', employee.bonus.topsales],
-            ["Unit Bonus", employee.units.total, employee.bonus.unit],
-            ["CSI", employee.nps.outcome, employee.bonus.csi],
-            ["Total Bonus", '', employee.bonus.total],
-            ["Spiff", '', employee.spiff],
-            ["Total Pay", '', employee.getTotalPay()],
-            ["Bucket Total YTD", '', employee.calcNewBucket()]
-        ];
-        const totalsStartRow = dataStartRow + dealData.length + 2;
-        this.sheet.getRangeByIndexes(totalsStartRow, 0, totalsData.length, totalsData[0].length).setValues(totalsData);
+class PriorDrawReport extends Report {
+    public list: PriorDraw[];
+    constructor(protected data: Array<string | number | boolean>[]) {
+        super(data);
+        this.list = [];
+        this.data.map((d, i) => {
+            const employeeID = Number(this.getValue("Control#", i));
+            const employeeName = String(this.getValue("Description", i));
+            const commission = Number(this.getValue("8321C", i));
+            const draw = Number(this.getValue("8321D", i));
+            this.list.push({ employeeID, employeeName, commission, draw });
+        });
+    }
+}
+
+class SpiffReport extends Report {
+    public list: EmployeeSpiff[];
+    constructor(protected data: Array<string | number | boolean>[]) {
+        super(data);
+        this.list = [];
+        this.data.map((d, i) => {
+            const employeeID = Number(this.getValue("Employee #", i));
+            const amount = Number(this.getValue("Total", i));
+            if (employeeID > 0) this.list.push({ employeeID, amount });
+        });
+    }
+}
+
+class DealsReport extends Report {
+    public list: DealRow[];
+    constructor(protected data: Array<string | number | boolean>[]) {
+        super(data);
+        this.list = [];
+        this.data.map((d, i) => {
+            const date = Number(this.getValue("Date", i));
+            const dealID = String(this.getValue("Reference#", i));
+            const employeeID = Number(this.getValue("Salesperson#", i));
+            const employeeName = String(this.getValue("Salesperson Name", i));
+            const customerID = Number(this.getValue("Customer#", i));
+            const customerName = String(this.getValue("Customer Name", i));
+            const vehicleID = String(this.getValue("Stock#", i));
+            const vehicleDescription = String(this.getValue("Description", i));
+            const vehicleType = String(this.getValue("Sale Type", i));
+            const commissionFnI = Number(this.getValue("COMMBL F&I", i));
+            const commissionGross = Number(this.getValue("COMMBL FRONT", i));
+            const dealUnitCount = Number(this.getValue("Units", i));
+            const commissionAmount = Number(this.getValue("Commission Amount", i));
+            if (dealUnitCount > 0) this.list.push({ date, dealID, employeeID, employeeName, customerID, customerName, vehicleID, vehicleDescription, vehicleType, commissionFnI, commissionGross, dealUnitCount, commissionAmount });
+        });
+    }
+}
+
+class NpsReport extends Report {
+    public list: EmployeeNps[];
+    constructor(protected data: Array<string | number | boolean>[]) {
+        super(data);
+        this.list = [];
+        this.data.map((d, i) => {
+            const employeeID = Number(this.getValue("Employee #", i));
+            const employeeName = String(this.getValue("BMWNC TEAM", i));
+            const surveyCount = Number(this.getValue("PROMOTER", i));
+            const currentPercent = Number(this.getValue("NPS%", i));
+            const averagePercentCol = 23; // Not Ideal, need a better way to get this number
+            const averagePercent = Number(d[averagePercentCol]);
+            if (employeeID > 0) this.list.push({ employeeID, employeeName, surveyCount, currentPercent, averagePercent });
+        });
     }
 }
 

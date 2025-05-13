@@ -166,7 +166,7 @@ function calculateRetro(retroMiniLookup: LookupReport, retroPercentLookup: Looku
 
 function calculateUnitBonus(unitBonusLookup: LookupReport, employees: Employee[]) {
     employees.forEach(employee => {
-        employee.bonus.unit = unitBonusLookup.getValue(employee.units.count)
+        employee.bonus.unit = unitBonusLookup.getValue(employee.units.count);
     });
 }
 
@@ -278,7 +278,7 @@ class LookupReport {
         this.rows = [];
         data.map((d, i) => {
             const next = data[i + 1];
-            const max = next ? Number(data[i + 1][0]) : 100000000;
+            const max = next ? Number(data[i + 1][0]) : 100000000000;
             this.rows.push({ min: Number(d[0]), max, val: Number(d[1]) });
         });
     }
