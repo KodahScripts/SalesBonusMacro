@@ -119,7 +119,7 @@ class SalesSheet {
     ]]);
 
     sheet.getRange(`J${results_row12}:O${results_row12}`).setValues([[
-      "CSI", '=B4', '', `=IF(B5>=3,IF(B4="3P",L${data_lastRow}*50,IF(B4="A",0,IF(B4="B",L${data_lastRow}*-50))),0)`, "Rolling 90 Day", `='NPS Sheet'!X51`
+      "CSI", '=B4', '', `=IF(OR(B5<3,B4="B"),L${data_lastRow}*-50,IF(B4="3P",L${data_lastRow}*50,0))`, "Rolling 90 Day", `='NPS Sheet'!X51`
     ]]);
     sheet.getRange(`K${results_row12}`).getFormat().setHorizontalAlignment(ExcelScript.HorizontalAlignment.right);
 
