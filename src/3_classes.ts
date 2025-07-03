@@ -98,10 +98,13 @@ class Nps {
         this.averagePercent = 0;
     }
     getBonus(dealUnitCount: number, regionalScore: number): number {
-        const outcome = this.getOutcome(regionalScore);
-        if(outcome === '3P') return dealUnitCount * 50;
-        if(outcome === 'B') return dealUnitCount * -50;
-        return 0;
+        if(this.surveyCount > 3){
+            const outcome = this.getOutcome(regionalScore);
+            if(outcome === '3P') return dealUnitCount * 50;
+            if(outcome === 'B') return dealUnitCount * -50;
+            return 0;
+        }
+        return dealUnitCount * -50;
     }
     getOutcome(regionalScore: number) {
         const score = (this.currentPercent > this.averagePercent ? this.currentPercent : this.averagePercent) * 100;
